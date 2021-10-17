@@ -18,6 +18,8 @@ class CreateAsiBoardsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('receiver_id')->nullable()->references('id')->on('users');
             $table->string('phone');
+            $table->dateTime('meet_at');
+            $table->string('location');
             $table->text('description');
             $table->timestamps();
         });
