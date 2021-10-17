@@ -14,8 +14,7 @@ class AddMoreColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories'); // default ID 1 = kosong
-            $table->double('wallet')->default(0);
+            $table->foreignId('category_id')->nullable()->references('id')->on('categories');
 
             // 1 = tipe donatur, 2 = penerima donasi, 99 = admin
             $table->integer('user_type')->default(1);

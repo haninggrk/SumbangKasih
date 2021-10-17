@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWithdrawsTable extends Migration
+class CreateReceiverInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateWithdrawsTable extends Migration
      */
     public function up()
     {
-        Schema::create('withdraws', function (Blueprint $table) {
+        Schema::create('receiver_infos', function (Blueprint $table) {
             $table->id();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->mediumText('message')->nullable();
-            $table->integer('amount');
-            // 1 = waiting verification, 2 = verified, 3 = rejected
-            $table->integer('status');
-            $table->text('rejection_message')->default("");
+            $table->string('nik');
+            $table->string('npwp')->nullable();
+            $table->string('npm')->nullable();
+            $table->string('str')->nullable();
+            $table->double('wallet')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateWithdrawsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('withdraws');
+        Schema::dropIfExists('receiver_infos');
     }
 }

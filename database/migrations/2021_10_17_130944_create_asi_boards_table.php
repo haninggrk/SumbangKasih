@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWithdrawsTable extends Migration
+class CreateAsiBoardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateWithdrawsTable extends Migration
      */
     public function up()
     {
-        Schema::create('withdraws', function (Blueprint $table) {
+        Schema::create('asi_boards', function (Blueprint $table) {
             $table->id();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->mediumText('message')->nullable();
-            $table->integer('amount');
-            // 1 = waiting verification, 2 = verified, 3 = rejected
-            $table->integer('status');
-            $table->text('rejection_message')->default("");
+            $table->foreignId('receiver_id')->nullable()->references('id')->on('users');
+            $table->string('phone');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateWithdrawsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('withdraws');
+        Schema::dropIfExists('asi_boards');
     }
 }
