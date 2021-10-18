@@ -15,7 +15,7 @@ class CreateAsiBoardsTable extends Migration
     {
         Schema::create('asi_boards', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('receiver_id')->nullable()->references('id')->on('users');
             $table->string('phone');
             $table->dateTime('meet_at');

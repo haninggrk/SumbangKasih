@@ -15,8 +15,8 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('category_id')->references('id')->on('categories');
             $table->text('message')->nullable();
             $table->integer('amount');
             $table->boolean('is_anonymous')->default(false);

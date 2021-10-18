@@ -15,7 +15,7 @@ class CreateReceiverInfosTable extends Migration
     {
         Schema::create('receiver_infos', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('nik');
             $table->string('npwp')->nullable();
             $table->string('npm')->nullable();
