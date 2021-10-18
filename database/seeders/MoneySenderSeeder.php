@@ -20,12 +20,7 @@ class MoneySenderSeeder extends Seeder
             'user_type' => 1,
         ]);
 
-        Category::factory()->count(4)->create([
-            'name' => 'Test',
-            'description' => 'Test',
-            'photo' => '',
-            'show' => true,
-        ]);
+        Category::factory()->count(4)->create();
 
         $users = User::where('user_type', 1)->get();
 

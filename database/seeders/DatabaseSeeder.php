@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             AsiSenderSeeder::class,
             MoneySenderSeeder::class,
-            ReceiverSeeder::class
+            ReceiverSeeder::class,
+            WithdrawSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();

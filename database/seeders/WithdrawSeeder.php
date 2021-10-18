@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Withdraw;
 use Illuminate\Database\Seeder;
 
-class AdminSeeder extends Seeder
+class WithdrawSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,6 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(2)->create([
-            'user_type' => 99,
-        ]);
+        Withdraw::factory()->count(10)->create();
     }
 }
