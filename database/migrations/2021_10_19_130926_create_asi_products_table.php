@@ -15,7 +15,16 @@ class CreateAsiProductsTable extends Migration
     {
         Schema::create('asi_products', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->text('picture_product')->nullable();
+            $table->text('jangka_hari_setelah_melahirkan');
+            $table->bigInteger('kuantitas');
+            $table->bigInteger('jumlah_liter')->nullable();
+            $table->longText('deskripsi')->nullable();
+            $table->longText('bukti_foto_kartu_vaksinasi');
+            $table->longText('bukti_foto_terbebas_dari_covid')->nullable();
+            $table->Integer('status');
+            $table->timestamps('');
         });
     }
 

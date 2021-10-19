@@ -15,12 +15,12 @@ class CreateAsiBoardsTable extends Migration
     {
         Schema::create('asi_boards', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('asi_product_id')->references('id')->on('asi_products');
             $table->foreignId('receiver_id')->nullable()->references('id')->on('users');
-            $table->string('phone');
-            $table->dateTime('meet_at');
+            $table->dateTime('recieve_at');
+            $table->dateTime('keep_at');
+            $table->dateTime('status');
             $table->string('location');
-            $table->text('description');
             $table->timestamps();
         });
     }
