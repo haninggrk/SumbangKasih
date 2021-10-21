@@ -14,6 +14,11 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
+        User::factory()->create([
+            'email' => 'admin@admin.com',
+            'user_type' => 99,
+        ]);
+
         User::factory()->count(2)->create([
             'user_type' => 99,
         ]);
