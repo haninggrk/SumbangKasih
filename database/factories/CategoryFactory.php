@@ -24,7 +24,7 @@ class CategoryFactory extends Factory
         return [
             'name' => $this->faker->text(10),
             'description' => $this->faker->text(50),
-            'photo' => '',
+            'photo' => 'https://via.placeholder.com/1200x800',
             'show' => rand(1, 2) === 1,
         ];
     }
