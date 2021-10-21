@@ -10,13 +10,13 @@ module.exports = {
     ],
 
     theme: {
-	colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      orangesa: {
-    	DEFAULT: '#EF7936'  
-    }
-	},
+        colors: {
+            transparent: 'transparent',
+            current: 'currentColor',
+            orangesa: {
+                DEFAULT: '#EF7936'
+            }
+        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
