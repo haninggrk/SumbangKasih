@@ -9,6 +9,7 @@ class AsiProduct extends Model
 {
     use HasFactory;
 
+    protected $table = 'asi_products';
     public function User()
     {
         return $this->belongsTo(User::class);
