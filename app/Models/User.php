@@ -60,7 +60,13 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function getIsAdminAttribute($value){
+    public function getIsAdminAttribute($value)
+    {
         return $this->user_type === 99;
+    }
+
+    public function AsiProduct()
+    {
+        return $this->hasMany(AsiProduct::class);
     }
 }

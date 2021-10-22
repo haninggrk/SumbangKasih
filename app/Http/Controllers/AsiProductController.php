@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\asi_product;
+use App\Models\AsiProduct;
 use Illuminate\Http\Request;
 
 class AsiProductController extends Controller
@@ -14,7 +15,8 @@ class AsiProductController extends Controller
      */
     public function index()
     {
-        //
+        $getAllAsiProduct=AsiProduct::all()->orderBy('created_at')->get();
+        return view('GetAsiProduct', compact($getAllAsiProduct));
     }
 
     /**
