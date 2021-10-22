@@ -35,7 +35,11 @@ class AsiBoardController extends Controller
      */
     public function store(Request $request)
     {
-        
+       // $AsiBoard = AsiBoard::find(10);
+
+        //$user->account()->associate($account);
+
+        //$user->save();
     }
 
     /**

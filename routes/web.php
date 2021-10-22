@@ -23,4 +23,4 @@ Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::
 })->name('admin.index');
 
 Route::get('/DataAsi/{id}', [App\Http\Controllers\AsiProductController::class,'show']);
-Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoard::class,'create'])->name('ProsesAddAsi');
+Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class,'store'])->name('ProsesPesanAsi');

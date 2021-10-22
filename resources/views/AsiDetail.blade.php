@@ -26,7 +26,7 @@
   <h5 class="card-title">{{$getAsiProductDetail[0]->days_after_birth}}  <span class="fs-6 text-secondary fw-bolder ms-2"> {{ $getAsiProductDetail[0]->litre_quantity}} sks</span></h5>
     <p class="card-text">{{$getAsiProductDetail[0]->description}}</p>
     <p class="card-text">{{$getAsiProductDetail[0]->User->name}}</p>
-  <form action="{{ route('ProsesAddAsi')}}" method="post">
+  <form action="{{ route('ProsesPesanAsi')}}" method="post">
     {{ csrf_field() }}
         
             <input type="hidden" name="asi_product_id" value="{{ $getAsiProductDetail[0]->id }}"></input>
