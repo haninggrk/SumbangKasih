@@ -16,6 +16,9 @@ module.exports = {
                 current: 'currentColor',
                 orangesa: {
                     DEFAULT: '#EF7936'
+                },
+                'orange-d':{
+                    DEFAULT: '#EF7936'
                 }
             },
             fontFamily: {

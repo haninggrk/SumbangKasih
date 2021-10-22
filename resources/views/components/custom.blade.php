@@ -18,6 +18,9 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>
+    <body >
         <x-navbart></x-navbart>
+        <div class="container mx-auto px-4">
+        {{ $content }}
+        </div>
     </body>
