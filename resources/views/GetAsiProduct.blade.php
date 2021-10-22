@@ -24,7 +24,7 @@
   <div class="card-body d-grid">
     <h5 class="card-title">{{$DataAsi->days_after_birth}}  <span class="fs-6 text-secondary fw-bolder ms-2"> {{ $DataAsi->litre_quantity}} sks</span></h5>
     <p class="card-text">{{$DataAsi->description}}</p>
-    <a href="" class="btn btn-primary btn-block">See Details</a>
+    <a href="/DataAsi/{{$DataAsi->id}}" class="btn btn-primary btn-block">See Details</a>
   </div>
 
         </div>

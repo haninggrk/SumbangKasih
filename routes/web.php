@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/DataAsi',  [App\Http\Controllers\AsiProductController::class,'index']);
+Route::get('/DataAsi', [App\Http\Controllers\AsiProductController::class,'index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -21,3 +21,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::class])->get('/admin', function () {
     return "admin";
 })->name('admin.index');
+
+Route::get('/DataAsi/{id}', [App\Http\Controllers\AsiProductController::class,'show']);
+Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoard::class,'create'])->name('ProsesAddAsi');

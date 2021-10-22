@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\asi_product;
-use App\Models\AsiProduct;
+use App\Models\AsiBoard;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class AsiProductController extends Controller
+class AsiBoardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class AsiProductController extends Controller
      */
     public function index()
     {
-        $getAllAsiProduct=AsiProduct::all();
-        return view('GetAsiProduct', compact("getAllAsiProduct"));
+        //
     }
 
     /**
@@ -44,19 +41,18 @@ class AsiProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\asi_product  $asi_product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $getAsiProductDetail=AsiProduct::where('id', $id)->get();
-        return view("AsiDetail", compact($getAsiProductDetail, "getAsiProductDetail"));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\asi_product  $asi_product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -68,10 +64,10 @@ class AsiProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\asi_product  $asi_product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, asi_product $asi_product)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -79,10 +75,10 @@ class AsiProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\asi_product  $asi_product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(asi_product $asi_product)
+    public function destroy($id)
     {
         //
     }
