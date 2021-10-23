@@ -17,8 +17,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             MoneySenderSeeder::class,
             ReceiverSeeder::class,
-            WithdrawSeeder::class,
-            AsiProductSeeder::class
+            WithdrawSeeder::class
         ]);
     }
 }

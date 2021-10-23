@@ -16,16 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Route::get('/data-asi', [App\Http\Controllers\AsiProductController::class,'index']);
+Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class);
 // Route dashboard taroh disini
-Route::middleware(['auth:sanctum', 'verified'])->prefix("dashboard")->group(function (){
-
+Route::middleware(['auth:sanctum', 'verified'])->prefix("dashboard")->group(function () {
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
-
-    Route::get('/data-asi', [App\Http\Controllers\AsiProductController::class,'index']);
-    Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class);
 });
 
 
