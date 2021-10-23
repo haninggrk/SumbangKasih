@@ -17,12 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/DataAsi', [App\Http\Controllers\AsiProductController::class,'index']);
+// Route dashboard taroh disini
+Route::middleware(['auth:sanctum', 'verified'])->prefix("dashboard")->group(function (){
+
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/data-asi', [App\Http\Controllers\AsiProductController::class,'index']);
+    Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class);
+});
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::class])->get('/admin', function () {
     return "admin";
 })->name('admin.index');
