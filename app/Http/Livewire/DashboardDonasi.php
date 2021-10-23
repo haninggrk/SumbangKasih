@@ -11,6 +11,6 @@ class DashboardDonasi extends Component
     public function render()
     {
         return view('livewire.dashboard-donasi')->with([
-            'getAllAsiProductDashboardRequest' => AsiProduct::with('Users')->get()]);
+            'getAllAsiProductDashboardRequest' => AsiProduct::where('progress','1')]);
     }
 }

@@ -20,7 +20,7 @@ class AsiProductSeeder extends Seeder
         foreach ($datauser as $user) {
             AsiProduct::factory()->create([
                 'user_id' => $user->id,
-                'receiver_id'=>rand(0, count($alluser))
+                'receiver_id'=>rand(1, count($alluser))
             ]);
         }
     }

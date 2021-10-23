@@ -28,10 +28,10 @@ class CreateAsiProductsTable extends Migration
             $table->text('bukti_foto_covid-19');
             // 1 = diterima | 2 = ditolak | 0 = menunggu
             $table->integer('status_persetujuan')->default(0);
-            // 1 = success | 2 = request | 0 = progress | 3 = failed
+            // 1 = request | 2 = success | 0 = progress | 3 = failed
             $table->integer('progress')->default(0);
-            $table->integer('courir_request');
-            $table->string('detail_address_resipien');
+            $table->integer('courir_request')->nullable();
+            $table->string('detail_address_resipien')->nullable();
             $table->timestamps();
         });
     }
