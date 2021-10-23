@@ -27,11 +27,12 @@ class AsiProductFactory extends Factory
             'quantity' => $this->faker->numberBetween(1, 10),
             'liter_per_pack' => $this->faker->numberBetween(10, 100),
             'description' => $this->faker->text(100),
-            'city' => $this->faker->city(),
-            'provinsi' => $this->faker->company(),
-            'detail_address_get'=> $this->faker->address(),
+          
+            'courir_pemilik'=> $this->faker->numberBetween(0, 1),
+            'courir_request'=>$this->faker->numberBetween(0, 1),
             'bukti_foto_covid-19' => 'https://via.placeholder.com/1200x800',
-            'status' => $this->faker->numberBetween(0, 2)
+            'detail_address_resipien'=>$this->faker->text(100),
+           
         ];
     }
 }

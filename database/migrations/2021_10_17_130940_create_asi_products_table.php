@@ -16,18 +16,22 @@ class CreateAsiProductsTable extends Migration
         Schema::create('asi_products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('receiver_id')->references('id')->on('users')->nullable();
             $table->text('product_picture')->nullable();
             $table->dateTime('tanggal_melahirkan');
             $table->integer('quantity');
-            $table->double('liter_per_pack')->nullable();
+            $table->double('liter_per_pack');
             $table->text('description')->nullable();
-            $table->integer('courir')->nullable();
-            $table->string('city');
-            $table->string('provinsi');
-            $table->text('detail_address_get');
+
+            $table->integer('courir_pemilik');
+            // $table->text('detail_address_get');
             $table->text('bukti_foto_covid-19');
             // 1 = diterima | 2 = ditolak | 0 = menunggu
-            $table->integer('status');
+            $table->integer('status_persetujuan')->default(0);
+            // 1 = success | 2 = request | 0 = progress | 3 = failed
+            $table->integer('progress')->default(0);
+            $table->integer('courir_request');
+            $table->string('detail_address_resipien');
             $table->timestamps();
         });
     }

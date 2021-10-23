@@ -13,15 +13,15 @@ class CreateAsiBoardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('asi_boards', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('asi_product_id')->references('id')->on('asi_products');
-            $table->foreignId('receiver_id')->nullable()->references('id')->on('users');
-            $table->integer('status');
-            $table->integer('courir');
-            $table->string('detail_address_resipien');
-            $table->timestamps();
-        });
+        //Schema::create('asi_boards', function (Blueprint $table) {
+  //  $table->id();
+    //$table->foreignId('asi_products_id')->constrained();
+    //$table->foreignId('receivers_id')->constrained();
+    //$table->integer('status');
+    //$table->integer('courir');
+    //$table->string('detail_address_resipien');
+    //$table->timestamps();
+//});
     }
 
     /**

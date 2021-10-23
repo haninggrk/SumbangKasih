@@ -70,6 +70,11 @@ class User extends Authenticatable
         return $this->hasMany(AsiProduct::class);
     }
 
+    public function receiverAsiProduct()
+    {
+        return $this->hasMany(User::class, 'receiver_id');
+    }
+
     public function receiverInfo()
     {
         return $this->hasOne(ReceiverInfo::class);

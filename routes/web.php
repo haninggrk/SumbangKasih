@@ -25,6 +25,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix("dashboard")->group(func
     })->name('dashboard');
     Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class);
     Route::get('/data-donasi-asi/{id}', [App\Http\Controllers\AsiProductController::class,'show']);
+    Route::get('/dashboard-donasi', [App\Http\Controllers\DashboardDonasi::class]);
 });
 
 
