@@ -72,7 +72,7 @@
         @if($page == 'asi')
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->
-                <div class="hidden lg:flex flex-col">
+                <div style="" class="overflow-y-scroll overflow-x-hidden hidden lg:flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 md:px-0 lg:px-8">
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -95,8 +95,9 @@
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             QUANTITY
                                         </th>
-                                        <th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Edit</span>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            ACTION
                                         </th>
                                     </tr>
                                     </thead>
@@ -123,14 +124,14 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>Jawa Timur</td>
+                                            <td  class="px-6 py-4 whitespace-nowrap">Jawa Timur</td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">{{$DataAsi->quantity}} Botol</div>
                                                 <div class="text-sm text-gray-500">{{$DataAsi->litre_quantity}} Liter /
                                                     Botol
                                                 </div>
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                                 <a href="#" class="text-orangesa ">
                                                     <x-jet-button>Details</x-jet-button>
                                                 </a>

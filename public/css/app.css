@@ -3106,16 +3106,16 @@ select{
   margin-bottom: 1rem;
 }
 
+.mb-5{
+  margin-bottom: 1.25rem;
+}
+
 .ml-auto{
   margin-left: auto;
 }
 
 .-mt-px{
   margin-top: -1px;
-}
-
-.mb-5{
-  margin-bottom: 1.25rem;
 }
 
 .ml-5{
@@ -3669,8 +3669,16 @@ select{
   overflow-y: auto;
 }
 
+.overflow-x-hidden{
+  overflow-x: hidden;
+}
+
 .overflow-y-hidden{
   overflow-y: hidden;
+}
+
+.overflow-y-scroll{
+  overflow-y: scroll;
 }
 
 .truncate{

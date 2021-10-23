@@ -64,7 +64,7 @@
         <div class="col-span-5">
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="hidden lg:flex flex-col">
+<div style="overflow-y:scroll; height:500px;" class="overflow-y-scroll h-20 hidden lg:flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 md:px-0 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
