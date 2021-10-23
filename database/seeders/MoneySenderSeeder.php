@@ -26,7 +26,7 @@ class MoneySenderSeeder extends Seeder
 
         foreach ($users as $user) {
             Donation::create([
-                'user_id' => rand(1, 10),
+                'user_id' => $user->id,
                 'category_id' => rand(1, 4),
                 'message' => "lapar belum makan",
                 'amount' => rand(100000,1000000),

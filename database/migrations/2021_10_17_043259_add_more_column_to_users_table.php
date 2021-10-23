@@ -16,7 +16,7 @@ class AddMoreColumnToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('category_id')->nullable()->references('id')->on('categories');
 
-            // 1 = tipe donatur, 2 = penerima donasi, 4 = donatur asi 99 = admin
+            // 1 = tipe donatur, 2 = penerima donasi 99 = admin
             $table->integer('user_type')->default(1);
         });
     }

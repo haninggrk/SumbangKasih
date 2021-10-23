@@ -65,8 +65,18 @@ class User extends Authenticatable
         return $this->user_type === 99;
     }
 
-    public function AsiProduct()
+    public function asiProducts()
     {
         return $this->hasMany(AsiProduct::class);
+    }
+
+    public function receiverInfo()
+    {
+        return $this->hasOne(ReceiverInfo::class);
+    }
+
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
     }
 }
