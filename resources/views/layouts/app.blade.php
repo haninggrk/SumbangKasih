@@ -21,7 +21,7 @@
 </head>
 <body x-data="{sidebarOpen: true}" class="font-sans antialiased h-full">
 <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-<div x-show="sidebarOpen" class="fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true">
+<div x-show="sidebarOpen" class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
     <div
         @click="sidebarOpen = false"
         x-show="sidebarOpen"
@@ -153,7 +153,7 @@
 </div>
 
 <!-- Static sidebar for desktop -->
-<div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+<div class="hidden lg:flex lg:w-64 lg:flex-col lg:fixed lg:inset-y-0">
     <!-- Sidebar component, swap this element with another sidebar if you like -->
     <div class="flex-1 flex flex-col min-h-0 bg-[#EF4136]">
         <div class="flex items-center h-16 flex-shrink-0 px-4 bg-white space-x-2">
@@ -194,10 +194,10 @@
         </div>
     </div>
 </div>
-<div class="md:pl-64 flex flex-col">
+<div class="lg:pl-64 flex flex-col">
     <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow">
         <button @click="sidebarOpen = true" type="button"
-                class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+                class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden">
             <span class="sr-only">Open sidebar</span>
             <!-- Heroicon name: outline/menu-alt-2 -->
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
