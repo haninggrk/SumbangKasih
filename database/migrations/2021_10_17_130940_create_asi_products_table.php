@@ -17,12 +17,15 @@ class CreateAsiProductsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->text('product_picture')->nullable();
-            $table->text('days_after_birth');
+            $table->dateTime('tanggal_melahirkan');
             $table->integer('quantity');
-            $table->double('litre_quantity')->nullable();
-            $table->longText('description')->nullable();
-            $table->text('vaccinated_proof');
-            $table->text('covid_free_proof')->nullable();
+            $table->double('liter_per_pack')->nullable();
+            $table->Text('description')->nullable();
+            $table->int('courir');
+            $table->string('city');
+            $table->string('provinsi');
+            $table->text('detail_address_get');
+            $table->text('bukti_foto_covid-19');
             // 1 = diterima | 2 = ditolak | 0 = menunggu
             $table->integer('status');
             $table->timestamps();
