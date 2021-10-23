@@ -2,22 +2,24 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="application-name" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
+    <style>[x-cloak] {
+            display: none !important;
+        }</style>
+    @livewireStyles
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{asset('css/dashboard-custom.css')}}">
 
-@livewireStyles
-
-<!-- Scripts -->
+    <!-- Scripts -->
+    @livewireScripts
     <script src="{{ mix('js/app.js') }}" defer></script>
+    @stack('scripts')
 </head>
 <body x-data="{sidebarOpen: true}" class="font-sans antialiased h-full">
 <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->

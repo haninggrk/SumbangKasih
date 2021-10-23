@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
     mode: 'jit',
@@ -7,11 +8,14 @@ module.exports = {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './vendor/filament/forms/resources/views/**/*.blade.php',
     ],
 
     theme: {
         extend: {
             colors: {
+                danger: colors.rose,
+                primary: colors.blue,
                 transparent: 'transparent',
                 current: 'currentColor',
                 orangesa: {
@@ -21,7 +25,7 @@ module.exports = {
                     DEFAULT: '#EF7936'
                 },
                 'orange-l':{
-                    DEFAULT: '#FBB040'                  
+                    DEFAULT: '#FBB040'
                 }
             },
             fontFamily: {
