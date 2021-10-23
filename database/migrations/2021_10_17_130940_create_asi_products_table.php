@@ -20,8 +20,8 @@ class CreateAsiProductsTable extends Migration
             $table->dateTime('tanggal_melahirkan');
             $table->integer('quantity');
             $table->double('liter_per_pack')->nullable();
-            $table->Text('description')->nullable();
-            $table->int('courir');
+            $table->text('description')->nullable();
+            $table->integer('courir')->nullable();
             $table->string('city');
             $table->string('provinsi');
             $table->text('detail_address_get');

@@ -15,5 +15,10 @@ class AsiProductSeeder extends Seeder
      */
     public function run()
     {
+        foreach(User::where('user_type', '1')->get() as $user){
+            AsiProduct::factory()->create([
+                'user_id' => $user->id
+            ]);
+        }
     }
 }

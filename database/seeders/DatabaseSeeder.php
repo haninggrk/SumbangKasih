@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\AsiBoard;
+use Database\Factories\AsiBoardFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,7 +19,9 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             MoneySenderSeeder::class,
             ReceiverSeeder::class,
-            WithdrawSeeder::class
+            WithdrawSeeder::class,
+            AsiProductSeeder::class,
+            AsiBoardSeeder::class
         ]);
     }
 }

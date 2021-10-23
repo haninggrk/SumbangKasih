@@ -17,8 +17,8 @@ class CreateAsiBoardsTable extends Migration
             $table->id();
             $table->foreignId('asi_product_id')->references('id')->on('asi_products');
             $table->foreignId('receiver_id')->nullable()->references('id')->on('users');
-            $table->int('status');
-            $table->int('courir');
+            $table->integer('status');
+            $table->integer('courir');
             $table->string('detail_address_resipien');
             $table->timestamps();
         });
