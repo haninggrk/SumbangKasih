@@ -19,6 +19,9 @@ module.exports = {
                 },
                 'orange-d':{
                     DEFAULT: '#EF7936'
+                },
+                'orange-l':{
+                    DEFAULT: '#FBB040'                  
                 }
             },
             fontFamily: {
