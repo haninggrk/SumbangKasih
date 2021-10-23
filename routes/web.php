@@ -17,12 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 //Route::get('/data-asi', [App\Http\Controllers\AsiProductController::class,'index']);
-Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class);
+
 // Route dashboard taroh disini
 Route::middleware(['auth:sanctum', 'verified'])->prefix("dashboard")->group(function () {
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class);
+    Route::get('/data-donasi-asi/{id}', [App\Http\Controllers\AsiProductController::class,'show']);
 });
 
 
@@ -30,5 +32,5 @@ Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::
     return "admin";
 })->name('admin.index');
 
-Route::get('/DataAsi/{id}', [App\Http\Controllers\AsiProductController::class,'show']);
+
 Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class,'store'])->name('ProsesPesanAsi');

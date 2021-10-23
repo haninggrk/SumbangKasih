@@ -27,7 +27,7 @@
                         </svg>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button wire:click="setPage('asi')" class="focus:outline-none">
+                        <button class="text-left" wire:click="setPage('asi')" class="focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-extrabold text-gray-900">
                                 ASI
@@ -50,7 +50,7 @@
                         </svg>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button wire:click="setPage('dana')" class="focus:outline-none">
+                        <button class="text-left" wire:click="setPage('dana')" class="focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-extrabold text-gray-900">
                                 Dana
