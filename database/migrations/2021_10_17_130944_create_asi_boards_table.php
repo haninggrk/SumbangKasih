@@ -20,8 +20,8 @@ class CreateAsiBoardsTable extends Migration
      // 1 = request | 2 = success | 0 = progress | 3 = failed
     $table->integer('progress')->default(0);
     
-    $table->integer('quantity_request')->nullable();
-    $table->integer('courir_request')->nullable();
+    $table->integer('quantity_request');
+    $table->integer('courir_request')->default(0);
     $table->string('detail_address_resipien')->nullable();
     $table->timestamps();
 });

@@ -1,9 +1,11 @@
 
 <p>getAllAsiProductDashboardRequest</p>
 
+<form action="{{route('DetailDashboardRequestAsi')}}" method="post">
+    @csrf
 @foreach($getAllAsiProductDashboardRequest as $DataAsiRequest)
 
-<p>Nama Pemilik: {{$DataAsiRequest->pemilik->name}}</p>
+<input type="hidden" name="idProductAsi" value="{{$DataAsiRequest->id}}"><p>Nama Pemilik: {{$DataAsiRequest->pemilik->name}}</p>
 
 <--- --->
 
@@ -14,12 +16,15 @@
 
 <p>Quantity Request: {{$DataResepien->pivot->quantity_request}}</p>
 <p>Detail address resipien Request: {{$DataResepien->pivot->detail_address_resipien}}</p>
+<input type="hidden" name="idBoard" value="{{$DataResepien->pivot->id}}">
+<input type="hidden" name="idUserpenerima" value="{{$DataResepien->id}}">
 
 <br><br><br>
-<a href="{{ route('DetailDashboardRequestAsi',['id=>$DataResepien->pivot->id'])}}">See</a>
+<button type="submit">See</button>
 @endforeach
 
 @endforeach
+</form>
 
 
 <p>getAllAsiProductDashboardHistory</p>

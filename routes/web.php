@@ -23,7 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix("dashboard")->group(func
     })->name('dashboard');
     Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class)->name('data-donasi');
     Route::get('/data-donasi-asi/{id}', [App\Http\Controllers\AsiProductController::class,'show'])->name('detailAsi');
-    Route::get('/dashboard-donasi/{id}', [App\Http\Controllers\AsiProductController::class,'showDetailDashboardRequestAsi'])->name('DetailDashboardRequestAsi');
+    Route::post('/dashboard-donasi/request-get-donasi-asi', [App\Http\Controllers\AsiProductController::class,'showDetailDashboardRequestAsi'])->name('DetailDashboardRequestAsi');
     Route::get('/dashboard-donasi', \App\Http\Livewire\DashboardDonasi::class);
     Route::get('/ajukan-bantuan-dana', \App\Http\Livewire\RegisterFund::class)->name('register-fund');
 });

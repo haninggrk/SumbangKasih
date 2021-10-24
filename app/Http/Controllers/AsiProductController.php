@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\asi_product;
+use App\Models\AsiBoard;
 use App\Models\AsiProduct;
 use App\Models\Donation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth\User;
 
 class AsiProductController extends Controller
 {
@@ -55,10 +57,19 @@ class AsiProductController extends Controller
         $getAsiProductDetail=AsiProduct::where('id', $id)->first();
         return view("AsiDetail", compact($getAsiProductDetail, "getAsiProductDetail"));
     }
-    public function showDetailDashboardRequestAsi($id)
+    public function showDetailDashboardRequestAsi(Request $request)
     {
-        $getDetailBoard= AsiProduct::with('Users')->where('user_id', Auth::user()->id)->get();
-        return view("showDetailDashboardRequestAsi", compact($getDetailBoard, "getDetailBoard"));
+        $getDetailBoard= AsiBoard::find($request->idBoard)->first();
+        $getDetailProduct= AsiProduct::find($request->idProductAsi)->first();
+        $getDetailUserPenerima= AsiProduct::find($request->idUserpenerima)->first();
+       
+       
+
+        return view("ViewDetailDashboardRequest", [
+            'DataProdukAsi'=>$getDetailProduct,
+            'DataBoard'=>$getDetailBoard,
+            'DataPenerima'=>$getDetailUserPenerima
+        ]);
     }
     /**
      * Show the form for editing the specified resource.
