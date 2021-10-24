@@ -6,6 +6,7 @@
 
             overflow: auto;
         }
+
         /* Set header to stick to the top of the container. */
         thead tr th {
             position: sticky;
@@ -23,15 +24,14 @@
          we have to apply background styles here
          rather than on thead */
         th {
-            padding: 16px;
-            padding-left: 15px;
+            padding: 16px 16px 16px 15px;
             border-left: 1px dotted rgba(200, 209, 224, 0.6);
             border-bottom: 1px solid #e8e8e8;
-            background-color:rgba(249, 250, 251, var(--tw-bg-opacity));
+            background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
             text-align: left;
             /* With border-collapse, we must use box-shadow or psuedo elements
             for the header borders */
-            box-shadow: 0px 0px 0 2px #e8e8e8;
+            box-shadow: 0 0 0 2px #e8e8e8;
         }
 
     </style>
@@ -55,13 +55,17 @@
                 <div
                     class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                     <div class="flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
-                          </svg>
-                        
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" viewBox="0 0 20 20"
+                             fill="currentColor">
+                            <path fill-rule="evenodd"
+                                  d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
+                                  clip-rule="evenodd"/>
+                        </svg>
+
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button class="text-left" wire:click="setPage('asi')" class="focus:outline-none">
+                        <button wire:click="setPage('asi')" class="text-left focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 ASI
@@ -76,13 +80,16 @@
                 <div
                     class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                     <div class="flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-                          </svg>
-                        
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button class="text-left" wire:click="setPage('dana')" class="focus:outline-none">
+                        <button wire:click="setPage('dana')" class="text-left focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 Dana
@@ -159,11 +166,11 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">{{$DataAsi->pemilik->city}}</div>
                                                 @if($DataAsi->courir_pemilik==1)
-                                                    <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
-
+                                                    <span
+                                                        class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
                                                 @endif
 
-                                                </div>
+
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">{{$DataAsi->quantity}} Botol</div>
@@ -172,8 +179,8 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                                <a href="#" class="text-orangesa ">
-                                                    <a href="{{route('detailAsi',['id'=> $DataAsi->id])}}"><x-jet-button>Details</x-jet-button>
+                                                <a href="{{route('detailAsi',['id'=> $DataAsi->id])}}">
+                                                    <x-jet-button>Details</x-jet-button>
                                                 </a>
                                             </td>
                                         </tr>
@@ -232,89 +239,84 @@
                 <!-- More people... -->
                 </ul>
             </div>
-        @else
+    @else
         <!-- Taruh kode dana disini -->
-        <div class="col-span-5">
-            <!-- This example requires Tailwind CSS v2.0+ -->
-            <div style="" class="overflow-y-hidden overflow-x-hidden hidden lg:flex flex-col">
-                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 md:px-0 lg:px-8">
-                        <div class="tableWrap shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                            <table class="min-w-full divide-y divide-gray-200">
-                                <thead class="bg-gray-50">
-                                <tr>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        DATE
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        DONATUR
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        LOKASI
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        QUANTITY
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        ACTION
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-
-                                @foreach($getAllDana as $Dana)
-
+            <div class="col-span-5">
+                <!-- This example requires Tailwind CSS v2.0+ -->
+                <div style="" class="overflow-y-hidden overflow-x-hidden hidden lg:flex flex-col">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <tr class="py-2 align-middle inline-block min-w-full sm:px-6 md:px-0 lg:px-8">
+                            <div class="tableWrap shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{$Dana->created_at->format('m/d/y')}}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full"
-                                                         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
-                                                         alt="">
-                                                </div>
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        {{DB::table('users')->find($Dana->user_id)->name}}
-                                                    </div>
-                                                    <div class="text-sm text-gray-500">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{$Dana->DB::table('categories')->find($Dana->cat)}}</div>
-                                            @if($DataAsi->courir_pemilik==1)
-                                                <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
-
-                                            @endif
-
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{$DataAsi->quantity}} Botol</div>
-                                            <div class="text-sm text-gray-500">{{$DataAsi->liter_per_pack}} Liter /
-                                                Botol
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                            <a href="#" class="text-orangesa ">
-                                                <a href="{{route('detailAsi',['id'=> $DataAsi->id])}}"><x-jet-button>Details</x-jet-button>
-                                            </a>
-                                        </td>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            DATE
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            DONATUR
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            LOKASI
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            QUANTITY
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            ACTION
+                                        </th>
                                     </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                    @foreach($getAllDana as $Dana)
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap">{{$Dana->created_at->format('m/d/y')}}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="flex-shrink-0 h-10 w-10">
+                                                        <img class="h-10 w-10 rounded-full"
+                                                             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                                             alt="">
+                                                    </div>
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            {{DB::table('users')->find($Dana->user_id)->name}}
+                                                        </div>
+                                                        <div class="text-sm text-gray-500">
 
-                                @endforeach
-                                <!-- More people... -->
-                                </tbody>
-                            </table>
-                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div
+                                                    class="text-sm text-gray-900">{{$Dana->DB::table('categories')->find($Dana->cat)}}</div>
+                                                @if($DataAsi->courir_pemilik==1)
+                                                    <span
+                                                        class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
+                                                @endif
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm text-gray-900">{{$DataAsi->quantity}} Botol</div>
+                                                <div class="text-sm text-gray-500">{{$DataAsi->liter_per_pack}} Liter /
+                                                    Botol
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
+                                                <a href="{{route('detailAsi',['id'=> $DataAsi->id])}}">
+                                                    <x-jet-button>Details</x-jet-button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -356,15 +358,12 @@
                                         <span class="ml-3">Detail</span>
                                     </a>
                                 </div>
-
                             </div>
                         </div>
                     </li>
-            @endforeach
-            <!-- More people... -->
+                @endforeach
             </ul>
-        </div>
-        @endif
-
     </div>
+    @endif
 </div>
+
