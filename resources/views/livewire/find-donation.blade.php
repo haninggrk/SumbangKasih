@@ -1,41 +1,40 @@
-<style>
-    /* Set a fixed scrollable wrapper */
-.tableWrap {
-  height: 500px;
- 
-  overflow: auto;
-}
-/* Set header to stick to the top of the container. */
-thead tr th {
-  position: sticky;
-  top: 0;
-}
-
-/* If we use border,
-we must use table-collapse to avoid
-a slight movement of the header row */
-table {
- border-collapse: collapse;
-}
-
-/* Because we must set sticky on th,
- we have to apply background styles here
- rather than on thead */
-th {
-  padding: 16px;
-  padding-left: 15px;
-  border-left: 1px dotted rgba(200, 209, 224, 0.6);
-  border-bottom: 1px solid #e8e8e8;
-  background-color:rgba(249, 250, 251, var(--tw-bg-opacity));
-  text-align: left;
-  /* With border-collapse, we must use box-shadow or psuedo elements
-  for the header borders */
-  box-shadow: 0px 0px 0 2px #e8e8e8;
-}
-
-</style>
-
 <div>
+    <style>
+        /* Set a fixed scrollable wrapper */
+        .tableWrap {
+            height: 500px;
+
+            overflow: auto;
+        }
+        /* Set header to stick to the top of the container. */
+        thead tr th {
+            position: sticky;
+            top: 0;
+        }
+
+        /* If we use border,
+        we must use table-collapse to avoid
+        a slight movement of the header row */
+        table {
+            border-collapse: collapse;
+        }
+
+        /* Because we must set sticky on th,
+         we have to apply background styles here
+         rather than on thead */
+        th {
+            padding: 16px;
+            padding-left: 15px;
+            border-left: 1px dotted rgba(200, 209, 224, 0.6);
+            border-bottom: 1px solid #e8e8e8;
+            background-color:rgba(249, 250, 251, var(--tw-bg-opacity));
+            text-align: left;
+            /* With border-collapse, we must use box-shadow or psuedo elements
+            for the header borders */
+            box-shadow: 0px 0px 0 2px #e8e8e8;
+        }
+
+    </style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Donasi') }}
@@ -165,9 +164,9 @@ th {
                                                 <div class="text-sm text-gray-900">{{$DataAsi->pemilik->city}}</div>
                                                 @if($DataAsi->courir_pemilik==1)
                                                     <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
-                                                
+
                                                 @endif
-                                                   
+
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
