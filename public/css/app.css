@@ -4510,6 +4510,11 @@ select{
   color: rgba(37, 99, 235, var(--tw-text-opacity));
 }
 
+.text-blue-900{
+  --tw-text-opacity: 1;
+  color: rgba(30, 58, 138, var(--tw-text-opacity));
+}
+
 .underline{
   text-decoration: underline;
 }

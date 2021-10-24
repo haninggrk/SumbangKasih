@@ -55,12 +55,10 @@
                 <div
                     class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                     <div class="flex-shrink-0">
-                        <svg class="p-2 h-10 w-10 bg-orangesa rounded-full text-white"
-                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                             aria-hidden="true">
-                            <path
-                                d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
+                          </svg>
+                        
                     </div>
                     <div class="flex-1 min-w-0">
                         <button class="text-left" wire:click="setPage('asi')" class="focus:outline-none">
@@ -78,12 +76,10 @@
                 <div
                     class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                     <div class="flex-shrink-0">
-                        <svg class="p-2 h-10 w-10 bg-orangesa rounded-full text-white"
-                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                             aria-hidden="true">
-                            <path
-                                d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                        
                     </div>
                     <div class="flex-1 min-w-0">
                         <button class="text-left" wire:click="setPage('dana')" class="focus:outline-none">
