@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\AsiProduct;
+use App\Models\Donation;
 use Livewire\Component;
 
 class FindDonation extends Component
@@ -14,6 +15,7 @@ class FindDonation extends Component
     {
         return view('livewire.find-donation')->with([
             'getAllAsiProduct' => AsiProduct::all(),
+            'getAllDana' => Donation::all()
         ]);
     }
 

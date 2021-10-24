@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\asi_product;
 use App\Models\AsiProduct;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,6 +18,7 @@ class AsiProductController extends Controller
     public function index()
     {
         $getAllAsiProduct=AsiProduct::all();
+        $getAllDana=Donation::all();
         return view('GetAsiProduct', compact("getAllAsiProduct"));
     }
 

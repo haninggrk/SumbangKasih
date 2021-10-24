@@ -65,9 +65,19 @@ class User extends Authenticatable
         return $this->user_type === 99;
     }
 
+    public function asiProductsPivot()
+    {
+        return $this->belongsToMany(AsiProduct::class, 'asi_boards', 'receiver_id', 'asi_product_id')
+       ->withPivot('progress', 'quantity_request', 'courir_request', 'detail_address_resipien') ->withTimestamps();
+
+
+    }
+
     public function asiProducts()
     {
         return $this->hasMany(AsiProduct::class);
+
+
     }
 
     public function receiverAsiProduct()
