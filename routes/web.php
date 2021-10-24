@@ -26,6 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix("dashboard")->group(func
     Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class);
     Route::get('/data-donasi-asi/{id}', [App\Http\Controllers\AsiProductController::class,'show']);
     Route::get('/dashboard-donasi', \App\Http\Livewire\DashboardDonasi::class);
+    Route::get('/ajukan-bantuan-dana', \App\Http\Livewire\RegisterFund::class)->name('register-fund');
 });
 
 
