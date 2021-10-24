@@ -20,4 +20,9 @@ class AsiProduct extends Model
     {
         return $this->belongsTo(User::class, 'receiver_id');
     }
+
+    public function Users()
+    {
+        return $this->belongsToMany(User::class, 'asi_boards', 'asi_product_id', 'receiver_id');
+    }
 }

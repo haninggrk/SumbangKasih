@@ -9,6 +9,4 @@ class AsiBoard extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
-
 }
