@@ -28,10 +28,10 @@ class AsiProductFactory extends Factory
             'liter_per_pack' => $this->faker->numberBetween(10, 100),
             'description' => $this->faker->text(100),
             'courir_pemilik'=> $this->faker->numberBetween(0, 1),
-            'courir_request'=>$this->faker->numberBetween(0, 1),
+            
             'bukti_foto_covid-19' => 'https://via.placeholder.com/1200x800',
-            'progress'=>$this->faker->numberBetween(0, 3),
-            'detail_address_resipien'=>$this->faker->text(100),
+            
+            
         ];
     }
 }

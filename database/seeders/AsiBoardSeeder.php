@@ -15,13 +15,13 @@ class AsiBoardSeeder extends Seeder
      *
      * @return void
      */
- //   public function run()
-    //{
-   //     foreach(User::where('user_type', '2')->get() as $user){
-        //    AsiBoard::factory()->create([
-      //          'receiver_id' => $user->id,
-          //      'asi_product_id'=> rand(1,10)
-            //]);
-    //}
-//}
+    public function run()
+    {
+       foreach(User::where('user_type', '2')->get() as $user){
+            AsiBoard::factory()->create([
+              'receiver_id' => $user->id,
+              'asi_product_id'=> rand(1,10)
+            ]);
+    }
+}
 }

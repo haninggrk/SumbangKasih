@@ -13,15 +13,18 @@ class CreateAsiBoardsTable extends Migration
      */
     public function up()
     {
-        //Schema::create('asi_boards', function (Blueprint $table) {
-  //  $table->id();
-    //$table->foreignId('asi_products_id')->constrained();
-    //$table->foreignId('receivers_id')->constrained();
-    //$table->integer('status');
-    //$table->integer('courir');
-    //$table->string('detail_address_resipien');
-    //$table->timestamps();
-//});
+        Schema::create('asi_boards', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('asi_product_id')->referencesw('id')->on('asi_products');
+    $table->foreignId('receiver_id')->references('id')->on('users');
+     // 1 = request | 2 = success | 0 = progress | 3 = failed
+    $table->integer('progress')->default(0);
+    
+    $table->integer('quantity_request')->nullable();
+    $table->integer('courir_request')->nullable();
+    $table->string('detail_address_resipien')->nullable();
+    $table->timestamps();
+});
     }
 
     /**
