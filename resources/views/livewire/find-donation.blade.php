@@ -1,3 +1,40 @@
+<style>
+    /* Set a fixed scrollable wrapper */
+.tableWrap {
+  height: 500px;
+ 
+  overflow: auto;
+}
+/* Set header to stick to the top of the container. */
+thead tr th {
+  position: sticky;
+  top: 0;
+}
+
+/* If we use border,
+we must use table-collapse to avoid
+a slight movement of the header row */
+table {
+ border-collapse: collapse;
+}
+
+/* Because we must set sticky on th,
+ we have to apply background styles here
+ rather than on thead */
+th {
+  padding: 16px;
+  padding-left: 15px;
+  border-left: 1px dotted rgba(200, 209, 224, 0.6);
+  border-bottom: 1px solid #e8e8e8;
+  background-color:rgba(249, 250, 251, var(--tw-bg-opacity));
+  text-align: left;
+  /* With border-collapse, we must use box-shadow or psuedo elements
+  for the header borders */
+  box-shadow: 0px 0px 0 2px #e8e8e8;
+}
+
+</style>
+
 <div>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -29,7 +66,7 @@
                     <div class="flex-1 min-w-0">
                         <button class="text-left" wire:click="setPage('asi')" class="focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
-                            <p class="text-sm font-extrabold text-gray-900">
+                            <p class="text-sm font-bold text-gray-900">
                                 ASI
                             </p>
                             <p class="text-sm hidden md:block text-gray-500 truncate">
@@ -52,7 +89,7 @@
                     <div class="flex-1 min-w-0">
                         <button class="text-left" wire:click="setPage('dana')" class="focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
-                            <p class="text-sm font-extrabold text-gray-900">
+                            <p class="text-sm font-bold text-gray-900">
                                 Dana
                             </p>
                             <p class="hidden md:block text-sm text-gray-500 truncate">
@@ -72,10 +109,10 @@
         @if($page == 'asi')
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->
-                <div style="" class="overflow-y-scroll overflow-x-hidden hidden lg:flex flex-col">
+                <div style="" class="overflow-y-hidden overflow-x-hidden hidden lg:flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 md:px-0 lg:px-8">
-                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <div class="tableWrap shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gray-50">
                                     <tr>
@@ -124,16 +161,24 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td  class="px-6 py-4 whitespace-nowrap">Jawa Timur</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm text-gray-900">{{$DataAsi->pemilik->city}}</div>
+                                                @if($DataAsi->courir_pemilik==1)
+                                                    <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
+                                                
+                                                @endif
+                                                   
+                                                </div>
+                                            </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">{{$DataAsi->quantity}} Botol</div>
-                                                <div class="text-sm text-gray-500">{{$DataAsi->litre_quantity}} Liter /
+                                                <div class="text-sm text-gray-500">{{$DataAsi->liter_per_pack}} Liter /
                                                     Botol
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                                 <a href="#" class="text-orangesa ">
-                                                    <x-jet-button>Details</x-jet-button>
+                                                    <a href="{{route('detailAsi',['id'=> $DataAsi->id])}}"><x-jet-button>Details</x-jet-button>
                                                 </a>
                                             </td>
                                         </tr>

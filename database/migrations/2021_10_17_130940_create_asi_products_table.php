@@ -16,13 +16,13 @@ class CreateAsiProductsTable extends Migration
         Schema::create('asi_products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('receiver_id')->references('id')->on('users')->nullable();
+            $table->foreignId('receiver_id')->nullable()->references('id')->on('users');
             $table->text('product_picture')->nullable();
             $table->dateTime('tanggal_melahirkan');
             $table->integer('quantity');
             $table->double('liter_per_pack');
             $table->text('description')->nullable();
-
+            $table->integer('quantity_request')->nullable();
             $table->integer('courir_pemilik');
             // $table->text('detail_address_get');
             $table->text('bukti_foto_covid-19');

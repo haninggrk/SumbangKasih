@@ -3943,6 +3943,11 @@ select{
   background-color: rgba(239, 121, 54, var(--tw-bg-opacity));
 }
 
+.bg-orange-dd{
+  --tw-bg-opacity: 1;
+  background-color: rgba(239, 65, 54, var(--tw-bg-opacity));
+}
+
 .bg-transparent{
   background-color: transparent;
 }

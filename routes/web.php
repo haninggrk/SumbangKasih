@@ -23,8 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix("dashboard")->group(func
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class);
-    Route::get('/data-donasi-asi/{id}', [App\Http\Controllers\AsiProductController::class,'show']);
+    Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class)->name('data-donasi');
+    Route::get('/data-donasi-asi/{id}', [App\Http\Controllers\AsiProductController::class,'show'])->name('detailAsi');
     Route::get('/dashboard-donasi', \App\Http\Livewire\DashboardDonasi::class);
 });
 

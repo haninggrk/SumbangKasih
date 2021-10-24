@@ -49,7 +49,7 @@ class AsiProductController extends Controller
      */
     public function show($id)
     {
-        $getAsiProductDetail=AsiProduct::where('id', $id)->get();
+        $getAsiProductDetail=AsiProduct::where('id', $id)->first();
         return view("AsiDetail", compact($getAsiProductDetail, "getAsiProductDetail"));
     }
 
