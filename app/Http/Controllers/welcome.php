@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\asi_product;
-use App\Models\AsiProduct;
-use App\Models\Donation;
+use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class AsiProductController extends Controller
+class welcome extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +14,9 @@ class AsiProductController extends Controller
      */
     public function index()
     {
-        $getAllAsiProduct=AsiProduct::all();
-        $getAllDana=Donation::all();
-        return view('GetAsiProduct', compact("getAllAsiProduct"));
+        return view('welcome',[
+            'categories'=>Category::all()
+        ]);
     }
 
     /**
@@ -41,29 +37,24 @@ class AsiProductController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\asi_product  $asi_product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $getAsiProductDetail=AsiProduct::where('id', $id)->first();
-        return view("AsiDetail", compact($getAsiProductDetail, "getAsiProductDetail"));
+        //
     }
-    public function showDetailDashboardRequestAsi($id)
-    {
-        $getDetailBoard= AsiProduct::with('Users')->where('user_id', Auth::user()->id)->get();
-        return view("showDetailDashboardRequestAsi", compact($getDetailBoard, "getDetailBoard"));
-    }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\asi_product  $asi_product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -75,10 +66,10 @@ class AsiProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\asi_product  $asi_product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, asi_product $asi_product)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -86,10 +77,10 @@ class AsiProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\asi_product  $asi_product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(asi_product $asi_product)
+    public function destroy($id)
     {
         //
     }

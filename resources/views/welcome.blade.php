@@ -19,3 +19,7 @@
           </div>
     </x-slot>
 </x-custom>
+@foreach($categories as $datacategory)
+Nama Kategori: {{ $datacategory->name }}
+Deskripsi: {{ $datacategory->description }}
+@endforeach

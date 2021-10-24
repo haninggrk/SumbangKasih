@@ -25,9 +25,7 @@ class DashboardDonasi extends Component
            // 'getAllAsiProductDashboardRequest' => AsiProduct::where('progress','1')->where('user_id', Auth::user()->id)->get(),
            // 'getAllAsiProductDashboardHistory' => AsiProduct::whereBetween('progress', [2, 3])->where('user_id', Auth::user()->id)->get(),
            // 'getAllAsiProductDashboardInProgress'=> AsiProduct::where('progress', '0')->where('user_id', Auth::user()->id)->get()]);
-          
-
-           'getAllAsiProductDashboardRequest' => AsiProduct::with('Users')->get(),
+           'getAllAsiProductDashboardRequest' => AsiProduct::with('Users')->where('user_id', Auth::user()->id)->get(),
            'getAllAsiProductDashboardHistory' => AsiProduct::with('Users')->get(),
            'getAllAsiProductDashboardInProgress'=> AsiProduct::with('Users')->get()
            // 'getAllAsiProductDashboardHistory' => AsiProduct::whereBetween('progress', [2, 3])->where('user_id', Auth::user()->id)->get(),

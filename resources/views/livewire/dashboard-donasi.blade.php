@@ -1,32 +1,72 @@
 
-
 <p>getAllAsiProductDashboardRequest</p>
-   @foreach($getAllAsiProductDashboardRequest as $DataAsiRequest)
 
-<p>Nama User Pemilik: {{ $DataAsiRequest->pemilik->name}}</p>
-<p>Nama User Penerima: {{ $DataAsiRequest->Users->name }}</p>
-<p>Tanggal Melahirkan Pemilik: {{$DataAsiRequest->tanggal_melahirkan  }}</p>
+@foreach($getAllAsiProductDashboardRequest as $DataAsiRequest)
+
+<p>Nama Pemilik: {{$DataAsiRequest->pemilik->name}}</p>
+
+<--- --->
+
+@foreach($DataAsiRequest->Users as $DataResepien)
+<p>Nama User Penerima: {{$DataResepien->name}}</p>
+
+<p>Courir Request: {{$DataResepien->pivot->courir_request}}</p>
+
+<p>Quantity Request: {{$DataResepien->pivot->quantity_request}}</p>
+<p>Detail address resipien Request: {{$DataResepien->pivot->detail_address_resipien}}</p>
+
+<br><br><br>
+<a href="{{ route('DetailDashboardRequestAsi',['id=>$DataResepien->pivot->id'])}}">See</a>
 @endforeach
+
+@endforeach
+
 
 <p>getAllAsiProductDashboardHistory</p>
 
-<br><br><br><br>
-<p>getAllAsiProductDashboardHistory</p>
-   @foreach($getAllAsiProductDashboardHistory as $DataAsiHistory)
+@foreach($getAllAsiProductDashboardHistory as $DataAsiHistory)
 
-<p>Nama User Pemilik: {{ $DataAsiHistory->pemilik->name}}</p>
-<p>Nama User Penerima: {{ $DataAsiHistory->Users->name }}</p>
-<p>Tanggal Melahirkan Pemilik: {{$DataAsiHistory->tanggal_melahirkan  }}</p>
-<p>Progress: {{ $DataAsiHistory->Users->pivot->progress }}</p>
+<p>Nama Pemilik: {{$DataAsiHistory->pemilik->name}}</p>
+
+<--- DIBAWAH INI PENERIMA --->
+
+@foreach($DataAsiHistory->Users as $DataResepien)
+<p>Nama User Penerima: {{$DataResepien->name}}</p>
+
+<p>Courir Request: {{$DataResepien->pivot->courir_request}}</p>
+
+<p>Quantity Request: {{$DataResepien->pivot->quantity_request}}</p>
+<p>Detail address resipien Request: {{$DataResepien->pivot->detail_address_resipien}}</p>
+
+<p>Progress: {{$DataResepien->pivot->progress}}</p>
+
+
 @endforeach
 
-<br><br><br><br>
+@endforeach
+
+
+
 <p>getAllAsiProductDashboardInProgress</p>
-   @foreach($getAllAsiProductDashboardInProgress as $DataAsiInProgress)
 
-<p>Nama User Pemilik: {{ $DataAsiInProgress->pemilik->name}}</p>
-<p>ID User Pemilik: {{ $DataAsiInProgress->pemilik->id}}</p>
-<p>Nama User Penerima: {{ $DataAsiInProgress->Users->name }}</p>
-<p>Tanggal Melahirkan Pemilik: {{$DataAsiInProgress->tanggal_melahirkan  }}</p>
-<p>Progress: {{ $DataAsiInProgress->Users->pivot->progress }}</p>
+@foreach($getAllAsiProductDashboardInProgress as $DataAsiInProgress)
+
+<p>Nama Pemilik: {{$DataAsiInProgress->pemilik->name}}</p>
+
+<--- DIBAWAH INI PENERIMA --->
+
+@foreach($DataAsiInProgress->Users as $DataResepien)
+<p>Nama User Penerima: {{$DataResepien->name}}</p>
+
+<p>Courir Request: {{$DataResepien->pivot->courir_request}}</p>
+
+<p>Quantity Request: {{$DataResepien->pivot->quantity_request}}</p>
+<p>Detail address resipien Request: {{$DataResepien->pivot->detail_address_resipien}}</p>
+
+<p>Progress: {{$DataResepien->pivot->progress}}</p>
+
+
 @endforeach
+
+@endforeach
+

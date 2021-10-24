@@ -16,13 +16,14 @@ class AsiProduct extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function receiver()
-    {
-        return $this->belongsTo(User::class, 'receiver_id');
-    }
+ //   public function receiver()
+   // {
+     //   return $this->belongsTo(User::class, 'receiver_id');
+    //}
 
-    public function Users()
+    public function Users()//penerimaASI
     {
-        return $this->belongsToMany(User::class, 'asi_boards', 'asi_product_id', 'receiver_id');
+        return $this->belongsToMany(User::class, 'asi_boards', 'asi_product_id', 'receiver_id')->withTimestamps()
+        ->withPivot(['progress', 'quantity_request', 'courir_request', 'detail_address_resipien']);
     }
 }
