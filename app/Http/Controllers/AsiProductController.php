@@ -59,12 +59,11 @@ class AsiProductController extends Controller
     }
     public function showDetailDashboardRequestAsi(Request $request)
     {
-        $getDetailBoard= AsiBoard::find($request->idBoard)->first();
-        $getDetailProduct= AsiProduct::find($request->idProductAsi)->first();
-        $getDetailUserPenerima= AsiProduct::find($request->idUserpenerima)->first();
+        
+        $getDetailBoard= AsiBoard::where("id", $request->idBoard)->get();
+        $getDetailProduct= AsiProduct::all()->find($request->idProductAsi);
+        $getDetailUserPenerima= User::all()->find($request->idUserpenerima);
        
-       
-
         return view("ViewDetailDashboardRequest", [
             'DataProdukAsi'=>$getDetailProduct,
             'DataBoard'=>$getDetailBoard,

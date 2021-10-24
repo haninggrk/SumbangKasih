@@ -21,8 +21,8 @@
 
 <br><br><br>
 <button type="submit">See</button>
-@endforeach
 
+@endforeach
 @endforeach
 </form>
 

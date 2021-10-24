@@ -68,7 +68,7 @@ class User extends Authenticatable
     public function asiProductsPivot()
     {
         return $this->belongsToMany(AsiProduct::class, 'asi_boards', 'receiver_id', 'asi_product_id')->withTimestamps()
-        ->withPivot(['progress', 'quantity_request', 'courir_request', 'detail_address_resipien']);
+        ->withPivot(['id','receiver_id','progress', 'quantity_request', 'courir_request', 'detail_address_resipien']);
 
     }
 

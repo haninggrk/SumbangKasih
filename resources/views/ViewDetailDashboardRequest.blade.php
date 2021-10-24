@@ -1,4 +1,11 @@
 
-            <p>Nama Penerima : {{$DataPenerima->name}}</p>
-            <p>DataProdukAsi: {{$DataProdukAsi->tanggal_melahirkan}}</p>
-            <p>Data Board: {{$DataBoard->courir_request}}</p>
+          
+        
+ <p>{{$DataPenerima->name}}</p>
+ <p> USER ID:{{ Auth::user()->id }}</p>
+ <br>
+            <p>Tanggal Melahirkan: {{$DataProdukAsi->tanggal_melahirkan}}</p>
+            <br>
+            @foreach($DataBoard as $data)
+            <p>Courir Request: {{$data->courir_request}}</p>
+            @endforeach

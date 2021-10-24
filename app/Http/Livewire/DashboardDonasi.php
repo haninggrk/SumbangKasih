@@ -12,12 +12,7 @@ class DashboardDonasi extends Component
 {
     public function render()
     {
-      //  $getArrayIdasiProduct_user=User::find(Auth::user()->id)->asiProductsNonPivot;
-        //$arrayidasiProducts=array();
-
-       // foreach($getArrayIdasiProduct_user as $data){
-         //   array_push($arrayidasiProducts, $data->id);
-       // }
+   
 
 
 
