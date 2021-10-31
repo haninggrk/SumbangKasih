@@ -3041,6 +3041,10 @@ select{
   margin: auto;
 }
 
+.m-0{
+  margin: 0px;
+}
+
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -3731,6 +3735,10 @@ select{
 
 .gap-10{
   gap: 2.5rem;
+}
+
+.gap-2{
+  gap: 0.5rem;
 }
 
 .gap-x-4{
@@ -5990,6 +5998,10 @@ select{
 
   .lg\:mb-72{
     margin-bottom: 18rem;
+  }
+
+  .lg\:mt-14{
+    margin-top: 3.5rem;
   }
 
   .lg\:block{

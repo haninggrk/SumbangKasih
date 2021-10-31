@@ -49,39 +49,40 @@
 <x-custom>
     <x-slot name="content">
         <div class="hidden lg:block absolute -right-10 top-44" style="z-index: -1"><img width=900px src="{{asset('img/vector-welcome.png')}}"></div>
-        <div class="container mt-2 md:mt-14 py-2 md:py-10 lg:px-32 mx-auto gap-10">
+        <div class="hidden md:block lg:hidden absolute -right-10 top-44" style="z-index: -1"><img width=450px src="{{asset('img/vector-welcome.png')}}"></div>
+        <div class="container mt-2 lg:mt-14 py-2 md:py-10 lg:px-32 mx-auto gap-10">
           <div class="flex flex-wrap -mx-3 overflow-hidden mb-14 lg:mb-72">
 
-            <div class="my-3 px-3 w-full overflow-hidden md:block hidden text-3xl md:text-4xl text-left">
+            <div class="my-3 px-3 w-full overflow-hidden md:block hidden text-3xl md:text-4xl">
               HELPING OTHERS is the way
                 <br>we HELP OURSELVES
             </div>
-            <div class="my-3 px-3 w-full overflow-hidden font-black md:hidden block text-3xl md:text-4xl text-left">
+            <div class="my-3 px-3 w-full overflow-hidden font-black md:hidden block text-3xl md:text-4xl text-center">
               Helping Others is The Way We Help Ourself
             </div>
           
-            <div class="my-3 px-3 w-full overflow-hidden md:w-1/2">
+            <div class="my-3 px-3 w-full hidden md:block overflow-hidden md:w-1/2">
               Donasi mulai dari hal-hal kecil dan sederhana. Bantu mereka yang sedang membutuhkan. Bantu tuntaskan kasus stunting dan kelaparan di 
                 Indonesia melalui website sumbangkasih yang menjunjung tinggi keadilan dan kesetaraan.
             </div>
           
-            <div class="my-3 px-3 w-full overflow-hidden">
-              <x-jet-button class="text-base">Join Today</x-jet-button>
+            <div class="my-3 px-3 w-full overflow-hidden text-center md:text-left">
+              <a href="{{route('register')}}"><x-jet-button class="text-base rounded-full">Daftar Sekarang</x-jet-button></a>
             </div>
           </div>
           <div class="bg-white mb-16 text-black text-3xl text-center rounded-full py-2 max-w-2xl m-auto">Berbagi Sekarang!</div>
           
 <!-- This example requires Tailwind CSS v2.0+ -->
-<ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 lg:gap-x-64 mb-16">
+<ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 lg:gap-x-32 mb-16">
   @foreach($categories as $datacategory)
   <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
     <div class="w-full flex items-center justify-between p-6 space-x-6">
       <div class="flex-1">
         <div class="flex items-center space-x-3">
-          <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt=""><h3 class="text-gray-900 text-lg font-bold truncate">{{ $datacategory->name }}</h3>
+          <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt=""><h3 class="text-gray-900 text-2xl font-bold truncate">{{ $datacategory->name }}</h3>
           
         </div>
-        <p class="mt-1 text-gray-500 text-sm break-words">{{ $datacategory->description}}<br><br></p>
+        <p class="mt-1 text-gray-500 text-xl break-words">{{ $datacategory->description}}<br><br></p>
       </div>
       
     </div>
@@ -91,7 +92,7 @@
   <!-- More people... -->
 </ul>
 <div class="mx-auto text-center text-3xl">What can we do here?</div>
-<div class="mx-auto text-center text-3xl w-36 mb-16 rounded-full h-2 bg-orange-dd"></div>
+<div class="mx-auto text-center text-3xl w-36 mb-16 rounded-full h-2 bg-orangesa"></div>
 <!-- Required font awesome -->
 <link
   rel="stylesheet"
@@ -359,7 +360,7 @@
   </div>
 </div>
 <div class="mx-auto text-center text-3xl">Artikel Menginspirasi</div>
-<div class="mx-auto text-center text-3xl w-36 mb-16 rounded-full h-2 bg-orange-dd"></div>
+<div class="mx-auto text-center text-3xl w-36 mb-16 rounded-full h-2 bg-orangesa"></div>
 <div class="grid grid-cols-3 w-full gap-5 mb-32">
           
   <div class="bg-white  mx-auto text-center rounded-lg shadow-lg max-w-xs col-span-3 md:col-span-1 text-center">
@@ -370,7 +371,7 @@
       <p class="text-gray-700 mb-2">Kunjungan secara daring  menjadi salah satu inovasi yang dilakukan sejumlah museum di tengah pandemi COVID-19</p>
       
     </div>
-    <x-jet-button class="">Lihat Detail</x-jet-button>
+    <x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button>
 </div>
 <div class="bg-white  mx-auto text-center rounded-lg shadow-lg max-w-xs col-span-3 md:col-span-1 text-center">
   <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-3xl">
@@ -380,8 +381,8 @@
     <p class="text-gray-700 text-center mb-2">Pemanfaatan layanan kesehatan digital berwujud telehealth bisa menjadi bagian dari upaya mengubah kondisi pandemi COVID-19 menjadi endemi</p>
     
   </div>
-  <x-jet-button class="relative bottom-3">Lihat Detail</x-jet-button></div>
-  <div class="bg-white  mx-auto text-center rounded-lg shadow-lg max-w-xs col-span-3 md:col-span-1 text-center">
+  <x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button></div>
+  <div class="bg-white  mx-auto text-center rounded-lg shadow-lg max-w-xs col-span-3 md:col-span-1">
     <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-3xl">
     <div class="p-6 -mt-5 relative bg-white rounded-t-3xl text-center">
       <h2 class="font-bold mb-2 text-lg text-gray-900 text-center">Peran Penting Dokter dan Layanan Telemedik Saat Pandemi
@@ -389,14 +390,19 @@
       <p class="text-gray-700 text-center mb-2">Pemanfaatan layanan kesehatan digital berwujud telehealth bisa menjadi bagian dari upaya mengubah kondisi pandemi COVID-19 menjadi endemi</p>
       
     </div>
-    <x-jet-button class="relative bottom-3">Lihat Detail</x-jet-button></div>
+    <x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button></div>
 </div>
-<div class="grid grid-cols-6 items-center">
+<div class="grid grid-cols-6 items-center gap-1">
   <div class="text-2xl col-span-6 md:col-span-4 md:text-3xl text-center font-normal">Berminat ikuti kami untuk membantu warga yang membutuhkan?</div>
-  <div class="col-span-6 md:col-span-2 text-center">
-    <x-jet-button class="mx-1 w-1/3">Daftar Sekarang</x-jet-button>
-    <x-jet-button class="mx-1 w-1/3">Berdonasi Sekarang</x-jet-button>
+  <div class="col-span-6 md:col-span-1 text-center">
+    <a href="{{route('register')}}"><x-jet-button class="mx-1 rounded-full">Daftar Sekarang</x-jet-button></a>
+
   </div>
+  <div class="col-span-6 md:col-span-1 text-center">
+    <x-jet-button class="mx-1 rounded-full">Donasi Sekarang</x-jet-button>
+
+  </div>
+ 
 </div>
 
         </div>

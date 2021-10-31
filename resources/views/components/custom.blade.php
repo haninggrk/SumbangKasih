@@ -18,7 +18,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body >
+    <body style="max-width: 100vw; overflow-x:hidden;">
         <x-navbart></x-navbart>
         <div class="container mx-auto px-4">
         {{ $content }}

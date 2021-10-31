@@ -260,11 +260,11 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            LOKASI
+                                            Kategori
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            QUANTITY
+                                            Jumlah
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -273,7 +273,7 @@
                                     </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach($getAllDana as $Dana)
+                                        @foreach($getAllDana as $Dana)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">{{$Dana->created_at->format('m/d/y')}}</td>
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -295,20 +295,18 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div
-                                                    class="text-sm text-gray-900">{{$Dana->DB::table('categories')->find($Dana->cat)}}</div>
-                                                @if($DataAsi->courir_pemilik==1)
-                                                    <span
-                                                        class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
-                                                @endif
+                                                    class="text-sm text-gray-900">{{DB::table('categories')->find($Dana->category_id)->name}}</div>
+                                              
+                                                   
+                                            
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{$DataAsi->quantity}} Botol</div>
-                                                <div class="text-sm text-gray-500">{{$DataAsi->liter_per_pack}} Liter /
-                                                    Botol
+                                                <div class="text-sm text-gray-900">Rp.{{$Dana->amount}}</div>
+                                                <div class="text-sm text-gray-500">
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                                <a href="{{route('detailAsi',['id'=> $DataAsi->id])}}">
+                                                <a href="#">
                                                     <x-jet-button>Details</x-jet-button>
                                                 </a>
                                             </td>
@@ -322,6 +320,7 @@
             </div>
             <!-- This example requires Tailwind CSS v2.0+ -->
             <ul role="list" class="grid lg:hidden grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+             
                 @foreach($getAllAsiProduct as $DataAsi)
                     <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                         <div class="w-full flex items-center justify-between p-6 space-x-6">

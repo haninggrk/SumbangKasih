@@ -18,10 +18,10 @@ class AsiProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         $getAllAsiProduct=AsiProduct::all();
-        $getAllDana=Donation::all();
+        $getAllDana=Donation::where('id',$id);
         return view('GetAsiProduct', compact("getAllAsiProduct"));
     }
 
