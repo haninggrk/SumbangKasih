@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\welcome::class,'index'])->name('welcome');
+Route::get('/', [App\Http\Controllers\welcome::class, 'index'])->name('welcome');
 //Route::get('/data-asi', [App\Http\Controllers\AsiProductController::class,'index']);
 
 // Route dashboard taroh disini
@@ -22,8 +22,9 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix("dashboard")->group(func
         return view('dashboard');
     })->name('dashboard');
     Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class)->name('data-donasi');
-    Route::get('/data-donasi-asi/{id}', [App\Http\Controllers\AsiProductController::class,'show'])->name('detailAsi');
-    Route::post('/donasi/request-get-donasi-asi', [App\Http\Controllers\AsiProductController::class,'showDetailDashboardRequestAsi'])->name('DetailDashboardRequestAsi');
+    //Route::get('/data-donasi-asi/{id}', [App\Http\Controllers\AsiProductController::class,'show'])->name('detailAsi');
+    Route::get('/detail-donasi/asi/{asiId}', \App\Http\Livewire\DonateAsi::class)->name('detailAsi');
+    Route::post('/donasi/request-get-donasi-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardRequestAsi'])->name('DetailDashboardRequestAsi');
     Route::get('/donasi', \App\Http\Livewire\DashboardDonasi::class);
     Route::get('/ajukan-bantuan-dana', \App\Http\Livewire\RegisterFund::class)->name('register-fund');
 });
@@ -34,4 +35,4 @@ Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::
 })->name('admin.index');
 
 
-Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class,'store'])->name('ProsesPesanAsi');
+Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class, 'store'])->name('ProsesPesanAsi');

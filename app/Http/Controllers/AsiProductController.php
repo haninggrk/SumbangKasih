@@ -20,7 +20,7 @@ class AsiProductController extends Controller
      */
     public function index($id)
     {
-        $getAllAsiProduct=AsiProduct::all();
+        $getAllAsiProduct=AsiProduct::with('pemilik');
         $getAllDana=Donation::where('id',$id);
         return view('GetAsiProduct', compact("getAllAsiProduct"));
     }
@@ -43,7 +43,7 @@ class AsiProductController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
@@ -59,11 +59,11 @@ class AsiProductController extends Controller
     }
     public function showDetailDashboardRequestAsi(Request $request)
     {
-        
+
         $getDetailBoard= AsiBoard::where("id", $request->idBoard)->get();
         $getDetailProduct= AsiProduct::all()->find($request->idProductAsi);
         $getDetailUserPenerima= User::all()->find($request->idUserpenerima);
-       
+
         return view("ViewDetailDashboardRequest", [
             'DataProdukAsi'=>$getDetailProduct,
             'DataBoard'=>$getDetailBoard,

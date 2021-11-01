@@ -11,16 +11,13 @@ class AsiProduct extends Model
     use HasFactory;
 
     protected $table = 'asi_products';
+    protected $dates = ['tanggal_melahirkan'];
 
     public function pemilik()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
- //   public function receiver()
-   // {
-     //   return $this->belongsTo(User::class, 'receiver_id');
-    //}
 
     public function Users()//penerimaASI
     {

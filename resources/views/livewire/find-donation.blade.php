@@ -150,12 +150,12 @@
                                                 <div class="flex items-center">
                                                     <div class="flex-shrink-0 h-10 w-10">
                                                         <img class="h-10 w-10 rounded-full"
-                                                             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                                             src="{{$DataAsi->pemilik->profile_photo_url}}"
                                                              alt="">
                                                     </div>
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{DB::table('users')->find($DataAsi->user_id)->name}}
+                                                            {{$DataAsi->pemilik->name}}
                                                         </div>
                                                         <div class="text-sm text-gray-500">
 
@@ -179,7 +179,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                                <a href="{{route('detailAsi',['id'=> $DataAsi->id])}}">
+                                                <a href="{{route('detailAsi',['asiId'=> $DataAsi->id])}}">
                                                     <x-jet-button>Details</x-jet-button>
                                                 </a>
                                             </td>
@@ -214,13 +214,13 @@
                                             class="font-bold">{{$DataAsi->litre_quantity}} </span>Liter/Botol)</p>
                                 </div>
                                 <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                     src="{{$DataAsi->pemilik->profile_photo_url}}"
                                      alt="">
                             </div>
                             <div>
                                 <div class="-mt-px flex divide-x divide-gray-200">
                                     <div class="w-0 flex-1 flex">
-                                        <a href="mailto:janecooper@example.com"
+                                        <a href="{{route('detailAsi',['asiId'=> $DataAsi->id])}}"
                                            class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-orangesa font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
                                             <!-- Heroicon name: solid/mail -->
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -296,9 +296,9 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div
                                                     class="text-sm text-gray-900">{{DB::table('categories')->find($Dana->category_id)->name}}</div>
-                                              
-                                                   
-                                            
+
+
+
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">Rp.{{$Dana->amount}}</div>
@@ -320,7 +320,7 @@
             </div>
             <!-- This example requires Tailwind CSS v2.0+ -->
             <ul role="list" class="grid lg:hidden grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-             
+
                 @foreach($getAllAsiProduct as $DataAsi)
                     <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                         <div class="w-full flex items-center justify-between p-6 space-x-6">
