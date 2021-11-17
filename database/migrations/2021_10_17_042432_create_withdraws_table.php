@@ -15,7 +15,9 @@ class CreateWithdrawsTable extends Migration
     {
         Schema::create('withdraws', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->mediumText('message')->nullable();
             $table->integer('amount');
             // 1 = waiting verification, 2 = verified, 3 = rejected

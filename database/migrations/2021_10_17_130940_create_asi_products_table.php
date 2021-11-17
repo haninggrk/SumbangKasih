@@ -15,7 +15,9 @@ class CreateAsiProductsTable extends Migration
     {
         Schema::create('asi_products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->text('product_picture')->nullable();
             $table->dateTime('tanggal_melahirkan');
             $table->integer('quantity');
@@ -27,9 +29,7 @@ class CreateAsiProductsTable extends Migration
             // $table->text('detail_address_get');
             $table->text('bukti_foto_covid-19');
             // 1 = diterima | 2 = ditolak | 0 = menunggu
-           
-           
-        
+
             $table->timestamps();
         });
     }

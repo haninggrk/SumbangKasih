@@ -14,7 +14,9 @@ class AddMoreColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('category_id')->nullable()->references('id')->on('categories');
+            $table->foreignId('category_id')->nullable()->references('id')->on('categories')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
             // 1 = tipe donatur, 2 = penerima donasi 99 = admin
             $table->integer('user_type')->default(1);
@@ -29,7 +31,6 @@ class AddMoreColumnToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
         });
     }
 }

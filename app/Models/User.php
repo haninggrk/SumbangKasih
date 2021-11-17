@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -27,7 +26,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'user_type'
+        'user_type',
     ];
 
     /**
@@ -62,27 +61,24 @@ class User extends Authenticatable
 
     public function getIsAdminAttribute($value)
     {
-        return $this->user_type === 99;
+        return 99 === $this->user_type;
     }
 
-    public function asiProductsPivot()
+    public function asiResipiens()//ogin sebagai peminta asi
     {
-        return $this->belongsToMany(AsiProduct::class, 'asi_boards', 'receiver_id', 'asi_product_id')->withTimestamps()
-        ->withPivot(['id','receiver_id','progress', 'quantity_request', 'courir_request', 'detail_address_resipien']);
-
+        return $this->belongsToMany(AsiProduct::class, 'asi_boards', 'receiver_id', 'asi_product_id')
+        ->withPivot(['id', 'progress', 'quantity_request', 'courir_request', 'detail_address_resipien', 'created_at', 'updated_at']);
     }
 
     public function asiProducts()
     {
         return $this->hasMany(AsiProduct::class);
-
-
     }
 
-    public function receiverAsiProduct()
-    {
-        return $this->hasMany(User::class, 'receiver_id');
-    }
+    //public function receiverAsiProduct()
+    //{//
+    // return $this->hasMany(User::class, 'receiver_id');
+    //}
 
     public function receiverInfo()
     {
