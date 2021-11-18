@@ -43,22 +43,22 @@ class DonateAsi extends Component
             'courir_request' => $this->useCourier,
             'detail_address_resipien' => $this->address ?? '',
         ]);
-            if ($cekRequest) {
-                $asiProduct->update(['quantityupdated' => $asiProduct->quantityupdated - $this->quantity]);
-            }
+            // if ($cekRequest) {
+            //   $asiProduct->update(['quantityupdated' => $asiProduct->quantityupdated - $this->quantity]);
+            //}
 
             return redirect(route('dashboard'))->with([
-            'flash.banner' => 'Berhasil melakukan request produk asi!',
+            'flash.banner' => 'Berhasil memesan produk asi!',
             'flash.bannerStyle' => 'success',
         ]);
         } elseif ($this->quantity <= 0) {
             return redirect(route('dashboard'))->with([
-                'flash.banner' => 'Gagal melakukan request produk asi! Minimal request 1 product asi!',
+                'flash.banner' => 'Gagal memesan produk asi! Minimal memesan 1 produk asi!',
                 'flash.bannerStyle' => 'failed',
             ]);
         } else {
             return redirect(route('dashboard'))->with([
-                'flash.banner' => 'Gagal melakukan request produk asi! Quantity asi yang dipesan tidak cukup!',
+                'flash.banner' => 'Gagal memesan produk asi! Jumlah pesanan asi yang dipesan tidak cukup!',
                 'flash.bannerStyle' => 'failed',
             ]);
         }
