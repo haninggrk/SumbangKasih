@@ -14,8 +14,8 @@ class FindDonation extends Component
     public function render()
     {
         return view('livewire.find-donation')->with([
-            'getAllAsiProduct' => AsiProduct::where('user_id', '!=', auth()->user()->id)->orderBy('created_at', 'asc')
-            ->where('quantityupdated', '>', 0)->get(),
+            'getAllAsiProduct' => AsiProduct::where('user_id', '!=', auth()->user()->id)
+            ->where('quantityupdated', '>', 0)->where('status_persetujuan', '=', 1)->orderBy('created_at', 'asc')->get(),
             'getAllDana' => Donation::all(),
         ]);
     }

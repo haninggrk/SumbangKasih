@@ -56,7 +56,7 @@
 @endif
 @endforeach
 
-
+-------------------------------------------------------------------------------------------------------
 <br><br><br>
 /////halaman melihat pesanan asi yang aku pesan sama orang lain
 <p>getAllAsiProductDashboardMenungguRequest</p>
@@ -147,5 +147,81 @@
 
 
 
+------------------------------------------------------------------------------------------------
+<p>getAllmyDonorAsiProductDashboardDisetujui</p>
+
+@foreach($DataDonorAsiUser as $DataAsi)
+
+@if($DataAsi->status_persetujuan == 1)
+
+<form action="/detail-data-donor-asi-user-diterima" method="post">
+    @csrf
+
+    <p>Status_persetujuan: {{$DataAsi->status_persetujuan}}</p>
+
+<p>my Request: {{$DataPermintaan->pivot->courir_request}}</p>
+
+<p>Quantity: {{$DataAsi->quantity}}</p>
+<p>Lokasi: {{$DataAsi->city}}</p>
 
 
+
+<input hidden name="asiId" value="{{$DataAsi->id}}">
+
+<br><br><br>
+<button type="submit" class="btn btn-primary">See</button>
+</form>
+@endif
+@endforeach
+
+<p>getAllmyDonorAsiProductDashboardMenunggu</p>
+
+@foreach($DataDonorAsiUser as $DataAsi)
+
+@if($DataAsi->status_persetujuan == 0)
+
+<form action="/detail-data-donor-asi-user-menunggu" method="post">
+    @csrf
+
+    <p>Status_persetujuan: {{$DataAsi->status_persetujuan}}</p>
+
+<p>my Request: {{$DataPermintaan->pivot->courir_request}}</p>
+
+<p>Quantity: {{$DataAsi->quantity}}</p>
+<p>Lokasi: {{$DataAsi->city}}</p>
+
+
+
+<input hidden name="asiId" value="{{$DataAsi->id}}">
+
+<br><br><br>
+<button type="submit" class="btn btn-primary">See</button>
+</form>
+@endif
+@endforeach
+
+<p>getAllmyDonorAsiProductDashboardDitolak</p>
+
+@foreach($DataDonorAsiUser as $DataAsi)
+
+@if($DataAsi->status_persetujuan == 2)
+
+<form action="/detail-data-donor-asi-user-ditolak" method="post">
+    @csrf
+
+    <p>Status_persetujuan: {{$DataAsi->status_persetujuan}}</p>
+
+<p>my Request: {{$DataPermintaan->pivot->courir_request}}</p>
+
+<p>Quantity: {{$DataAsi->quantity}}</p>
+<p>Lokasi: {{$DataAsi->city}}</p>
+
+
+
+<input hidden name="asiId" value="{{$DataAsi->id}}">
+
+<br><br><br>
+<button type="submit" class="btn btn-primary">See</button>
+</form>
+@endif
+@endforeach

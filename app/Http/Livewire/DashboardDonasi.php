@@ -17,12 +17,12 @@ class DashboardDonasi extends Component
             }
         }
 
-
         $DataUser = User::findOrFail(auth()->user()->id); //array
 
         return view('livewire.dashboard-donasi')->with([
             'DataResipienAsi' => $arrayDataResipienAsi,
-            'DataPermintaanAsi' => $DataUser->asiResipiens
+            'DataPermintaanAsi' => $DataUser->asiResipiens,
+            'DataDonorAsiUser' => $DataUser->asiProducts,
         ]);
     }
 }
