@@ -8,14 +8,15 @@ use Livewire\Component;
 
 class FindDonation extends Component
 {
-    public $page = "asi";
+    public $page = 'asi';
     protected $queryString = ['page'];
 
     public function render()
     {
         return view('livewire.find-donation')->with([
-            'getAllAsiProduct' => AsiProduct::all(),
-            'getAllDana' => Donation::all()
+            'getAllAsiProduct' => AsiProduct::where('user_id', '!=', auth()->user()->id)->orderBy('created_at', 'asc')
+            ->where('quantity', '>', 0)->get(),
+            'getAllDana' => Donation::all(),
         ]);
     }
 
@@ -23,6 +24,5 @@ class FindDonation extends Component
     {
         $pageLower = strtolower($page);
         $this->page = $pageLower;
-
     }
 }

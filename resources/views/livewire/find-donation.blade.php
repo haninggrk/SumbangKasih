@@ -164,7 +164,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{$DataAsi->pemilik->city}}</div>
+                                                <div class="text-sm text-gray-900">{{$DataAsi->city}}</div>
                                                 @if($DataAsi->courir_pemilik==1)
                                                     <span
                                                         class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>

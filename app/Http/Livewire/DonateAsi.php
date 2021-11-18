@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\AsiBoard;
 use App\Models\AsiProduct;
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 
 class DonateAsi extends Component
 {
@@ -28,23 +27,40 @@ class DonateAsi extends Component
 
     public function requestAsi()
     {
-        $this->validate([
+        $asiProduct = AsiProduct::findOrFail($this->asiId);
+
+        if ($asiProduct->quantity >= $this->quantity && $this->quantity > 0) {
+            $this->validate([
             'quantity' => 'required|integer',
             'address' => 'exclude_if:useCourier,false|required',
         ]);
 
-        AsiBoard::create([
+            $cekRequest = AsiBoard::create([
             'asi_product_id' => $this->asiId,
-            'receiver_id' => Auth::user()->id,
+            'receiver_id' => auth()->user()->id,
             'progress' => 1,
             'quantity_request' => $this->quantity,
             'courir_request' => $this->useCourier,
             'detail_address_resipien' => $this->address ?? '',
         ]);
+            if ($cekRequest) {
+                $asiProduct->update(['quantity' => $asiProduct->quantity - $this->quantity]);
+            }
 
-        return redirect(route('dashboard'))->with([
+            return redirect(route('dashboard'))->with([
             'flash.banner' => 'Berhasil melakukan request produk asi!',
             'flash.bannerStyle' => 'success',
         ]);
+        } elseif ($this->quantity <= 0) {
+            return redirect(route('dashboard'))->with([
+                'flash.banner' => 'Gagal melakukan request produk asi! Minimal request 1 product asi!',
+                'flash.bannerStyle' => 'failed',
+            ]);
+        } else {
+            return redirect(route('dashboard'))->with([
+                'flash.banner' => 'Gagal melakukan request produk asi! Quantity asi yang dipesan tidak cukup!',
+                'flash.bannerStyle' => 'failed',
+            ]);
+        }
     }
 }

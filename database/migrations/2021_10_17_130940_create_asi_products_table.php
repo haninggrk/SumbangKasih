@@ -29,6 +29,8 @@ class CreateAsiProductsTable extends Migration
             // $table->text('detail_address_get');
             $table->text('bukti_foto_covid-19');
             // 1 = diterima | 2 = ditolak | 0 = menunggu
+            $table->string('city')->nullable();
+            $table->string('detail_address')->nullable();
 
             $table->timestamps();
         });

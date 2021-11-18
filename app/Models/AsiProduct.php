@@ -12,6 +12,7 @@ class AsiProduct extends Model
 
     protected $table = 'asi_products';
     protected $dates = ['tanggal_melahirkan'];
+    protected $guarded = ['id'];
 
     public function pemilik()
     {
