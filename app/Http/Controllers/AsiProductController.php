@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AsiBoard;
 use App\Models\AsiProduct;
 use App\Models\Donation;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\User;
 
 class AsiProductController extends Controller
 {
@@ -23,6 +21,31 @@ class AsiProductController extends Controller
         return view('GetAsiProduct', compact('getAllAsiProduct'));
     }
 
+    public function showDetailDashboardPendonorRequestAsi(Request $request)
+    {
+        $getInfoAsiProduct = AsiProduct::findOrFail($request->asiId);
+        $getInfo = $getInfoAsiProduct->Users;
+        $asiBoardId = $request->asiBoardId;
+
+        return view('showDetailDashboardPendonorRequestAsi', compact('getInfo', 'asiBoardId'));
+    }
+
+    public function showDetailDashboardPendonorHistoriAsi(Request $request)
+    {
+        $getInfoAsiProduct = AsiProduct::findOrFail($request->asiId);
+        $getInfo = $getInfoAsiProduct->Users;
+        $asiBoardId = $request->asiBoardId;
+
+        return view('showDetailDashboardPendonorHistoriAsi', compact('getInfo', 'asiBoardId'));
+    }
+    public function showDetailDashboardPendonorInProgressAsi(Request $request)
+    {
+        $getInfoAsiProduct = AsiProduct::findOrFail($request->asiId);
+        $getInfo = $getInfoAsiProduct->Users;
+        $asiBoardId = $request->asiBoardId;
+
+        return view('showDetailDashboardPendonorInProgressAsi', compact('getInfo', 'asiBoardId'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -53,19 +76,6 @@ class AsiProductController extends Controller
         $getAsiProductDetail = AsiProduct::where('id', $id)->first();
 
         return view('AsiDetail', compact($getAsiProductDetail, 'getAsiProductDetail'));
-    }
-
-    public function showDetailDashboardRequestAsi(Request $request)
-    {
-        $getDetailBoard = AsiBoard::where('id', $request->idBoard)->get();
-        $getDetailProduct = AsiProduct::all()->find($request->idProductAsi);
-        $getDetailUserPenerima = User::all()->find($request->idUserpenerima);
-
-        return view('ViewDetailDashboardRequest', [
-            'DataProdukAsi' => $getDetailProduct,
-            'DataBoard' => $getDetailBoard,
-            'DataPenerima' => $getDetailUserPenerima,
-        ]);
     }
 
     /**

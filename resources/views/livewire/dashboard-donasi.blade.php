@@ -2,12 +2,12 @@
 /////halaman melihat pesanan asi yang dipesan oleh orang lain
 <p>getAllAsiProductDashboardRequest</p>
 
-<form action="{{route('DetailDashboardRequestAsi')}}" method="post">
-    @csrf
+
 @foreach($DataResipienAsi as $DataResipien)
 
 @if($DataResipien->pivot->progress == 1)
-
+<form action="{{route('DetailDashboardPendonor-RequestAsi')}}" method="POST">
+    @csrf
 <--- --->
 
 
@@ -18,14 +18,18 @@
 <p>Quantity Request: {{$DataResipien->pivot->quantity_request}}</p>
 <p>Detail address resipien Request: {{$DataResipien->pivot->detail_address_resipien}}</p>
 <p>Progress: {{$DataResipien->pivot->progress}}</p>
-<input type="hidden" name="idBoard" value="{{$DataResipien->pivot->id}}">
-<input type="hidden" name="idUserpenerima" value="{{$DataResipien->id}}">
+<input hidden name="asiBoardId" value="{{$DataResipien->pivot->id}}">
+
+<input hidden name="asiId" value="{{$DataResipien->asiResipiens[0]->id}}">
+
 
 <br><br><br>
-<button type="submit">See</button>
+<button type="submit" class="btn btn-primary">See</button>
+
+</form>
 @endif
 @endforeach
-</form>
+
 
 
 <p>getAllAsiProductDashboardHistory</p>
@@ -34,6 +38,8 @@
 @foreach($DataResipienAsi as $DataResipien)
 
 @if($DataResipien->pivot->progress == 2 || $DataResipien->pivot->progress == 3)
+<form action="{{route('DetailDashboardPendonor-HistoriAsi')}}" method="post">
+    @csrf
 <p>Nama Resipien: {{$DataResipien->name}}</p>
 
 <p>Courir Request: {{$DataResipien->pivot->courir_request}}</p>
@@ -42,7 +48,12 @@
 <p>Detail address resipien Request: {{$DataResipien->pivot->detail_address_resipien}}</p>
 
 <p>Progress: {{$DataResipien->pivot->progress}}</p>
+<input hidden name="asiBoardId" value="{{$DataResipien->pivot->id}}">
+<input hidden name="asiId" value="{{$DataResipien->asiResipiens[0]->id}}">
+<br><br><br>
+<button type="submit" class="btn btn-primary">See</button>
 
+</form>
 @endif
 @endforeach
 
@@ -56,6 +67,9 @@
 
 @if($DataResipien->pivot->progress == 0)
 
+<form action="{{route('DetailDashboardPendonor-InProgressAsi')}}" method="post">
+    @csrf
+
 <p>Nama resipien: {{$DataResipien->name}}</p>
 
 <p>Courir Request: {{$DataResipien->pivot->courir_request}}</p>
@@ -64,6 +78,12 @@
 <p>Detail address resipien Request: {{$DataResipien->pivot->detail_address_resipien}}</p>
 
 <p>Progress: {{$DataResipien->pivot->progress}}</p>
+<input hidden name="asiBoardId" value="{{$DataResipien->pivot->id}}">
+<input hidden name="asiId" value="{{$DataResipien->asiResipiens[0]->id}}">
+
+<br><br><br>
+<button type="submit" class="btn btn-primary">See</button>
+</form>
 @endif
 @endforeach
 
