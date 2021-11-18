@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
             'name' => 'Penyintas Covid-19',
             'photo' => 'https://via.placeholder.com/1200x800',
             'show' => 1 === rand(1, 2),
-            'description' => 'Kategori untuk memberikan bantuan dana uang kepada masyarakat yang mendapatkan kesusahan ekonomi akibat derita Covid-19',
+            'description' => 'Kategori masyarakat yang mendapatkan hambatan atau kesusahan ekonomi akibat derita Covid-19',
         ]);
         Category::create([
             'name' => 'Ibu Kepala Rumah Tangga',
