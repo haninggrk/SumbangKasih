@@ -21,7 +21,9 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
     @stack('scripts')
 </head>
+
 <body x-data="{sidebarOpen: false}" class="font-sans antialiased h-full">
+
 <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
 <div x-show="sidebarOpen" class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
     @livewire('navigation-menu')
