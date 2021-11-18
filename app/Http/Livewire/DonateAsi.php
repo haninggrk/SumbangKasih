@@ -29,7 +29,7 @@ class DonateAsi extends Component
     {
         $asiProduct = AsiProduct::findOrFail($this->asiId);
 
-        if ($asiProduct->quantity >= $this->quantity && $this->quantity > 0) {
+        if ($asiProduct->quantityupdated >= $this->quantity && $this->quantity > 0) {
             $this->validate([
             'quantity' => 'required|integer',
             'address' => 'exclude_if:useCourier,false|required',
@@ -44,7 +44,7 @@ class DonateAsi extends Component
             'detail_address_resipien' => $this->address ?? '',
         ]);
             if ($cekRequest) {
-                $asiProduct->update(['quantity' => $asiProduct->quantity - $this->quantity]);
+                $asiProduct->update(['quantityupdated' => $asiProduct->quantityupdated - $this->quantity]);
             }
 
             return redirect(route('dashboard'))->with([

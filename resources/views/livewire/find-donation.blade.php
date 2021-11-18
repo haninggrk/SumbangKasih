@@ -173,7 +173,7 @@
 
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{$DataAsi->quantity}} Botol</div>
+                                                <div class="text-sm text-gray-900">{{$DataAsi->quantityupdated}} Botol</div>
                                                 <div class="text-sm text-gray-500">{{$DataAsi->liter_per_pack}} Liter /
                                                     Botol
                                                 </div>

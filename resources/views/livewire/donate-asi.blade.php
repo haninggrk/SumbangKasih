@@ -76,7 +76,7 @@
                                 Quantity
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                                {{$getAsiProductDetail->quantity}} Botol
+                                {{$getAsiProductDetail->quantityupdated}} Botol
                             </dd>
                         </div>
                         <div class="sm:col-span-1">
