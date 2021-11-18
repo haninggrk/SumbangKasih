@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\AsiBoard;
-use Database\Factories\AsiBoardFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,11 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminSeeder::class,
+            CategorySeeder::class,
             MoneySenderSeeder::class,
             ReceiverSeeder::class,
             WithdrawSeeder::class,
             AsiProductSeeder::class,
-           AsiBoardSeeder::class
+           AsiBoardSeeder::class,
         ]);
     }
 }
