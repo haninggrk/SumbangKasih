@@ -21,29 +21,46 @@ class DonateAsi extends Component
     public function render()
     {
         return view('livewire.donate-asi')->with([
-            'getAsiProductDetail' => AsiProduct::find($this->asiId)
+            'getAsiProductDetail' => AsiProduct::find($this->asiId),
         ]);
     }
 
     public function requestAsi()
     {
-        $this->validate([
+        $asiProduct = AsiProduct::findOrFail($this->asiId);
+
+        if ($asiProduct->quantityupdated >= $this->quantity && $this->quantity > 0) {
+            $this->validate([
             'quantity' => 'required|integer',
-            'address' => 'exclude_if:useCourier,false|required'
+            'address' => 'exclude_if:useCourier,false|required',
         ]);
 
-        AsiBoard::create([
+            $cekRequest = AsiBoard::create([
             'asi_product_id' => $this->asiId,
-            'receiver_id' => \Auth::user()->name,
+            'receiver_id' => auth()->user()->id,
             'progress' => 1,
             'quantity_request' => $this->quantity,
             'courir_request' => $this->useCourier,
-            'detail_address_resipien' => $this->address ?? ""
+            'detail_address_resipien' => $this->address ?? '',
         ]);
+            // if ($cekRequest) {
+            //   $asiProduct->update(['quantityupdated' => $asiProduct->quantityupdated - $this->quantity]);
+            //}
 
-        return redirect(route('dashboard'))->with([
-            'flash.banner' => 'Berhasil melakukan request produk asi!',
-            'flash.bannerStyle' => 'success'
+            return redirect(route('dashboard'))->with([
+            'flash.banner' => 'Berhasil memesan produk asi!',
+            'flash.bannerStyle' => 'success',
         ]);
+        } elseif ($this->quantity <= 0) {
+            return redirect(route('dashboard'))->with([
+                'flash.banner' => 'Gagal memesan produk asi! Minimal memesan 1 produk asi!',
+                'flash.bannerStyle' => 'failed',
+            ]);
+        } else {
+            return redirect(route('dashboard'))->with([
+                'flash.banner' => 'Gagal memesan produk asi! Jumlah pesanan asi yang dipesan tidak cukup!',
+                'flash.bannerStyle' => 'failed',
+            ]);
+        }
     }
 }

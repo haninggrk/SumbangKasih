@@ -51,9 +51,14 @@
 
             </div>
             <!--Mobile Navigation -->
-            <div class="content-center grid lg:grid-cols-1 grid-cols-2 gap-4 sm:grid-cols-2">
+            <div class="
+         
+            content-center grid lg:grid-cols-1 grid-cols-2 gap-4 sm:grid-cols-2">
                 <div
-                    class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                    class="   @if($page=="asi")
+                    ring-blue-900 ring-2
+                    @endif
+                    relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
                     <div class="flex-shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" viewBox="0 0 20 20"
@@ -65,7 +70,11 @@
 
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button wire:click="setPage('asi')" class="text-left focus:outline-none">
+                        <button wire:click="setPage('asi')" class="
+                        text-left focus:outline-none
+                       
+                        
+                        ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 ASI
@@ -78,7 +87,11 @@
 
                 </div>
                 <div
-                    class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                    class="
+                    @if($page=="dana")
+                    ring-blue-900 ring-2
+                    @endif
+                    relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
                     <div class="flex-shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" fill="none" viewBox="0 0 24 24"
@@ -164,7 +177,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{$DataAsi->pemilik->city}}</div>
+                                                <div class="text-sm text-gray-900">{{$DataAsi->city}}</div>
                                                 @if($DataAsi->courir_pemilik==1)
                                                     <span
                                                         class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
@@ -173,7 +186,7 @@
 
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{$DataAsi->quantity}} Botol</div>
+                                                <div class="text-sm text-gray-900">{{$DataAsi->quantityupdated}} Botol</div>
                                                 <div class="text-sm text-gray-500">{{$DataAsi->liter_per_pack}} Liter /
                                                     Botol
                                                 </div>
@@ -193,16 +206,16 @@
                         </div>
                     </div>
                 </div>
-                <!-- This example requires Tailwind CSS v2.0+ -->
                 <ul role="list" class="grid lg:hidden grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
                     @foreach($getAllAsiProduct as $DataAsi)
                         <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                             <div class="w-full flex items-center justify-between p-6 space-x-6">
                                 <div class="flex-1 truncate">
                                     <div class="flex items-center space-x-3">
-                                        <h3 class="text-gray-900 text-sm font-medium truncate">{{DB::table('users')->find($DataAsi->user_id)->name}}</h3>
+                                        <h3 class="text-gray-900 text-sm font-medium truncate">{{$DataAsi->pemilik->name}}</h3>
                                         @if(rand(1,2) == 1)
-
+    
                                         @else
                                             <span
                                                 class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Antar</span>
@@ -214,13 +227,13 @@
                                             class="font-bold">{{$DataAsi->litre_quantity}} </span>Liter/Botol)</p>
                                 </div>
                                 <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                     src="{{$DataAsi->pemilik->profile_photo_url}}"
+                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
                                      alt="">
                             </div>
                             <div>
                                 <div class="-mt-px flex divide-x divide-gray-200">
                                     <div class="w-0 flex-1 flex">
-                                        <a href="{{route('detailAsi',['asiId'=> $DataAsi->id])}}"
+                                        <a href="mailto:janecooper@example.com"
                                            class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-orangesa font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
                                             <!-- Heroicon name: solid/mail -->
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -231,20 +244,19 @@
                                             <span class="ml-3">Detail</span>
                                         </a>
                                     </div>
-
                                 </div>
                             </div>
                         </li>
-                @endforeach
-                <!-- More people... -->
+                    @endforeach
                 </ul>
+              
             </div>
     @else
         <!-- Taruh kode dana disini -->
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->
                 <div style="" class="overflow-y-hidden overflow-x-hidden hidden lg:flex flex-col">
-                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="-my-2 overflow-x-auto ">
                         <tr class="py-2 align-middle inline-block min-w-full sm:px-6 md:px-0 lg:px-8">
                             <div class="tableWrap shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200">
@@ -297,8 +309,6 @@
                                                 <div
                                                     class="text-sm text-gray-900">{{DB::table('categories')->find($Dana->category_id)->name}}</div>
 
-
-
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">Rp.{{$Dana->amount}}</div>
@@ -318,10 +328,11 @@
                     </div>
                 </div>
             </div>
+        </div>
             <!-- This example requires Tailwind CSS v2.0+ -->
             <ul role="list" class="grid lg:hidden grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-                @foreach($getAllAsiProduct as $DataAsi)
+                @foreach($getAllDana as $DataAsi)
                     <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                         <div class="w-full flex items-center justify-between p-6 space-x-6">
                             <div class="flex-1 truncate">

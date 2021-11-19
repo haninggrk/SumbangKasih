@@ -70,7 +70,7 @@
               <a href="{{route('register')}}"><x-jet-button class="text-base rounded-full">Daftar Sekarang</x-jet-button></a>
             </div>
           </div>
-          <div class="bg-white mb-16 text-black text-3xl text-center rounded-full py-2 max-w-2xl m-auto">Berbagi Sekarang!</div>
+          <div class="bg-white mb-16 text-black text-3xl text-center rounded-full py-2 max-w-2xl m-auto">Kemana Anda Bisa Menyumbang Dana Uang ?</div>
           
 <!-- This example requires Tailwind CSS v2.0+ -->
 <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 lg:gap-x-32 mb-16">

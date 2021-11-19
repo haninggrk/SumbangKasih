@@ -52,7 +52,7 @@
                         </div>
                         <div class="ml-4">
                             <div class="text-sm font-medium text-gray-900">
-                                Jane Cooper
+                            {{$getAsiProductDetail->pemilik->name}}
                             </div>
                             <div class="text-sm text-gray-500">
                                 <!--  -->
@@ -76,7 +76,7 @@
                                 Quantity
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                                {{$getAsiProductDetail->quantity}} Botol
+                                {{$getAsiProductDetail->quantityupdated}} Botol
                             </dd>
                         </div>
                         <div class="sm:col-span-1">
@@ -98,10 +98,10 @@
 
                         <div class="sm:col-span-3">
                             <dt class="text-sm font-medium text-gray-500">
-                                Lokasi Alamat Donatur
+                                Alamat Lengkap Donatur
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                                {{$getAsiProductDetail->pemilik->city}}
+                                {{$getAsiProductDetail->detail_address}}
                             </dd>
                         </div>
                         <div class="sm:col-span-3" x-data="{ on: @entangle('useCourier') }">

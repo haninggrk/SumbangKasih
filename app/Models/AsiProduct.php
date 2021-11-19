@@ -12,24 +12,26 @@ class AsiProduct extends Model
 
     protected $table = 'asi_products';
     protected $dates = ['tanggal_melahirkan'];
+    protected $guarded = ['id'];
 
     public function pemilik()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-
     public function Users()//penerimaASI
     {
+        // $getArrayIdasiProduct_user=User::find(Auth::user()->id)->asiProducts;
+        //$arrayidasiProducts=array();
 
-        $getArrayIdasiProduct_user=User::find(Auth::user()->id)->asiProducts;
-        $arrayidasiProducts=array();
+        //foreach($getArrayIdasiProduct_user as $data){
+        //  array_push($arrayidasiProducts, $data->id);
+        //}
+        //return $this->belongsToMany(User::class, 'asi_boards', 'asi_product_id', 'receiver_id')->withTimestamps()
+        //->withPivot(['id','receiver_id','progress', 'quantity_request', 'courir_request', 'detail_address_resipien'])
+        //->wherePivotIn('asi_product_id', $arrayidasiProducts);
 
-        foreach($getArrayIdasiProduct_user as $data){
-            array_push($arrayidasiProducts, $data->id);
-        }
-        return $this->belongsToMany(User::class, 'asi_boards', 'asi_product_id', 'receiver_id')->withTimestamps()
-        ->withPivot(['id','receiver_id','progress', 'quantity_request', 'courir_request', 'detail_address_resipien'])
-        ->wherePivotIn('asi_product_id', $arrayidasiProducts);
+        return $this->belongsToMany(User::class, 'asi_boards', 'asi_product_id', 'receiver_id')
+        ->withPivot(['id', 'progress', 'quantity_request', 'courir_request', 'detail_address_resipien', 'created_at', 'updated_at']);
     }
 }
