@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AsiBoard;
 use App\Models\AsiProduct;
 use App\Models\Donation;
 use Illuminate\Http\Request;
@@ -38,6 +39,7 @@ class AsiProductController extends Controller
 
         return view('showDetailDashboardPendonorHistoriAsi', compact('getInfo', 'asiBoardId'));
     }
+
     public function showDetailDashboardPendonorInProgressAsi(Request $request)
     {
         $getInfoAsiProduct = AsiProduct::findOrFail($request->asiId);
@@ -46,6 +48,23 @@ class AsiProductController extends Controller
 
         return view('showDetailDashboardPendonorInProgressAsi', compact('getInfo', 'asiBoardId'));
     }
+
+    public function prosesRequestPendonor(Request $request)
+    {
+        $asiProduct = AsiProduct::findOrFail($request->asiId);
+        $asiBoard = AsiBoard::findOrFail($request->asiBoardId);
+        if (isset($_POST['terima'])) {
+            $asiProduct->update(['quantityupdated' => $asiProduct->quantityupdated - $asiBoard->quantity_request]);
+            $asiBoard->update(['progress' => 0]);
+        } else {
+            $asiBoard->update(['progress' => 3]);
+        }
+
+        return redirect()->route('dashboard-donasi-asi');
+
+        // return view('showDetailDashboardPendonorInProgressAsi', compact('getInfo', 'asiBoardId'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

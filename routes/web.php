@@ -28,7 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     Route::post('/detail-resipien-request-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardPendonorRequestAsi'])->name('DetailDashboardPendonor-RequestAsi');
     Route::post('/detail-resipien-histori-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardPendonorHistoriAsi'])->name('DetailDashboardPendonor-HistoriAsi');
     Route::post('/detail-resipien-inprogress-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardPendonorInProgressAsi'])->name('DetailDashboardPendonor-InProgressAsi');
-    Route::get('/donasi', \App\Http\Livewire\DashboardDonasi::class); //hlmn untuk mnmpilkan sttus asiku yg dipesan sama org lain
+    Route::get('/donasi', \App\Http\Livewire\DashboardDonasi::class)->name('dashboard-donasi-asi'); //hlmn untuk mnmpilkan sttus asiku yg dipesan sama org lain
      Route::get('/donasi-permintaan-asi', DashboardDonasiPermintaanAsi::class); //hlmn untuk mnmpilkan sttus asi yg aku pesan sama org lain
 
     Route::post('/detail-permintaan-request-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardResipienRequestAsi'])->name('DetailDashboardResipien-RequestAsi');
@@ -36,6 +36,8 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     Route::post('/detail-permintaan-inprogress-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardResipienInProgressAsi'])->name('DetailDashboardResipien-InProgressAsi');
 
     Route::get('/ajukan-bantuan-dana', \App\Http\Livewire\RegisterFund::class)->name('register-fund');
+
+    Route::post('/donasi/detail-resipien-request-asi/proses-request-pendonor', [App\Http\Controllers\AsiProductController::class, 'prosesRequestPendonor'])->name('proses-request-pendonor');
 });
 
 Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::class])->get('/admin', function () {

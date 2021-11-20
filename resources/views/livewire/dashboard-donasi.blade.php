@@ -226,6 +226,7 @@
 @endif
 @endforeach
 -->
+
 <div>
     <style>
         /* Set a fixed scrollable wrapper */
@@ -298,7 +299,7 @@
 
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button wire:click="setPage('asi')" class="
+                        <button wire:click="setPage('asi_request')" class="
                         text-left focus:outline-none
                        
                         
@@ -330,7 +331,7 @@
 
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button wire:click="setPage('dana')" class="text-left focus:outline-none">
+                        <button wire:click="setPage('asi_on_progress')" class="text-left focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 Sedang Berlangsung
@@ -388,7 +389,7 @@
                                     <tbody class="bg-white divide-y divide-gray-200">
 
                                         @foreach($DataResipienAsi as $DataResipien)
-                                        @if($DataResipien->pivot->progress == 1)
+                                        @if($DataResipien->pivot->progress == 0)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">{{$DataResipien->created_at->format('m/d/y')}}</td>
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -421,12 +422,15 @@
                                           
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm ">
-                                                {{$DataResipien->city}}
+                                                {{$DataResipien->pivot->city}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                                <a href="">
+                                                <a href="/dashboard/donasi/detail-resipien-request-asi">//
                                                     <x-jet-button>Detail</x-jet-button>
                                                 </a>
+                                   
+
+
                                             </td>
                                         </tr>
                                         @endif
@@ -442,7 +446,7 @@
                 <ul role="list" class="grid lg:hidden grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
                     @foreach($DataResipienAsi as $DataResipien)
-                        @if($DataResipien->pivot->progress == 1)
+                        @if($DataResipien->pivot->progress == 0)
                         <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                             <div class="w-full flex items-center justify-between p-6 space-x-6">
                                 <div class="flex-1 truncate">
@@ -524,7 +528,7 @@
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
                                         @foreach($DataResipienAsi as $DataResipien)
-                                        @if($DataResipien->pivot->progress == 0)
+                                        @if($DataResipien->pivot->progress == 1)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">{{$DataResipien->created_at->format('m/d/y')}}</td>
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -561,9 +565,18 @@
                                                 {{$DataResipien->city}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                                <a href="#">
+                                            <form action="{{ route('DetailDashboardPendonor-RequestAsi')}}" method="post">
+    {{ csrf_field() }}
+            <input type="hidden" name="asiBoardId" value="{{$DataResipien->pivot->id}}"></input>
+               
+            <input type="hidden" name="asiId" value="{{$DataResipien->asiResipiens[0]->id}}"></input>
+               
+            
+           
+                                                <button type="submit">
                                                     <x-jet-button>Details</x-jet-button>
-                                                </a>
+                                                </button>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endif
@@ -581,7 +594,7 @@
 
                 @foreach($DataResipienAsi as $DataResipien)
 
-                @if($DataResipien->pivot->progress == 0)
+                @if($DataResipien->pivot->progress == 1)
                     <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                         <div class="w-full flex items-center justify-between p-6 space-x-6">
                             <div class="flex-1 truncate">

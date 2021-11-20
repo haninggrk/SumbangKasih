@@ -43,9 +43,6 @@ class DonateAsi extends Component
             'courir_request' => $this->useCourier,
             'detail_address_resipien' => $this->address ?? '',
         ]);
-            // if ($cekRequest) {
-            //   $asiProduct->update(['quantityupdated' => $asiProduct->quantityupdated - $this->quantity]);
-            //}
 
             return redirect(route('dashboard'))->with([
             'flash.banner' => 'Berhasil memesan produk asi!',
