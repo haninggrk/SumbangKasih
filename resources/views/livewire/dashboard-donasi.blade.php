@@ -299,10 +299,8 @@
 
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button wire:click="setPage('asi_request')" class="
+                        <a href="{{route('dashboard-donasi-asi')}}?page=asi_request"><button  class="
                         text-left focus:outline-none
-                       
-                        
                         ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
@@ -312,6 +310,7 @@
                                 Lihat Permintaan
                             </p>
                         </button>
+                    </a>
                     </div>
 
                 </div>
@@ -332,7 +331,7 @@
 
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button wire:click="setPage('asiprog')" class="text-left focus:outline-none">
+                        <a href="{{route('dashboard-donasi-asi')}}?page=asi_on_progress"> <button class="text-left focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 Sedang Berlangsung
@@ -341,6 +340,7 @@
                                 Segera Selesaikan Pesanan
                             </p>
                         </button>
+                    </a>
                     </div>
 
                 </div>
@@ -495,8 +495,9 @@
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->
                 <div style="" class="overflow-y-hidden overflow-x-hidden hidden lg:flex flex-col">
-                    <div class="-my-2 overflow-x-auto ">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ">
                         <tr class="py-2 align-middle inline-block min-w-full sm:px-6 md:px-0 lg:px-8">
+                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 md:px-0 lg:px-8">
                             <div class="tableWrap shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gray-50">
@@ -590,6 +591,7 @@
                        
                                     </tbody>
                                 </table>
+                            </div>
                             </div>
                     </div>
                 </div>
