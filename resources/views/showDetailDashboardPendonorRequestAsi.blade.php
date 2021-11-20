@@ -128,12 +128,8 @@ tanggal dipesan={{$dataPesananResipien->pivot->created_at}}
                             @csrf
                             <input type="hidden" name="asiBoardId" value="{{$dataPesananResipien->pivot->id}}">
                             <input type="hidden" name="asiId" value="{{$dataPesananResipien->asiResipiens[0]->id}}">
-                        <div class="sm:col-span-3 text-right">
-                            <button class="rounded-full text-sm bg-orange-dd" name="terima">Terima</button>
-                        </div>
-                        <div class="sm:col-span-3 text-right">
-                            <button class="rounded-full text-sm bg-orange-dd" name="tolak">Tolak</button>
-                        </div>
+                        <x-jet-button name="terima">Terima</x-jet-button>
+                        <x-jet-button name="tolak">Tolak</x-jet-button>
                         </form>
 
 

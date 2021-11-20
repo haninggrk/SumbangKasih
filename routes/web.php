@@ -25,7 +25,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     Route::get('/data-donasi', \App\Http\Livewire\FindDonation::class)->name('data-donasi');
     //Route::get('/data-donasi-asi/{id}', [App\Http\Controllers\AsiProductController::class,'show'])->name('detailAsi');
     Route::get('/detail-donasi/asi/{asiId}', \App\Http\Livewire\DonateAsi::class)->name('detailAsi');
-    Route::post('/detail-resipien-request-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardPendonorRequestAsi'])->name('DetailDashboardPendonor-RequestAsi');
+    Route::get('/detail-resipien-request-asi/{idasi}/{idasiboard}', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardPendonorRequestAsi'])->name('DetailDashboardPendonor-RequestAsi');
     Route::post('/detail-resipien-histori-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardPendonorHistoriAsi'])->name('DetailDashboardPendonor-HistoriAsi');
     Route::post('/detail-resipien-inprogress-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardPendonorInProgressAsi'])->name('DetailDashboardPendonor-InProgressAsi');
     Route::get('/donasi', \App\Http\Livewire\DashboardDonasi::class)->name('dashboard-donasi-asi'); //hlmn untuk mnmpilkan sttus asiku yg dipesan sama org lain

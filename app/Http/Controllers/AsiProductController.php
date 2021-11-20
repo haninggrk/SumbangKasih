@@ -22,11 +22,11 @@ class AsiProductController extends Controller
         return view('GetAsiProduct', compact('getAllAsiProduct'));
     }
 
-    public function showDetailDashboardPendonorRequestAsi(Request $request)
+    public function showDetailDashboardPendonorRequestAsi($idasiboard, $idasiproduct)
     {
-        $getInfoAsiProduct = AsiProduct::findOrFail($request->asiId);
+        $getInfoAsiProduct = AsiProduct::findOrFail($idasiproduct);
         $getInfo = $getInfoAsiProduct->Users;
-        $asiBoardId = $request->asiBoardId;
+        $asiBoardId = $idasiboard;
 
         return view('showDetailDashboardPendonorRequestAsi', compact('getInfo', 'asiBoardId'));
     }

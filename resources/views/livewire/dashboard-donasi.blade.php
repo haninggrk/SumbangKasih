@@ -8,7 +8,7 @@
 @foreach($DataResipienAsi as $DataResipien)
 
 @if($DataResipien->pivot->progress == 1)
-<form action="{{route('DetailDashboardPendonor-RequestAsi')}}" method="POST">
+
     @csrf
 
 
@@ -284,7 +284,7 @@
          
             content-center grid lg:grid-cols-1 grid-cols-2 gap-4 sm:grid-cols-2">
                 <div
-                    class="   @if(request()->page=="asi")
+                    class="   @if(request()->page=="asi_request")
                     ring-blue-900 ring-2
                     @endif
                     relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
@@ -318,6 +318,7 @@
                 <div
                     class="
                     @if(request()->page=="asi_on_progress")
+                   
                     ring-blue-900 ring-2
                     @endif
                     relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
@@ -331,7 +332,7 @@
 
                     </div>
                     <div class="flex-1 min-w-0">
-                        <button wire:click="setPage('asi_on_progress')" class="text-left focus:outline-none">
+                        <button wire:click="setPage('asiprog')" class="text-left focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 Sedang Berlangsung
@@ -350,7 +351,7 @@
 
 
         </div>
-        @if(request()->page == 'asi_request')
+        @if(request()->page == 'asi_on_progress')
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->
                 <div style="" class="overflow-y-hidden overflow-x-hidden hidden lg:flex flex-col">
@@ -425,7 +426,7 @@
                                                 {{$DataResipien->pivot->city}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                                <a href="/dashboard/donasi/detail-resipien-request-asi">//
+                                                <a href="/dashboard/donasi/detail-resipien-request-asi">
                                                     <x-jet-button>Detail</x-jet-button>
                                                 </a>
                                    
@@ -565,7 +566,12 @@
                                                 {{$DataResipien->city}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                            <form action="{{ route('DetailDashboardPendonor-RequestAsi')}}" method="post">
+                                                <a href="{{ route('DetailDashboardPendonor-RequestAsi',[
+                                                    'idasi' => $DataResipien->pivot->id,
+                                                    'idasiboard' => $DataResipien->asiResipiens[0]->id
+                                                ])}}"><x-jet-button>Detail</x-jet-button></a>
+                                                
+                                                <!-- <form action="" method="post">
     {{ csrf_field() }}
             <input type="hidden" name="asiBoardId" value="{{$DataResipien->pivot->id}}"></input>
                
@@ -576,7 +582,7 @@
                                                 <button type="submit">
                                                     <x-jet-button>Details</x-jet-button>
                                                 </button>
-                                                </form>
+                                                </form>-->
                                             </td>
                                         </tr>
                                         @endif
