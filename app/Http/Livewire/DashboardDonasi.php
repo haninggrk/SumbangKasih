@@ -27,6 +27,7 @@ class DashboardDonasi extends Component
             'DataResipienAsi' => $arrayDataResipienAsi,
             'DataPermintaanAsi' => $DataUser->asiResipiens,
             'DataDonorAsiUser' => $DataUser->asiProducts,
+            'page' => 'asi_request'
         ]);
     }
 
