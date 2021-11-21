@@ -11,6 +11,7 @@ class DashboardDonasi extends Component
     public $page = 'asi';
     protected $queryString = ['page'];
 
+
     public function render()
     {
         $DataAsiProducts = User::findOrFail(auth()->user()->id)->asiProducts; //array
