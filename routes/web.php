@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\welcome::class, 'index'])->name('welcome');
+
+
 //Route::get('/data-asi', [App\Http\Controllers\AsiProductController::class,'index']);
 
 // Route dashboard taroh disini
@@ -55,3 +58,4 @@ Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::
 })->name('admin.index');
 
 Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class, 'store'])->name('ProsesPesanAsi');
+
