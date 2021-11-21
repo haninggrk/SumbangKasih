@@ -3441,6 +3441,10 @@ select{
   max-width: none;
 }
 
+.max-w-6xl{
+  max-width: 72rem;
+}
+
 .flex-1{
   flex: 1 1 0%;
 }
@@ -4295,6 +4299,10 @@ select{
   padding-right: 2.25rem;
 }
 
+.pt-8{
+  padding-top: 2rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -4593,6 +4601,11 @@ select{
 .text-primary-600{
   --tw-text-opacity: 1;
   color: rgba(37, 99, 235, var(--tw-text-opacity));
+}
+
+.text-gray-200{
+  --tw-text-opacity: 1;
+  color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
 
 .underline{
@@ -5505,6 +5518,10 @@ select{
 
   .sm\:items-center{
     align-items: center;
+  }
+
+  .sm\:justify-start{
+    justify-content: flex-start;
   }
 
   .sm\:justify-center{
