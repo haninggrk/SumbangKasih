@@ -51,6 +51,8 @@ public function verifyUser(Request $request){
     $getuser = User::where(['verification_code' => $verification_code])->update([
         'is_verified' => 1
     ]);
-   
+   if($getuser){
+       return redirect()->route('login');
+   }
 }
 }
