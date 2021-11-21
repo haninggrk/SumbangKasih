@@ -32,8 +32,8 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     Route::post('/detail-resipien-histori-asi', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardPendonorHistoriAsi'])->name('DetailDashboardPendonor-HistoriAsi');
     Route::get('/detail-resipien-inprogress-asi/{idasiboard}', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardPendonorInProgressAsi'])->name('DetailDashboardPendonor-InProgressAsi');
     Route::get('/permintaan-donasi-asi', \App\Http\Livewire\DashboardDonasi::class)->name('dashboard-permintaan-donasi-asi'); //hlmn untuk mnmpilkan sttus asiku yg dipesan sama org lain
-    Route::get('/request-donasi-asi', \App\Http\Livewire\DashboardDonasiPengajuanAsi::class)->name('dashboard-request-donasi-asi'); 
-    Route::get('/donor-donasi-asi', \App\Http\Livewire\DashboardProductDonorDonasiAsi::class)->name('dashboard-pendonor-donasi-asi'); 
+    Route::get('/request-donasi-asi', \App\Http\Livewire\DashboardDonasiPengajuanAsi::class)->name('dashboard-request-donasi-asi');
+    Route::get('/donor-donasi-asi', \App\Http\Livewire\DashboardProductDonorDonasiAsi::class)->name('dashboard-pendonor-donasi-asi');
 
     Route::get('/detail-permintaan-request-asi/{idasiboard}', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardResipienRequestAsi'])->name('DetailDashboardResipien-RequestAsi');
     Route::get('/detail-permintaan-histori-asi/{idasiboard}/{progress}', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardResipienHistoriAsi'])->name('DetailDashboardResipien-HistoriAsi');
@@ -49,6 +49,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
 
     Route::post('/donasi/detail-permintaan-request-asi/proses-request-resipien', [App\Http\Controllers\AsiProductController::class, 'prosesPermintaanAsiRequestResipien'])->name('proses-permintaan-asi-request-resipien');
     Route::post('/donasi/detail-permintaan-inprogress-asi/proses-inprogress-resipien', [App\Http\Controllers\AsiProductController::class, 'prosesPermintaanAsiInProgressResipien'])->name('proses-permintaan-asi-inprogress-resipien');
+    Route::get('/donasi-uang/{idKategori}', \App\Http\Livewire\DonateMoney::class)->name('donate-money.show');
 
     Route::post('/donasi/detail-donor-produk-request-asi/proses-request-donor-produk', [App\Http\Controllers\AsiProductController::class, 'prosesDonorProdukAsiBatal'])->name('proses-donor-produk-asi');
 });

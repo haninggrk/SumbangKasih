@@ -85,4 +85,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Donation::class);
     }
+
+    protected function defaultProfilePhotoUrl()
+    {
+        return 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&color=EF4136&background=EBF4FF';
+    }
 }
