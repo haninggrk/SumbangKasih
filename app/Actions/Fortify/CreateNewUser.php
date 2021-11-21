@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use App\Http\Controllers\MailController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
@@ -43,5 +44,13 @@ class CreateNewUser implements CreatesNewUsers
     }
 
     return redirect()->route('register')->with(session()->flash('alert-danger', 'Registrasi Gagal'));
+}
+
+public function verifyUser(Request $request){
+    $verification_code = Request::get('code');
+    $getuser = User::where(['verification_code' => $verification_code])->update([
+        'is_verified' => 1
+    ]);
+   
 }
 }

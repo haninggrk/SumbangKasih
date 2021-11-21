@@ -59,3 +59,4 @@ Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::
 
 Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class, 'store'])->name('ProsesPesanAsi');
 
+Route::get('/verify', 'App\Actions\Fortify\CreateNewUser@verifyUser')->name('verify.user');
