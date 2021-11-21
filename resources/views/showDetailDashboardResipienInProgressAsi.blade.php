@@ -1,26 +1,11 @@
-<!-- @foreach($getInfo as $dataPesananResipien)
-
-<br>
-Nama Resipien={{$getInfo->name}}
-<br>
-quantity yang direquest = {{$getInfo->pivot->quantity_request}}
-<br>
-jumlah botol yg dimlki oleh pendonor saat ini={{ $getInfoAsi->quantityupdated }}
-<br>
-detail almat rsipien={{$getInfo->pivot->detail_address_resipien}}
-<br>
-tanggal dipesan={{$getInfo->pivot->created_at}}
-
-@endforeach -->
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Permintaan ASI') }}
+            {{ __('Request ASI') }}
         </h2>
     </x-slot>
     <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-        {{ __('Detail Permintaan') }}
+        {{ __('Detail Request') }}
     </h1>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
@@ -42,7 +27,7 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                     </div>
 
                     <div class="flex-1 min-w-0">
-                        <a href="{{ route('dashboard-permintaan-donasi-asi') }}" class="focus:outline-none">
+                        <a href="{{ route('dashboard-request-donasi-asi') }}" class="focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 Kembali ke Halaman Dashboard
@@ -62,11 +47,11 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                     <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
                             <img class="h-10 w-10 rounded-full"
-                                 src="{{$getInfo->profile_photo_url}}">
+                                 src="{{$getInfo->pemilik->profile_photo_url}}">
                         </div>
                         <div class="ml-4">
                             <div class="text-sm font-medium text-gray-900">
-                            {{$getInfo->name}}
+                            {{$getInfo->pemilik->name}}
                             </div>
                             <div class="text-sm text-gray-500">
                                 <!--  -->
@@ -103,7 +88,7 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                                 Liter/Botol
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                                {{$getInfoAsi->liter_per_pack}}
+                                {{$getInfo->liter_per_pack}}
                             </dd>
                         </div>
                         <div class="sm:col-span-3 q">
@@ -111,7 +96,7 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                                 Deskripsi Produk ASI
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                                {{$getInfoAsi->description}}
+                                {{$getInfo->description}}
                             </dd>
                         </div>
 
@@ -123,14 +108,13 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                                 {{$getInfo->pivot->detail_address_resipien}}
                             </dd>
                         </div>
-                        <form method="POST" action="{{ route('proses-permintaan-asi-request-pendonor') }}">
+                        <form method="POST" action="{{ route('proses-permintaan-asi-inprogress-resipien') }}">
                             @csrf
                             <input type="hidden" name="asiBoardId" value="{{$idasiboard}}">
-                            <input type="hidden" name="asiId" value="{{$getInfoAsi->id}}">
-                            @if($getInfoAsi->quantityupdated >= $getInfo->pivot->quantity_request)
-                        <x-jet-button name="terima">Terima</x-jet-button>
-                        @endif
-                        <x-jet-button name="tolak">Tolak</x-jet-button>
+                            <input type="hidden" name="asiId" value="{{$getInfo->id}}">
+                    
+                        <x-jet-button name="batal">Batalkan</x-jet-button>
+                        <x-jet-button name="terima">Telah Diterima</x-jet-button>
                         </form>
 
 
