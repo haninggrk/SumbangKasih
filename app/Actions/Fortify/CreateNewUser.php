@@ -32,18 +32,16 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'email_verified_at'=>sha1(time())
+            'verification_code' => sha1(time())
+           
         ]);
-
-        dd($createUser->id);
 
         if($createUser){
-        //    MailController::sendSignUpEmail($input['name'], $input['email'], );
-        }
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-        ]);
+           MailController::sendSignUpEmail($createUser->name, $createUser->email, $createUser->verification_code);
+        
+        return redirect()->route('register')->with(session()->flash('alert-success', 'Registrasi Berhasil. Cek Email Anda Untuk Verifikasi!'));
     }
+
+    return redirect()->route('register')->with(session()->flash('alert-danger', 'Registrasi Gagal'));
+}
 }
