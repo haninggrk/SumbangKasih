@@ -16,16 +16,14 @@ class DashboardDonasi extends Component
         $DataAsiProducts = User::findOrFail(auth()->user()->id)->asiProducts; //array
         $arrayDataResipienAsi = [];
         foreach ($DataAsiProducts as $DataAsi) {
-            foreach ($DataAsi->Users as $DataResipien) {
+            foreach ($DataAsi->Users as $DataResipien) {  
                 array_push($arrayDataResipienAsi, $DataResipien);
             }
         }
-
         $DataUser = User::findOrFail(auth()->user()->id); //array
 
         return view('livewire.dashboard-donasi')->with([
             'DataResipienAsi' => $arrayDataResipienAsi,
-            'DataPermintaanAsi' => $DataUser->asiResipiens,
             'DataDonorAsiUser' => $DataUser->asiProducts,
             'page' => 'asi_request'
         ]);
@@ -37,11 +35,5 @@ class DashboardDonasi extends Component
         $this->page = $pageLower;
     }
 
-    public function showDashboardPendonorRequestAsi($asiBoardId, $asiId)
-    {
-        $getInfoAsiProduct = AsiProduct::findOrFail($asiId);
-        $getInfo = $getInfoAsiProduct->Users;
 
-        return view('showDetailDashboardPendonorRequestAsi', compact('getInfo', 'asiBoardId'));
-    }
 }
