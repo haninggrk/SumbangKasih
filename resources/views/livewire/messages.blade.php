@@ -14,8 +14,8 @@
                      @foreach($allmessages as $moremessages)
                             <div class="single-message @if($moremessages->user_id == auth()->id()) sent @else received @endif">
                                 <p class="my-0">{{$moremessages->name}}</p>
-                                <p class="fs-7 fw-bold my-0">{{$moremessages->pivot->message}}</p>
-                                <em class="w-100">{{$moremessages->pivot->created_at}}</em>
+                                <p class="fs-7 fw-bold my-0">{{$moremessages->message}}</p>
+                                <em class="w-100">{{$moremessages->created_at}}</em>
                             </div>
                         @endforeach
                         @endif
