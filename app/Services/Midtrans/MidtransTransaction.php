@@ -8,32 +8,50 @@ class MidtransTransaction extends Midtrans
 {
     protected $orderId;
     protected $amount;
-    protected $name;
-    protected $email;
+    protected $user;
+    protected $donationId;
+    protected $donationName;
 
-    public function __construct($orderId, $amount, $name, $email)
+    public function __construct($orderId, $amount, $user, $donationId, $donationName)
     {
         parent::__construct();
 
         $this->orderId = $orderId;
         $this->amount = $amount;
-        $this->name = $name;
-        $this->email = $email;
+        $this->user = $user;
+        $this->donationId = $donationId;
+        $this->donationName = $donationName;
     }
+
 
     public function create()
     {
-        $transactionDetails = [
-            'order_id' => $this->orderId,
-            'gross_amount' => (int)$this->amount,
+        try {
+            $transactionDetails = [
+                'transaction_details' => [
+                    'order_id' => $this->orderId,
+                    'gross_amount' => (int)$this->amount,
+                ],
 
-            'customer_details' => [
-                'first_name' => $this->name,
-                'email' => $this->email,
-                'phone' => '0'
-            ]
-        ];
+                'customer_details' => [
+                    'first_name' => $this->user->name,
+                    'email' => $this->user->email,
+                    'phone' => $this->user->phone,
+                ],
 
-        $snap = Snap::createTransaction($transactionDetails);
+                'item_details' => [
+                    [
+                        'id' => $this->donationId,
+                        'price' => $this->amount,
+                        'quantity' => 1,
+                        'name' => "Donasi ke " . $this->donationName . " melalui SumbangAsih"
+                    ]
+                ]
+            ];
+            return Snap::createTransaction($transactionDetails);
+        } catch (\Exception $e) {
+            \Log::critical($e->getMessage());
+            return $e->getMessage();
+        }
     }
 }

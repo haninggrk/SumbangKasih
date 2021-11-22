@@ -61,3 +61,4 @@ Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::
 
 
 Route::get('/verify', 'App\Actions\Fortify\CreateNewUser@verifyUser')->name('verify.user');
+Route::post('midtrans', [\App\Http\Controllers\MidtransWebhookController::class, 'transactionRun']);

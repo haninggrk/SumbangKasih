@@ -173,7 +173,7 @@
                 </div>
             </div>
 
-            <form action="#" wire:submit.prevent="createPaymentLink" class="mt-6 space-y-6"
+            <form action="#" wire:submit.prevent="doDonation" class="mt-6 space-y-6"
                   x-data="{ on: @entangle('donatorData.anonymous') }">
                 <div>
                     <x-jet-label for="inputAmountDonasi">Jumlah donasi</x-jet-label>
@@ -213,7 +213,7 @@
                     </span>
                 </div>
                 <div class="mt-8 flex flex-col">
-                    <button type="button" wire:click="toggleDonationModal"
+                    <button type="submit" wire:click="toggleDonationModal"
                             class="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-orange-d hover:bg-orange-d focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-d">
                         <x-heroicon-o-external-link class="h-5 w-5 mr-2"/>
                         <span>Lakukan pembayaran donasi!</span>

@@ -31,6 +31,7 @@ class MoneySenderSeeder extends Seeder
                     'message' => $faker->text(20),
                     'amount' => rand(100000, 1000000),
                     'is_anonymous' => 1 === rand(1, 2),
+                    'payment_status' => rand(1, 3),
                 ]);
             }
         }
