@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MessageController;
+use App\Http\Livewire\Messages;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\welcome::class, 'index'])->name('welcome');
-
 
 //Route::get('/data-asi', [App\Http\Controllers\AsiProductController::class,'index']);
 
@@ -43,6 +43,9 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     Route::get('/detail-donor-produk-histori-asi/{idasi}', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardDonorProdukHistoriAsi'])->name('DetailDashboardDonorProduk-HistoriAsi');
 
     Route::get('/ajukan-bantuan-dana', \App\Http\Livewire\RegisterFund::class)->name('register-fund');
+    Route::get('/upload-asi',function(){
+        return view('uploadasi');
+    })->name('uploadasi');
 
     Route::post('/donasi/detail-resipien-request-asi/proses-request-pendonor', [App\Http\Controllers\AsiProductController::class, 'prosesPermintaanAsiRequestPendonor'])->name('proses-permintaan-asi-request-pendonor');
     Route::post('/donasi/detail-resipien-inprogress-asi/proses-inprogress-pendonor', [App\Http\Controllers\AsiProductController::class, 'prosesPermintaanAsiInProgressPendonor'])->name('proses-permintaan-asi-inprogress-pendonor');
@@ -53,6 +56,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
 
     Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class, 'store'])->name('ProsesPesanAsi');
     Route::post('/donasi/detail-donor-produk-request-asi/proses-request-donor-produk', [App\Http\Controllers\AsiProductController::class, 'prosesDonorProdukAsiBatal'])->name('proses-donor-produk-asi');
+    Route::get('/message/{idasiboard}', \App\Http\Livewire\Messages::class)->name('message');
 });
 
 Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::class])->get('/admin', function () {

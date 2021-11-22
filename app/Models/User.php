@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -89,5 +88,17 @@ class User extends Authenticatable
     protected function defaultProfilePhotoUrl()
     {
         return 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&color=EF4136&background=EBF4FF';
+    }
+
+    public function userMessages()
+    {
+        return $this->belongsToMany(User::class, 'messages', 'receiver_id', 'user_id')
+        ->withPivot(['id', 'message', 'is_seen', 'created_at', 'updated_at']);
+    }
+
+    public function receiverMessages()
+    {
+        return $this->belongsToMany(User::class, 'messages', 'user_id', 'receiver_id')
+        ->withPivot(['id', 'message', 'is_seen', 'created_at', 'updated_at']);
     }
 }
