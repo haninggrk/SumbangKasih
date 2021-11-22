@@ -57,7 +57,7 @@ class Messages extends Component
     public function SendMessage()
     {
         
-            $data = new Message();
+            $data = new message();
             $data->message = $this->message;
             $data->user_id = auth()->id();
             $data->receiver_id = $this->sender->id;
