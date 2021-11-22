@@ -42,7 +42,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     Route::get('/detail-donor-produk-asi/{idasi}', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardDonorProdukAsi'])->name('DetailDashboardDonorProdukAsi');
     Route::get('/detail-donor-produk-histori-asi/{idasi}', [App\Http\Controllers\AsiProductController::class, 'showDetailDashboardDonorProdukHistoriAsi'])->name('DetailDashboardDonorProduk-HistoriAsi');
 
-    Route::get('/ajukan-bantuan-dana', \App\Http\Livewire\RegisterFund::class)->name('register-fund');
+    Route::get('/ajukan-bantuan-dana', \App\Http\Livewire\RegisterFund::class)->middleware(\App\Http\Middleware\protectFromDonateableUser::class)->name('register-fund');
     Route::get('/tambah-donasi-asi', \App\Http\Livewire\UploadDonasiAsi::class)->name('uploadasi');
 
     Route::post('/donasi/detail-resipien-request-asi/proses-request-pendonor', [App\Http\Controllers\AsiProductController::class, 'prosesPermintaanAsiRequestPendonor'])->name('proses-permintaan-asi-request-pendonor');
