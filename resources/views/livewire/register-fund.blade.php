@@ -105,11 +105,12 @@
                     </h3>
                     <div class="mt-2 text-sm text-green-700">
                         <p>
-                            Silakan tunggu konfirmasi dari kami terhadap permohonan anda.
+                            Silakan tunggu konfirmasi dari kami terhadap permohonan anda. Kami akan menghubungi anda untuk memverifikasi data yang anda isi
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     @endif
+
 </div>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\PaymentLinkLoggedIn;
 use App\Models\Category;
 use App\Models\Donation;
 use App\Services\Midtrans\MidtransTransaction;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class DonateMoney extends Component
@@ -60,6 +62,8 @@ class DonateMoney extends Component
             'payment_url' => $transaction->redirect_url,
             'transaction_id' => $transactionId
         ]);
+
+        Mail::to(auth()->user()->email)->send(new PaymentLinkLoggedIn($transaction->redirect_url, $transactionId));
 
         $this->redirect($transaction->redirect_url);
     }
