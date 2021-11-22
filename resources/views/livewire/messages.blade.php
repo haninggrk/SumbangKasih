@@ -1,7 +1,7 @@
 <div>
     <div class="container">
     <div class="row justify-content-center">
-            
+       
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"  wire:poll="mountdata">
@@ -21,11 +21,13 @@
                         @endif
                 </div>
                 <div class="card-footer">
+                @if($asiboard->progress == 0)
+                @if(isset($sender))
                     <form wire:submit.prevent="SendMessage">
                     {{ csrf_field() }}
-                            @if(isset($sender))
+                           
                         
-                          @if($asiboard->progress == 0)
+                         
                          
                             <div class="row py-md-2">
                                     <div class="col-md-10">
@@ -35,7 +37,12 @@
                                         <button type="submit" class="btn btn-primary  btn-outline-danger d-inline-block w-100 "><i class="glyphicon glyphicon-chevron-right"></i> Kirim</button>
                                     </div>
                             </div>  
-                            @else
+                         
+                  
+                 
+                    </form>
+                    @endif
+                    @else
                     <div class="row py-sm-3">
                                 <div class="col-md-12">
                                     <p></p>
@@ -44,16 +51,11 @@
                                     </p>
                                 </div>
                                 </div>
-                    @endif
-                    @endif
-                  
-                 
-                    </form>
+                                @endif
                     </div>
                 </div>
             </div>
         </div>
     
     </div>
-</div>
 </div>

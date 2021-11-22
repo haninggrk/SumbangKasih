@@ -12,15 +12,22 @@ class Messages extends Component
     public $allmessages;
     public $message;
     public $sender;
+    public $idasiboard;
+    public AsiBoard $asiboard;
  
+    public function mount($idasiboard)
+    {
+        $this->idasiboard = $idasiboard;
+    }
 
     public function render()
     {
-        $users=User::all();
-        $sender=$this->sender;
-        $this->allmessages=message::all();
+       
+        $this->asiboard=AsiBoard::findOrFail($this->idasiboard);
+        $this->sender= User::findOrFail( AsiBoard::findOrFail($this->idasiboard)->receiver_id);
+        $this->allmessages=Message::where('user_id', auth()->id())->where('receiver_id', $this->sender->id)->orWhere('user_id', $this->sender->id)->where('receiver_id', auth()->id())->orderBy('id', 'desc')->get();
 
-        return view('livewire.messages', compact('users', 'sender'));
+        return view('livewire.messages');
     }
 
     public function mountdata()
@@ -29,14 +36,16 @@ class Messages extends Component
             $getUser = User::findOrFail(auth()->user()->id);
 
             $dataMessage = [];
+            if(isset($getUser->receiverMessages)){
             foreach ($getUser->receiverMessages as $receiverMessage) {
                 if ($receiverMessage->id == $this->sender->id) {
-                    array_push($dataMessage, $receiverMessage);
+                    array_push($dataMessage, $receiverMessage->pivot->message);
                 }
             }
             $this->allmessages = $dataMessage;
             $not_seen = Message::where('receiver_id', $this->sender->id)->where('user_id', auth()->id())->where('is_seen', false);
             $not_seen->update(['is_seen' => true]);
+        }
         }
     }
 
@@ -47,14 +56,7 @@ class Messages extends Component
 
     public function SendMessage()
     {
-        $inarray = [];
-
-        $getpesanan = AsiBoard::findOrFail($this->idasiboard)->where('progress', '=', 1)->get();
-        foreach ($getpesanan as $datauser) {
-            array_push($inarray, $datauser->receiver_id);
-        }
-
-        if (in_array($this->sender->id, $inarray)) {
+        
             $data = new Message();
             $data->message = $this->message;
             $data->user_id = auth()->id();
@@ -62,16 +64,6 @@ class Messages extends Component
             $data->save();
 
             $this->resetForm();
-        }
-    }
-
-    public function getUser($user)
-    {
-        $user=User::find($user->id);
         
-        $this->sender=$user;
-
-    
-        $this->allmessages=Message::where('user_id', auth()->id())->where('receiver_id', $user->id)->orWhere('user_id', $user->id)->where('receiver_id', auth()->id())->orderBy('id', 'desc')->get();
     }
 }
