@@ -58,7 +58,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
          
             content-center grid lg:grid-cols-1 grid-cols-3 gap-4 sm:grid-cols-3">
                 <div
-                    class="   @if(request()->page=="request_asi")
+                    class="   @if($page=="request_asi")
                     ring-blue-900 ring-2
                     @endif
                     relative rounded-lg text-center sm:text-left border border-gray-300 bg-white px-6 py-5 shadow-sm sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
@@ -73,7 +73,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
 
                     </div>
                     <div class="sm:flex-1   min-w-0">
-                        <button wire:click="$this->setPage('request_asi')"  class="
+                        <button wire:click="setPage('request_asi')"  class="
                         text-left focus:outline-none
                         ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
@@ -91,7 +91,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                 </div>
                 <div
                     class="
-                    @if(request()->page=="on_progress")
+                    @if($page=="on_progress")
                     ring-blue-900 ring-2
                     @endif relative rounded-lg text-center lg:text-left border border-gray-300 bg-white px-2 lg:px-6 py-5 shadow-sm block sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
                     <div class="lg:flex-shrink-0 inline-block">
@@ -105,27 +105,28 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                     </div>
                     <div class="lg:flex-1  lg:min-w-0 inline-block">
 
-                        <a href="{{route('dashboard-request-donasi-asi')}}?page=on_progress"> <button class=" text-center md:text-left focus:outline-none">
+                        <button wire:click="setPage('on_progress')"  class="
+                        text-left focus:outline-none
+                        ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 Sedang Berlangsung
                             </p>
-                            <p class="hidden md:block text-sm text-gray-500 truncate">
+                            <p class="text-sm hidden md:block text-gray-500 break-words">
                                 Pesanan Telah Disetujui
                             </p>
                         </button>
-                    </a>
                     </div>
 
                 </div>
                 <div
-                    class="  text-center sm:text-left @if(request()->page=="histori_asi")
+                    class="  text-center sm:text-left @if($page=="histori_asi")
                     ring-blue-900 ring-2
                     @endif
                     relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
                     <div class="sm:flex-shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg"
-                             class="inline-block  sm:block p-2 h-10 w-10 inline-block sm:block bg-orangesa rounded-full text-white" viewBox="0 0 20 20"
+                             class="   p-2 h-10 w-10 inline-block sm:block bg-orangesa rounded-full text-white" viewBox="0 0 20 20"
                              fill="currentColor">
                             <path fill-rule="evenodd"
                                   d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
@@ -134,18 +135,17 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
 
                     </div>
                     <div class="sm:flex-1 sm:min-w-0">
-                        <a href="{{route('dashboard-request-donasi-asi')}}?page=histori_asi"><button  class="
-                        text-center sm:text-left focus:outline-none
+                        <button wire:click="setPage('histori_asi')"  class="
+                        text-left focus:outline-none
                         ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
-                                Histori ASI
+                                Hisatori ASI
                             </p>
                             <p class="text-sm hidden md:block text-gray-500 break-words">
                                 Lihat Histori Pesananku
                             </p>
                         </button>
-                    </a>
                     </div>
                     
 
@@ -156,7 +156,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
 
 
         </div>
-        @if(request()->page == 'on_progress')
+        @if($page == 'on_progress')
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->
                 <div style="" class="overflow-y-hidden overflow-x-hidden hidden lg:flex flex-col">
@@ -334,7 +334,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                 </ul>
               
             </div>
-    @elseif(request()->page=="request_asi")
+    @elseif($page=="request_asi")
         <!-- Taruh kode dana disini -->
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->
@@ -506,7 +506,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
     
             </ul>
 
-            @elseif(request()->page=="histori_asi")
+            @elseif($page=="histori_asi")
         <!-- Taruh kode dana disini -->
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->

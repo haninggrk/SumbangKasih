@@ -42,9 +42,10 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
             {{ __('Produk ASI') }}
         </h2>
     </x-slot>
-    <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
+    <div class="sm:flex sm:items-center">
+    <h1 class="mb-5 sm:inline-block font-semibold text-3xl text-gray-800 leading-tight">
         {{ __('Dashboard Produk ASI') }}
-    </h1>
+    </h1><a href="{{route('uploadasi')}}"><x-jet-button class="mb-5 sm:ml-5">Tambah +</x-jet-button></a></div>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
 
