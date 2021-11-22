@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             ReceiverSeeder::class,
             WithdrawSeeder::class,
             AsiProductSeeder::class,
-           AsiBoardSeeder::class,
+            AsiBoardSeeder::class,
         ]);
     }
 }

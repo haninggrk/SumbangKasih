@@ -23,11 +23,11 @@ class AsiBoardFactory extends Factory
     public function definition()
     {
       return [
-      'progress'=>$this->faker->numberBetween(0, 3),
-      'detail_address_resipien'=>$this->faker->text(100),
-      'courir_request'=>$this->faker->numberBetween(0, 1),
-      'quantity_request'=>$this->faker->numberBetween(1, 100),
-        ];
-      
+          'progress' => $this->faker->numberBetween(0, 3),
+          'detail_address_resipien' => $this->faker->text(100),
+          'courir_request' => $this->faker->numberBetween(0, 1),
+          'quantity_request' => $this->faker->numberBetween(1, 100),
+      ];
+
     }
 }
