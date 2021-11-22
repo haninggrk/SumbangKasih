@@ -1,7 +1,7 @@
 <div>
     <div class="container">
     <div class="row justify-content-center">
-       
+       {{ $asiboard->progress }}
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"  wire:poll="mountdata">
