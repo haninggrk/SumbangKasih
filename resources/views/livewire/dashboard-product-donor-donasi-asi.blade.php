@@ -45,7 +45,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
     <div class="sm:flex sm:items-center">
     <h1 class="mb-5 sm:inline-block font-semibold text-3xl text-gray-800 leading-tight">
         {{ __('Dashboard Produk ASI') }}
-    </h1><a href="{{route('uploadasi')}}"><x-jet-button class="mb-5 sm:ml-5">Tambah +</x-jet-button></a></div>
+    </h1><a href="{{route('uploadasi')}}"><x-jet-button class="mb-5 sm:ml-5">Tambah Donasi ASI +</x-jet-button></a></div>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
 
@@ -58,7 +58,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
          
             content-center grid lg:grid-cols-1 grid-cols-3 gap-4 sm:grid-cols-3">
                 <div
-                    class="   @if(request()->page=="request_asi")
+                    class="   @if($page=="request_asi")
                     ring-blue-900 ring-2
                     @endif
                     relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
@@ -73,7 +73,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
 
                     </div>
                     <div class="flex-1 min-w-0">
-                        <a href="{{route('dashboard-pendonor-donasi-asi')}}?page=request_asi"><button  class="
+                       <button wire:click="setPage('request_asi')" class="
                         text-left focus:outline-none
                         ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
@@ -84,14 +84,14 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                 Menunggu Persetujuan Admin
                             </p>
                         </button>
-                    </a>
+                
                     </div>
                     
 
                 </div>
                 <div
                     class="
-                    @if(request()->page=="on_progress")
+                    @if($page=="on_progress")
                    
                     ring-blue-900 ring-2
                     @endif
@@ -107,7 +107,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                     </div>
                     <div class="flex-1 min-w-0">
 
-                        <a href="{{route('dashboard-pendonor-donasi-asi')}}?page=on_progress"> <button class="text-left focus:outline-none">
+                        <button wire:click="setPage('on_progress')" class="text-left focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 Sedang Berlangsung
@@ -116,12 +116,12 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                 Produk ASI Telah Terupload
                             </p>
                         </button>
-                    </a>
+                    
                     </div>
 
                 </div>
                 <div
-                    class="   @if(request()->page=="histori_asi")
+                    class="   @if($page=="histori_asi")
                     ring-blue-900 ring-2
                     @endif
                     relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
@@ -136,7 +136,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
 
                     </div>
                     <div class="flex-1 min-w-0">
-                        <a href="{{route('dashboard-pendonor-donasi-asi')}}?page=histori_asi"><button  class="
+                       <button wire:click="setPage('histori_asi')" class="
                         text-left focus:outline-none
                         ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
@@ -147,7 +147,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                 
                             </p>
                         </button>
-                    </a>
+                   
                     </div>
                     
 
@@ -158,7 +158,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
 
 
         </div>
-        @if(request()->page == 'on_progress')
+        @if($page == 'on_progress')
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->
                 <div style="" class="overflow-y-hidden overflow-x-hidden hidden lg:flex flex-col">
@@ -310,7 +310,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                 </ul>
               
             </div>
-    @elseif(request()->page=="request_asi")
+    @elseif($page=="request_asi")
         <!-- Taruh kode dana disini -->
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->
@@ -466,7 +466,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
     
             </ul>
 
-            @elseif(request()->page=="histori_asi")
+            @elseif($page=="histori_asi")
         <!-- Taruh kode dana disini -->
             <div class="col-span-5">
                 <!-- This example requires Tailwind CSS v2.0+ -->

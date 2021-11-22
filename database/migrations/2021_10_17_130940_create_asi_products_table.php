@@ -28,7 +28,7 @@ class CreateAsiProductsTable extends Migration
             // 0=tidak 1=ya
             $table->integer('courir_pemilik')->default(0);
             // $table->text('detail_address_get');
-            $table->text('bukti_foto_covid-19');
+            $table->text('bukti_foto_covid19');
             // 1 = diterima | 2 = ditolak | 0 = menunggu
             $table->string('city')->nullable();
             $table->string('detail_address')->nullable();

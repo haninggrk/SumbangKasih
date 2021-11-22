@@ -31,7 +31,7 @@ class AsiProductFactory extends Factory
             'city' => $this->faker->city(),
             'detail_address' => $this->faker->address(),
 
-            'bukti_foto_covid-19' => 'https://via.placeholder.com/1200x800',
+            'bukti_foto_covid19' => 'https://via.placeholder.com/1200x800',
         ];
     }
 }

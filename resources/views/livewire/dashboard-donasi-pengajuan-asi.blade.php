@@ -254,14 +254,6 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
 
 
                                             </td>
-
-                                            <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                            <a href="{{route('message',['idasiboard'=>$DataPermintaan->pivot->id])}}"
-                                                ><x-jet-button>Kirim Pesan</x-jet-button></a>
-                                   
-
-
-                                            </td>
                                         </tr>
                                         @endif
                                         @endforeach

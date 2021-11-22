@@ -7,7 +7,7 @@ use App\Models\User;
 
 class DashboardDonasi extends Component
 {
-    public $page = 'asi';
+    public $page = 'permintaan_asi';
     protected $queryString = ['page'];
 
     public function render()
