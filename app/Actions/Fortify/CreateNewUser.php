@@ -17,7 +17,6 @@ class CreateNewUser implements CreatesNewUsers
     /**
      * Validate and create a newly registered user.
      *
-     * @param  array  $input
      * @return \App\Models\User
      */
     public function create(array $input)
@@ -33,26 +32,26 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'verification_code' => sha1(time())
-           
+            'verification_code' => sha1(time()),
         ]);
 
-        if($createUser){
-           MailController::sendSignUpEmail($createUser->name, $createUser->email, $createUser->verification_code);
-        
-        return redirect()->route('register')->with(session()->flash('alert-success', 'Registrasi Berhasil. Cek Email Anda Untuk Verifikasi!'));
+        if ($createUser) {
+            MailController::sendSignUpEmail($createUser->name, $createUser->email, $createUser->verification_code);
+
+            return redirect()->route('register')->with(session()->flash('alert-success', 'Registrasi Berhasil. Cek Email Anda Untuk Verifikasi!'));
+        }
+
+        return redirect()->route('register')->with(session()->flash('alert-danger', 'Registrasi Gagal'));
     }
 
-    return redirect()->route('register')->with(session()->flash('alert-danger', 'Registrasi Gagal'));
-}
-
-public function verifyUser(Request $request){
-    $verification_code = Request::get('code');
-    $getuser = User::where(['verification_code' => $verification_code])->update([
-        'is_verified' => 1
+    public function verifyUser(Request $request)
+    {
+        $verification_code = Request::get('code');
+        $getuser = User::where(['verification_code' => $verification_code])->update([
+        'is_verified' => 1,
     ]);
-   if($getuser){
-       return redirect()->route('login');
-   }
-}
+        if ($getuser) {
+            return redirect()->route('login');
+        }
+    }
 }

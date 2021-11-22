@@ -63,7 +63,7 @@
           
             <div class="my-3 px-3 w-full hidden md:block overflow-hidden md:w-1/2">
               Donasi mulai dari hal-hal kecil dan sederhana. Bantu mereka yang sedang membutuhkan. Bantu tuntaskan kasus stunting dan kelaparan di 
-                Indonesia melalui website sumbangkasih yang menjunjung tinggi keadilan dan kesetaraan.
+                Indonesia melalui website Sumbang Asih yang menjunjung tinggi keadilan dan kesetaraan.
             </div>
           
             <div class="my-3 px-3 w-full overflow-hidden text-center md:text-left">

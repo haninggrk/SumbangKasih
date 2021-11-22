@@ -39,7 +39,7 @@ class CategorySeeder extends Seeder
             'description' => 'Kategori yang dikhususkan bagi tenaga kesehatan perempuan yang mempunyai tugas untuk merawat pasien penyintas Covid-19.',
         ]);
         Category::create([
-            'name' => 'Orang jalanan/pinggiran',
+            'name' => 'Orang Jalanan/Pinggiran',
             'photo' => 'https://via.placeholder.com/1200x800',
             'show' => 1 === rand(1, 2),
             'description' => 'Kategori masyarakat yang sedang membutuhkan bantuan akan tetapi tidak mempunyai perangkat yang memadai agar dapat memperoleh sumbangan dari aplikasi Sumbang Asih',
