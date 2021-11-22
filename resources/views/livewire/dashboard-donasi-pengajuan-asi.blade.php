@@ -19,6 +19,8 @@
         a slight movement of the header row */
         table {
             border-collapse: collapse;
+            --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
         }
 
         /* Because we must set sticky on th,
@@ -59,10 +61,10 @@
                     class="   @if(request()->page=="request_asi")
                     ring-blue-900 ring-2
                     @endif
-                    relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
-                    <div class="flex-shrink-0">
+                    relative rounded-lg text-center sm:text-left border border-gray-300 bg-white px-6 py-5 shadow-sm sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
+                    <div class="sm:flex-shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg"
-                             class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" viewBox="0 0 20 20"
+                             class="p-2 h-10 w-10 inline-block sm:block bg-orangesa rounded-full text-white" viewBox="0 0 20 20"
                              fill="currentColor">
                             <path fill-rule="evenodd"
                                   d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
@@ -70,8 +72,8 @@
                         </svg>
 
                     </div>
-                    <div class="flex-1 min-w-0">
-                        <a href="{{route('dashboard-request-donasi-asi')}}?page=request_asi"><button  class="
+                    <div class="sm:flex-1   min-w-0">
+                        <button wire:click="$this->setPage('request_asi')"  class="
                         text-left focus:outline-none
                         ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
@@ -82,7 +84,7 @@
                                 Menunggu Persetujuan
                             </p>
                         </button>
-                    </a>
+                   
                     </div>
                     
 
@@ -90,11 +92,9 @@
                 <div
                     class="
                     @if(request()->page=="on_progress")
-                   
                     ring-blue-900 ring-2
-                    @endif
-                    relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
-                    <div class="flex-shrink-0">
+                    @endif relative rounded-lg text-center lg:text-left border border-gray-300 bg-white px-2 lg:px-6 py-5 shadow-sm block sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
+                    <div class="lg:flex-shrink-0 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
@@ -103,9 +103,9 @@
                         </svg>
 
                     </div>
-                    <div class="flex-1 min-w-0">
+                    <div class="lg:flex-1  lg:min-w-0 inline-block">
 
-                        <a href="{{route('dashboard-request-donasi-asi')}}?page=on_progress"> <button class="text-left focus:outline-none">
+                        <a href="{{route('dashboard-request-donasi-asi')}}?page=on_progress"> <button class=" text-center md:text-left focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 Sedang Berlangsung
@@ -119,13 +119,13 @@
 
                 </div>
                 <div
-                    class="   @if(request()->page=="histori_asi")
+                    class="  text-center sm:text-left @if(request()->page=="histori_asi")
                     ring-blue-900 ring-2
                     @endif
-                    relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
-                    <div class="flex-shrink-0">
+                    relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
+                    <div class="sm:flex-shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg"
-                             class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" viewBox="0 0 20 20"
+                             class="inline-block  sm:block p-2 h-10 w-10 inline-block sm:block bg-orangesa rounded-full text-white" viewBox="0 0 20 20"
                              fill="currentColor">
                             <path fill-rule="evenodd"
                                   d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
@@ -133,9 +133,9 @@
                         </svg>
 
                     </div>
-                    <div class="flex-1 min-w-0">
+                    <div class="sm:flex-1 sm:min-w-0">
                         <a href="{{route('dashboard-request-donasi-asi')}}?page=histori_asi"><button  class="
-                        text-left focus:outline-none
+                        text-center sm:text-left focus:outline-none
                         ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
@@ -418,7 +418,7 @@
                                                 <a href="{{ route('DetailDashboardResipien-RequestAsi',[
                                                     'idasiboard' => $DataPermintaan->pivot->id
                                                     
-                                                ])}}"><x-jet-button>Detail</x-jet-button></a>
+                                                ])}}"><x-jet-button >Detail</x-jet-button></a>
                                                 
                                                
                                             </td>
