@@ -177,13 +177,13 @@
         <div x-show="open" class="pt-2 pb-3 space-y-1">
             <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
             <a href="#"
-               class="bg-yellow-100 border-orangesa text-orangesa block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Dashboard</a>
+               class="bg-yellow-100 border-orangesa text-orangesa block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
+            <a href="{{route('dashboard')}}"
+               class="border-transparent text-gray-900 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Dashboard</a>
             <a href="#"
-               class="border-transparent text-gray-900 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Team</a>
+               class="border-transparent text-gray-900 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Tentang</a>
             <a href="#"
-               class="border-transparent text-gray-900 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Projects</a>
-            <a href="#"
-               class="border-transparent text-gray-900 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Calendar</a>
+               class="border-transparent text-gray-900 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Donasi Sekarang</a>
         </div>
         <div x-show="mobileprofile" class="pt-4 pb-3 border-t border-gray-200">
             <div class="flex items-center px-4">

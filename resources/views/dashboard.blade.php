@@ -20,17 +20,21 @@
                             <p class="text-xl font-bold text-gray-900 sm:text-2xl">{{Auth::user()->name}}</p>
                         </div>
                     </div>
-                    <div class="mt-5 flex justify-center sm:mt-0 space-x-2">
+                    <div class="mt-5 grid grid-cols-2  gap-3 sm:mt-0">
+                        <div class="col-span-2 md:col-span-1 w-full">
                         <a href="{{route('profile.show')}}"
                            class="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                             Edit profile
                         </a>
+                        </div>
+                        <div class="col-span-2 md:col-span-1 w-full">
                         @if(Auth::user()->user_type !== 2 || !Auth::user()->user_type !== 99)
                             <a href="{{route('register-fund')}}"
                                class="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                                 Ajukan bantuan dana
                             </a>
                         @endif
+                        </div>
                     </div>
                 </div>
             </div>

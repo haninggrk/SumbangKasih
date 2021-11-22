@@ -61,20 +61,14 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                     class="   @if($page=="permintaan_asi")
                     ring-blue-900 ring-2
                     @endif
-                    relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
-                    <div class="flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" viewBox="0 0 20 20"
-                             fill="currentColor">
-                            <path fill-rule="evenodd"
-                                  d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
-                                  clip-rule="evenodd"/>
-                        </svg>
+                    relative rounded-lg text-center sm:text-left border border-gray-300 bg-white px-6 py-5 shadow-sm sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
+                    <div class="sm:flex-shrink-0">
+                        <img class="p-2 h-10 w-10 inline-block sm:block bg-orange-dd rounded-full text-white" src="{{asset('img/permintaan-asi.svg')}}">
 
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <button wire:click="setPage('permintaan_asi')" class="
-                        text-left focus:outline-none
+                    <div class="sm:flex-1   min-w-0">
+                        <button wire:click="setPage('permintaan_asi')"  class="
+                        text-center md:text-left focus:outline-none
                         ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
@@ -84,7 +78,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                 Lihat Permintaan
                             </p>
                         </button>
-                  
+                   
                     </div>
                     
 
@@ -92,34 +86,29 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                 <div
                     class="
                     @if($page=="on_progress")
-                   
                     ring-blue-900 ring-2
-                    @endif
-                    relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
-                    <div class="flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="p-2 h-10 w-10 bg-orangesa rounded-full text-white" fill="none" viewBox="0 0 24 24"
-                             stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
+                    @endif relative rounded-lg text-center lg:text-left border border-gray-300 bg-white px-2 lg:px-6 py-5 shadow-sm block sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
+                    <div class="lg:flex-shrink-0 block text-center sm:block">
+                        <img class="p-2 h-10 w-10 inline-block sm:block bg-orange-dd rounded-full text-white" src="{{asset('img/in-progress.svg')}}">
 
                     </div>
-                    <div class="flex-1 min-w-0">
+                    <div class="lg:flex-1  lg:min-w-0 inline-block">
 
-                       <button wire:click="setPage('on_progress')" class="text-left focus:outline-none">
+                        <button wire:click="setPage('on_progress')"  class="
+                        text-center md:text-left focus:outline-none
+                        ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
                                 Sedang Berlangsung
                             </p>
-                            <p class="hidden md:block text-sm text-gray-500 truncate">
+                            <p class="text-sm hidden md:block text-gray-500 break-words">
                                 Segera Berikan Pesanan
                             </p>
                         </button>
-                
                     </div>
 
                 </div>
+               
 
                 <!-- More people... -->
             </div>

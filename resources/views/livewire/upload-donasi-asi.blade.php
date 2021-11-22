@@ -1,14 +1,14 @@
 
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      
-            {{ __('Produk ASI') }}
-        </h2>
-    </x-slot>
-    <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-        Donor ASI
-    </h1>
+  <x-slot name="header">
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+    
+          {{ __('Produk ASI') }}
+      </h2>
+  </x-slot>
+  <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
+      Donor ASI
+  </h1>
+
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
             <div class="ml-5 hidden lg:flow-root">
@@ -162,4 +162,4 @@
             
           </div>
 </div>
-</x-app-layout>
+
