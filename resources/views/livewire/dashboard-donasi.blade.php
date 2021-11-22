@@ -216,6 +216,15 @@
 
 
                                             </td>
+
+                                            <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
+                                            <a href="{{ route('messages',
+                                                    'idasiboard' -> $DataResipien->pivot->id
+                                                )}}"><x-jet-button>Kirim Pesan</x-jet-button></a>
+                                   
+
+
+                                            </td>
                                         </tr>
                                         @endif
                                         @endforeach

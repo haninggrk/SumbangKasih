@@ -22,7 +22,7 @@ class CreateAsiBoardsTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             // 1 = request | 2 = success | 0 = progress | 3 = failed
-            $table->integer('progress')->default(0);
+            $table->integer('progress')->default(1);
 
             $table->integer('quantity_request');
             $table->integer('courir_request')->default(0);

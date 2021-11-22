@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MessageController;
+use App\Http\Livewire\Messages;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\welcome::class, 'index'])->name('welcome');
-
 
 //Route::get('/data-asi', [App\Http\Controllers\AsiProductController::class,'index']);
 
@@ -52,6 +52,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     Route::get('/donasi-uang/{idKategori}', \App\Http\Livewire\DonateMoney::class)->name('donate-money.show');
 
     Route::post('/donasi/detail-donor-produk-request-asi/proses-request-donor-produk', [App\Http\Controllers\AsiProductController::class, 'prosesDonorProdukAsiBatal'])->name('proses-donor-produk-asi');
+    Route::get('/message', [MessageController::class, 'message'])->name('messages');
 });
 
 Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::class])->get('/admin', function () {
