@@ -51,6 +51,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     Route::post('/donasi/detail-permintaan-inprogress-asi/proses-inprogress-resipien', [App\Http\Controllers\AsiProductController::class, 'prosesPermintaanAsiInProgressResipien'])->name('proses-permintaan-asi-inprogress-resipien');
     Route::get('/donasi-uang/{idKategori}', \App\Http\Livewire\DonateMoney::class)->name('donate-money.show');
 
+    Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class, 'store'])->name('ProsesPesanAsi');
     Route::post('/donasi/detail-donor-produk-request-asi/proses-request-donor-produk', [App\Http\Controllers\AsiProductController::class, 'prosesDonorProdukAsiBatal'])->name('proses-donor-produk-asi');
 });
 
@@ -58,6 +59,5 @@ Route::middleware(['auth:sanctum', 'verified', \App\Http\Middleware\CheckAdmin::
     return 'admin';
 })->name('admin.index');
 
-Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class, 'store'])->name('ProsesPesanAsi');
 
 Route::get('/verify', 'App\Actions\Fortify\CreateNewUser@verifyUser')->name('verify.user');
