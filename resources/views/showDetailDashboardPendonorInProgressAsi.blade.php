@@ -137,13 +137,15 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                             </dd>
                         </div>
                         @endif
-                        <form method="POST" action="{{ route('proses-permintaan-asi-inprogress-pendonor') }}">
+                        <div class="sm:col-span-3">
+                        <form method="POST" class="w-full text-right" action="{{ route('proses-permintaan-asi-inprogress-pendonor') }}">
                             @csrf
                             <input type="hidden" name="asiBoardId" value="{{$idasiboard}}">
                             <input type="hidden" name="asiId" value="{{$getInfoAsi->id}}">
                         
-                        <x-jet-button name="batal">Batalkan</x-jet-button>
+                        <x-jet-button class="bg-orange-dd" name="batal">Batalkan</x-jet-button>
                         </form>
+                        </div>
 
 
                                 <!-- INI FORMNYA YANG DIISI BELUM CSRDF-->

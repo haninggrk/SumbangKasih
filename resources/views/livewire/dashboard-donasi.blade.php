@@ -18,6 +18,9 @@
         a slight movement of the header row */
         table {
             border-collapse: collapse;
+            --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
         }
 
         /* Because we must set sticky on th,
@@ -53,7 +56,7 @@
             <!--Mobile Navigation -->
             <div class="
          
-            content-center grid lg:grid-cols-1 grid-cols-3 gap-4 sm:grid-cols-3">
+            content-center grid lg:grid-cols-1 grid-cols-2 gap-4 sm:grid-cols-2">
                 <div
                     class="   @if(request()->page=="permintaan_asi")
                     ring-blue-900 ring-2
@@ -250,18 +253,18 @@
                             @endif
                             @endforeach
                             )</p>
-
-                            <h6 class="mt-2 text-gray-900 text-sm font-medium truncate">Minta Antar
+                            <div class="flex mt-2">
                             @if($DataResipien->pivot->courir_request == 1)
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
 </svg>
-                                    @else
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                        @else
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
 </svg>
-                                            @endif
-                                            </h6>
+                                @endif
+                            <h6 class=" inline-block ml-1 text-gray-900 text-sm font-medium truncate">Minta Antar </h6></div>
+                                           
                              <h6 class="mt-2 text-gray-500 text-sm font-medium truncate">Tanggal Pemesanan: {{date('d M Y',strtotime($DataResipien->pivot->created_at))}}</h6>
                                                    
                                 </div>

@@ -1,3 +1,4 @@
+
 <div
     @click="sidebarOpen = false"
     x-show="sidebarOpen"
