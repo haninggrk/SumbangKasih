@@ -136,7 +136,7 @@
                                     <tr>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            DATE
+                                            TANGGAL
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -148,11 +148,11 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Jumlah
+                                            Ketersediaan
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            ACTION
+                                            AKSI
                                         </th>
                                     </tr>
                                     </thead>
@@ -217,26 +217,23 @@
                                 <div class="flex-1 truncate">
                                     <div class="flex items-center space-x-3">
                                         <h3 class="text-gray-900 text-sm font-medium truncate">{{$DataAsi->pemilik->name}}</h3>
-                                        @if(rand(1,2) == 1)
-    
-                                        @else
+                                        @if($DataAsi->courir_pemilik==1)
                                             <span
-                                                class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Antar</span>
-                                        @endif
+                                                class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
+                                      @endif
                                     </div>
-                                    <p class="mt-1 text-gray-500 text-sm truncate">{{rand(1,2)==1?"Ponorogo":"Surabaya"}}</p>
+                                    <p class="mt-1 text-gray-500 text-sm truncate">{{$DataAsi->city}}</p>
                                     <p class="mt-1 text-gray-900 text-sm truncate"><span
                                             class="font-bold">{{$DataAsi->quantity}}</span> Botol (<span
-                                            class="font-bold">{{$DataAsi->litre_quantity}} </span>Liter/Botol)</p>
+                                            class="font-bold">{{$DataAsi->liter_per_pack}} </span>Liter/Botol)</p>
                                 </div>
                                 <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
-                                     alt="">
+                                     src="{{$DataAsi->pemilik->profile_photo_url}}">
                             </div>
                             <div>
                                 <div class="-mt-px flex divide-x divide-gray-200">
                                     <div class="w-0 flex-1 flex">
-                                        <a href="mailto:janecooper@example.com"
+                                        <a href="{{route('detailAsi',['asiId'=> $DataAsi->id])}}"
                                            class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-orangesa font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
                                             <!-- Heroicon name: solid/mail -->
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -267,7 +264,7 @@
                                     <tr>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            DATE
+                                            TANGGAL
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -279,7 +276,7 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Jumlah
+                                            Jumlah yang Tersedia
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">

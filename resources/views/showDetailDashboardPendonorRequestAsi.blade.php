@@ -16,11 +16,11 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Permintaan ASI') }}
+            {{ __('Proses Permintaan ASI') }}
         </h2>
     </x-slot>
     <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-        {{ __('Detail Permintaan') }}
+        {{ __('Menunggu Persetujuan') }}
     </h1>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
@@ -79,14 +79,18 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                     <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3">
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
-                                Kurir
+                                Minta Antar
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                             @if($getInfo->pivot->courir_request == 1)
-                                                    <span
-                                                            class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Minta Antar</span>
-                                                    @else
-                                                    -
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                                   @else
+                                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                                
                                                             @endif
                             </dd>
                         </div>
@@ -108,7 +112,7 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                         </div>
                         <div class="sm:col-span-3 q">
                             <dt class="text-sm font-medium text-gray-500">
-                                Deskripsi Produk ASI
+                                Deskripsiku
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 {{$getInfoAsi->description}}
@@ -117,12 +121,24 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
 
                         <div class="sm:col-span-3">
                             <dt class="text-sm font-medium text-gray-500">
+                                Alamatku
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900">
+                                {{$getInfoAsi->detail_address}}
+                            </dd>
+                        </div>
+
+                        @if($getInfo->pivot->courir_request == 1)
+                        <div class="sm:col-span-3">
+                            <dt class="text-sm font-medium text-gray-500">
                                 Alamat Resipien
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 {{$getInfo->pivot->detail_address_resipien}}
                             </dd>
                         </div>
+                        @endif
+
                         <form method="POST" action="{{ route('proses-permintaan-asi-request-pendonor') }}">
                             @csrf
                             <input type="hidden" name="asiBoardId" value="{{$idasiboard}}">

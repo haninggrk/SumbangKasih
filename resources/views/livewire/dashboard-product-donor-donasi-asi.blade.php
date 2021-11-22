@@ -37,11 +37,11 @@
     </style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Product ASI') }}
+            {{ __('Produk ASI') }}
         </h2>
     </x-slot>
     <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-        {{ __('Dashboard Product ASI') }}
+        {{ __('Dashboard Produk ASI') }}
     </h1>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
@@ -138,7 +138,7 @@
                         ">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
-                                Histori Produk ASImu
+                                Histori Produk ASI
                             </p>
                             <p class="text-sm hidden md:block text-gray-500 break-words">
                                 
@@ -167,7 +167,7 @@
                                     <tr>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            TANGGAL
+                                            DIPERBARUI
                                         </th>
         
                                         <th scope="col"
@@ -176,7 +176,7 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            JUMLAH 
+                                            KETERSEDIAAN
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -193,23 +193,32 @@
                                         @foreach($DataDonorAsiUser as $DataASI)
                                         @if($DataASI->status_persetujuan == 1)
                                         <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap">{{$DataASI->created_at->format('m/d/y')}}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">{{$DataASI->updated_at->format('m/d/y')}}</td>
                                          
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900"></div>
-                                                @if($DataASI->courir_pemilik == 1)
-                                                    <span
-                                                            class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
-                                                    @else
-                                                    <span
-                                                            class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">-</span>
-                                                            @endif
+                                                <div
+                                                    class="text-sm text-gray-900">@if($DataASI->courir_pemilik == 1)
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                    @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                            @endif</div>
 
                                             </td>
+
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{ $DataASI->quantityupdated }}/{{ $DataASI->quantity }} Botol</div>
-                                          
+                                            <div class="text-sm text-gray-900">  {{ $DataASI->quantityupdated }}/{{ $DataASI->quantity }} Botol</div>
+                                                <div class="text-sm text-gray-500">                          
+                            {{$DataASI->liter_per_pack}} Liter / Botol
+                                       
+                           </div>
+                                                
                                             </td>
+
+                                            
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm ">
                                                 {{$DataASI->city}}
                                            
@@ -242,21 +251,36 @@
                         <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                             <div class="w-full flex items-center justify-between p-6 space-x-6">
                                 <div class="flex-1 truncate">
-                                    <div class="flex items-center space-x-3">
-                                        <h3 class="text-gray-900 text-sm font-medium truncate">{{$DataASI->created_at->format('m/d/y')}} </h3>
-                                        
-                                        @if($DataASI->courir_pemilik == 1)
-                                            <span
-                                                class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
-                                        @endif
-                                    </div>
                                     <p class="mt-1 text-gray-500 text-sm truncate">{{$DataASI->city}}</p>
-                                    <p class="mt-1 text-gray-900 text-sm truncate">Sisa: <span
-                                            class="font-bold"> </span>{{ $DataASI->quantityupdated }}/{{ $DataASI->quantity }} Botol</p>
+                                   
+                                    <p class="mt-1 text-gray-900 text-sm truncate">Ketersediaan: <span
+                                            class="font-bold">{{ $DataASI->quantityupdated }}/{{ $DataASI->quantity }} </span> Botol (<span
+                                            class="font-bold">
+
+                            {{$DataASI->liter_per_pack}} </span>Liter/Botol
+                           
+                            )</p>
+
+                            <h6 class="mt-2 text-gray-900 text-sm font-medium truncate">Kurir
+                            @if($DataASI->courir_pemilik == 1)
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                    @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                            @endif
+                            </h6>
+                             <h6 class="mt-2 text-gray-500 text-sm font-medium truncate">Diperbarui Sejak: {{date('d M Y',strtotime($DataASI->updated_at))}}</h6>
+
+
+
+                                   
                                                    
                                 </div>
                                 <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                     src="{{$DataASI->product_picture}}"
                                      alt="">
                             </div>
                             <div>
@@ -327,16 +351,28 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div
                                                     class="text-sm text-gray-900">@if($DataASI->courir_pemilik == 1)
-                                                    <span
-                                                            class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
-                                                    @endif</div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                    @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                            @endif</div>
 
                                             </td>
+
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{ $DataASI->quantity }} Botol</div>
+                                            <div class="text-sm text-gray-900">  {{ $DataASI->quantity }} Botol</div>
                                                 <div class="text-sm text-gray-500">
-                                                </div>
+                                                
+                            {{$DataASI->liter_per_pack}} Liter / Botol
+                                       
+                           </div>
+                                                
                                             </td>
+
+
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm ">
                                                 {{$DataASI->city}}
                                            
@@ -372,20 +408,35 @@
                     <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                         <div class="w-full flex items-center justify-between p-6 space-x-6">
                             <div class="flex-1 truncate">
-                                <div class="flex items-center space-x-3">
-                                   
-                                    @if($DataASI->courir_pemilik == 1)
-                                        <span
-                                            class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
-                                    @endif
-                                </div>
+                                
                                 <p class="mt-1 text-gray-500 text-sm truncate">{{$DataASI->city}}</p>
                               
-                                <p class="mt-1 text-gray-900 text-sm truncate"><span
-                                        class="font-bold"></span>{{  $DataASI->quantity }} Botol 
+
+                                        <p class="mt-1 text-gray-900 text-sm truncate"><span
+                                            class="font-bold">{{  $DataASI->quantity }}</span> Botol (<span
+                                            class="font-bold">
+                                
+                            {{$DataASI->liter_per_pack}} </span>Liter/Botol
+                 
+                            )</p>
+
+                            <h6 class="mt-2 text-gray-900 text-sm font-medium truncate">Kurir
+                            @if($DataASI->courir_pemilik == 1)
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                    @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                            @endif
+                            </h6>
+                             <h6 class="mt-2 text-gray-500 text-sm font-medium truncate">Tanggal Upload: {{date('d M Y',strtotime($DataASI->created_at))}}</h6>
+
+
                             </div>
                             <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                 src="{{ $DataASI->product_picture }}"
                                  alt="">
                         </div>
                         <div>
@@ -430,15 +481,11 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Profile
-                                        </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Keterangan
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            JUMLAH
+                                            JUMLAH PRODUK DONASI
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -454,17 +501,8 @@
                                         @foreach($DataDonorAsiUser as $DataASI)
                                         @if($DataASI->status_persetujuan == 2 || $DataASI->quantityupdated == 0 || $DataASI->status_persetujuan == 3)
                                         <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap">{{$DataASI->created_at->format('m/d/y')}}</td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0 h-10 w-10">
-                                                        <img class="h-10 w-10 rounded-full"
-                                                             src="{{$DataASI->pemilik->profile_photo_url}}"
-                                                             alt="">
-                                                    </div>
-                                                
-                                                </div>
-                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">{{$DataASI->updated_at->format('m/d/y')}}</td>
+                                           
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div
                                                     class="text-sm text-gray-900">@if($DataASI->quantityupdated == 0)
@@ -479,11 +517,18 @@
                                                             @endif</div>
 
                                             </td>
+
+
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{$DataASI->quantityupdated}}/{{ $DataASI->quantity }} Botol</div>
+                                            <div class="text-sm text-gray-900">  {{$DataASI->quantityupdated}}/{{ $DataASI->quantity }} Botol</div>
                                                 <div class="text-sm text-gray-500">
-                                                </div>
+                                                
+                            {{$DataASI->liter_per_pack}} Liter / Botol
+                                       
+                           </div>
+                                                
                                             </td>
+
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm ">
                                                 {{$DataASI->city}}
                                            
@@ -524,18 +569,27 @@
                                    
                                 @if($DataASI->quantityupdated == 0)
                                                     <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Habis</span>
+                                                    {{$DataASI->updated_at->format('m/d/y')}}
                                                         @elseif($DataASI->status_persetujuan > 2)
-                                                        <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Failed</span>
+                                                        <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Dibatalkan</span>
+                                                        {{$DataASI->updated_at->format('m/d/y')}}
                                                         @else
                                                         <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Ditolak</span>
+                                                        {{$DataASI->updated_at->format('m/d/y')}}
                                                         @endif
                                 </div>
                                 <p class="mt-1 text-gray-500 text-sm truncate">{{$DataASI->city}}</p>
-                                <p class="mt-1 text-gray-900 text-sm truncate"><span
-                                        class="font-bold"></span> {{$DataASI->quantityupdated}}/{{ $DataASI->quantity }} Botol 
+
+                                        <p class="mt-3 text-gray-900 text-sm truncate"><span
+                                            class="font-bold">Jumlah Produk Donasi <br>{{$DataASI->quantityupdated}}/{{ $DataASI->quantity }}</span> Botol (<span
+                                            class="font-bold">
+                                
+                            {{$DataASI->liter_per_pack}} </span>Liter/Botol
+                 
+                            )</p>
                             </div>
                             <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                 src="{{ $DataASI->product_picture }}"
                                  alt="">
                         </div>
                         <div>

@@ -17,7 +17,7 @@
         </h2>
     </x-slot>
     <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-        {{ __('Detail Produk Asi') }}
+        {{ __('Informasi Produk Asi') }}
     </h1>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
@@ -85,7 +85,7 @@
                         </div>
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
-                                Quantity
+                                Jumlah
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 {{$getAsiProductDetail->quantity}} Botol
@@ -156,14 +156,14 @@
                         </div>
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-mediu mb-2 text-gray-500">
-                                Quantity
+                                Jumlah
                             </dt>
                             <x-jet-input class="w-full rounded-full p-2 px-3 text-md"
                                          placeholder="Jumlah"></x-jet-input>
                         </div>
 
                         <div class="sm:col-span-3 text-right">
-                            <x-jet-button class="rounded-full text-lg bg-orange-dd">Request</x-jet-button>
+                            <x-jet-button class="rounded-full text-lg bg-orange-dd">Pesan</x-jet-button>
                         </div>
                         </form>
 

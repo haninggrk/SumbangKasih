@@ -37,7 +37,7 @@
     </style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Donasi') }}
+            {{ __('Proses Permintaan ASI') }}
         </h2>
     </x-slot>
     <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
@@ -110,7 +110,7 @@
                                 Sedang Berlangsung
                             </p>
                             <p class="hidden md:block text-sm text-gray-500 truncate">
-                                Segera Selesaikan Pesanan
+                                Segera Berikan Pesanan
                             </p>
                         </button>
                     </a>
@@ -143,16 +143,13 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            KURIR
+                                            MINTA ANTAR
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            JUMLAH 
+                                            JUMLAH/LITER
                                         </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            KOTA
-                                        </th>
+                                      
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             AKSI
@@ -185,18 +182,31 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900"></div>
                                                 @if($DataResipien->pivot->courir_request == 1)
-                                                    <span
-                                                            class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Minta Antar</span>
-                                                    @endif
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                    @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                            @endif
 
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{$DataResipien->pivot->quantity_request}} Botol</div>
+                                            <div class="text-sm text-gray-900">   {{$DataResipien->pivot->quantity_request}} Botol</div>
+                                                <div class="text-sm text-gray-500">
+                                                
+                                                @foreach($DataResipien->asiResipiens as $asi)
+                            
+                            @if($asi->pivot->id == $DataResipien->pivot->id)
+                              {{$asi->liter_per_pack}} Liter / Botol
+                                       
+                            @endif
+                            @endforeach
+                        </div>
                                           
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-left text-sm ">
-                                                {{$DataResipien->pivot->city}}
-                                            </td>
+                                           
                                        
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                             <a href="{{ route('DetailDashboardPendonor-InProgressAsi',[
@@ -227,18 +237,36 @@
                                     <div class="flex items-center space-x-3">
                                         <h3 class="text-gray-900 text-sm font-medium truncate">{{$DataResipien->name}} </h3>
                                         
-                                        @if($DataResipien->pivot->courir_request == 1)
-                                            <span
-                                                class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Minta Antar</span>
-                                        @endif
+                                      
                                     </div>
-                                    <p class="mt-1 text-gray-500 text-sm truncate">{{$DataResipien->city}}</p>
-                                    <p class="mt-1 text-gray-900 text-sm truncate"><span
-                                            class="font-bold"> </span>{{$DataResipien->pivot->quantity_request}} Botol</p>
+
+                            <p class="mt-1 text-gray-900 text-sm truncate"><span
+                                            class="font-bold">{{$DataResipien->pivot->quantity_request}}</span> Botol (<span
+                                            class="font-bold">
+                                            @foreach($DataResipien->asiResipiens as $asi)
+                            @if($asi->pivot->id == $DataResipien->pivot->id)
+                                            
+                            {{$asi->liter_per_pack}} </span>Liter/Botol
+                            @endif
+                            @endforeach
+                            )</p>
+
+                            <h6 class="mt-2 text-gray-900 text-sm font-medium truncate">Minta Antar
+                            @if($DataResipien->pivot->courir_request == 1)
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                    @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                            @endif
+                                            </h6>
+                             <h6 class="mt-2 text-gray-500 text-sm font-medium truncate">Tanggal Pemesanan: {{date('d M Y',strtotime($DataResipien->pivot->created_at))}}</h6>
                                                    
                                 </div>
                                 <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                     src="{{$DataResipien->profile_photo_url}}"
                                      alt="">
                             </div>
                             <div>
@@ -287,15 +315,11 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            KURIR
+                                            MINTA ANTAR
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             JUMLAH
-                                        </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            KOTA
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -328,19 +352,30 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div
                                                     class="text-sm text-gray-900">@if($DataResipien->pivot->courir_request == 1)
-                                                    <span
-                                                            class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Minta Antar</span>
-                                                    @endif</div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                    @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                            @endif</div>
 
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">{{$DataResipien->pivot->quantity_request}} Botol</div>
+                                            <div class="text-sm text-gray-900">   {{$DataResipien->pivot->quantity_request}} Botol</div>
                                                 <div class="text-sm text-gray-500">
-                                                </div>
+                                                
+                                                @foreach($DataResipien->asiResipiens as $asi)
+                            
+                            @if($asi->pivot->id == $DataResipien->pivot->id)
+                            {{$asi->liter_per_pack}} Liter / Botol
+                                       
+                            @endif
+                            @endforeach</div>
+                                                
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                               
-                                            </td>
+                                          
                                       
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                                 <a href="{{ route('DetailDashboardPendonor-RequestAsi',[
@@ -348,18 +383,7 @@
                                                     
                                                 ])}}"><x-jet-button>Detail</x-jet-button></a>
                                                 
-                                                <!-- <form action="" method="post">
-    {{ csrf_field() }}
-            <input type="hidden" name="asiBoardId" value="{{$DataResipien->pivot->id}}"></input>
-               
-            <input type="hidden" name="asiId" value="{{$DataResipien->asiResipiens[0]->id}}"></input>
-               
-            
-           
-                                                <button type="submit">
-                                                    <x-jet-button>Details</x-jet-button>
-                                                </button>
-                                                </form>-->
+                        
                                             </td>
                                         </tr>
                                         @endif
@@ -383,21 +407,45 @@
                         <div class="w-full flex items-center justify-between p-6 space-x-6">
                             <div class="flex-1 truncate">
                                 <div class="flex items-center space-x-3">
+                               
                                     <h3 class="text-gray-900 text-sm font-medium truncate">{{$DataResipien->name}}</h3>
-                                    @if($DataResipien->pivot->courir_request == 1)
-                                        <span
-                                            class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Minta Antar</span>
-                                    @endif
+                                
                                 </div>
-                                <p class="mt-1 text-gray-500 text-sm truncate">{{$DataResipien->city}}</p>
-                                <p class="mt-1 text-gray-900 text-sm truncate"><span
-                                        class="font-bold"></span> {{$DataResipien->pivot->quantity_request}} Botol 
+
+                            <p class="mt-1 text-gray-900 text-sm truncate"><span
+                                            class="font-bold">{{$DataResipien->pivot->quantity_request}}</span> Botol (<span
+                                            class="font-bold">
+                                            @foreach($DataResipien->asiResipiens as $asi)
+                            @if($asi->pivot->id == $DataResipien->pivot->id)
+                                            
+                            {{$asi->liter_per_pack}} </span>Liter/Botol
+                            @endif
+                            @endforeach
+                            )</p>
+
+                            <h6 class="mt-2 text-gray-900 text-sm font-medium truncate">Minta Antar
+                            @if($DataResipien->pivot->courir_request == 1)
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                    @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                            @endif
+                            </h6>
+                             <h6 class="mt-2 text-gray-500 text-sm font-medium truncate">Tanggal Pemesanan: {{date('d M Y',strtotime($DataResipien->pivot->created_at))}}</h6>
                             </div>
+                            
                             <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
-                                 alt="">
+                                 src="{{$DataResipien->profile_photo_url}}">
+
+                                
+                                 
                         </div>
+                        
                         <div>
+                            
                             <div class="-mt-px flex divide-x divide-gray-200">
                                 <div class="w-0 flex-1 flex">
                                     <a href="{{ route('DetailDashboardPendonor-RequestAsi',[

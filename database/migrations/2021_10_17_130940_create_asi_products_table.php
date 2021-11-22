@@ -25,6 +25,7 @@ class CreateAsiProductsTable extends Migration
             $table->double('liter_per_pack');
             $table->text('description')->nullable();
             $table->integer('status_persetujuan')->default(0);
+            // 0=tidak 1=ya
             $table->integer('courir_pemilik');
             // $table->text('detail_address_get');
             $table->text('bukti_foto_covid-19');

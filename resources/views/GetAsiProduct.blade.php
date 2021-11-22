@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-        {{ __('Cari Donasi') }}
+        {{ __('Cari Donasiku') }}
     </h1>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">

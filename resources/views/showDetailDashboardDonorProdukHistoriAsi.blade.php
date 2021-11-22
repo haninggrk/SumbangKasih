@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-        {{ __('Detail Produk') }}
+        {{ __('Informasi Riwayat Produk') }}
     </h1>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
@@ -76,16 +76,20 @@
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                             @if($DataASI->courir_pemilik == 1)
-                                                    <span
-                                                            class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Siap Antar</span>
-                                                    @else
-                                                    -
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+</svg>
+                                                   @else
+                                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+</svg>
+                                                
                                                             @endif
                             </dd>
                         </div>
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
-                                Jumlah Produk
+                                Jumlah Produk Donasi
                             </dt>
                         
                             <dd class="mt-1 text-sm text-gray-900">
@@ -106,7 +110,7 @@
                         </div>
                         <div class="sm:col-span-3 q">
                             <dt class="text-sm font-medium text-gray-500">
-                                Deskripsi Produk ASI
+                                Deskripsiku
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 {{$DataASI->description}}
@@ -121,7 +125,16 @@
                                 {{$DataASI->detail_address}}
                             </dd>
                         </div>
+                        <div class="sm:col-span-3">
+                            <dt class="text-sm font-medium text-gray-500">
+                            Diperbarui Sejak
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900">
+                            {{date('d M Y',strtotime($DataASI->updated_at))}}
+                            </dd>
 
+                        
+                                                        </div>
 
                                 <!-- INI FORMNYA YANG DIISI BELUM CSRDF-->
 

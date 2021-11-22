@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-        {{ __('Detail Produk Asi') }}
+        {{ __('Informasi Produk ASI') }}
     </h1>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
@@ -30,7 +30,7 @@
                         <a href="{{route('data-donasi')}}" class="focus:outline-none">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-bold text-gray-900">
-                                Kembali ke Halaman ASI
+                                Kembali ke Halaman Cari Donasi
                             </p>
                         </a>
                     </div>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
-                                Quantity
+                                Jumlah Ketersediaan
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 {{$getAsiProductDetail->quantityupdated}} Botol
@@ -106,6 +106,7 @@
                         </div>
                         <div class="sm:col-span-3" x-data="{ on: @entangle('useCourier') }">
                             <form method="POST" wire:submit.prevent="requestAsi">
+                                @if($getAsiProductDetail->courir_pemilik == 1)
                                 <div class="flex items-center">
                                     <button type="button"
                                             class="relative inline-flex flex-shrink-0 h-8 w-14 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orangesa bg-gray-200"
@@ -121,13 +122,14 @@
                                     </button>
                                     <span class="ml-3" id="annual-billing-label"
                                           @click="on = !on; $refs.switch.focus()">
-                                          <span class="text-sm font-medium text-gray-900">Gunakan jasa kurir</span>
+                                          <span class="text-sm font-medium text-gray-900">Gunakan Jasa Kurir</span>
                                         </span>
                                 </div>
-                                <div class="flex items-center w-full mt-4 space-x-2">
+                                @endif
+                                <div class="flex items-center w-full mt-5 space-x-2">
                                     <div class="sm:col-span-1">
                                         <dt class="text-sm font-mediu mb-2 text-gray-500">
-                                            Quantity
+                                            Jumlah Pesanan Botol
                                         </dt>
                                         <x-jet-input wire:model.lazy="quantity"
                                                      class="w-full rounded-full p-2 px-3 text-md"
@@ -136,7 +138,7 @@
                                     </div>
                                     <div x-show="on" class="sm:col-span-2 w-full">
                                         <dt class="text-sm font-mediu mb-2 text-gray-500">
-                                            Detail Alamat
+                                            Detail Alamat Pengiriman
                                         </dt>
                                         <x-jet-input wire:model.lazy="address"
                                                      class="w-full rounded-full p-2 px-3 text-md"
@@ -145,7 +147,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full text-right mt-4">
-                                    <x-jet-button class="rounded-full text-lg bg-orange-dd">Request</x-jet-button>
+                                    <x-jet-button class="rounded-full text-lg bg-orange-dd">Pesan</x-jet-button>
                                 </div>
                             </form>
                         </div>
