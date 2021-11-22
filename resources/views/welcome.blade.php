@@ -53,7 +53,7 @@
         <div class="container mt-2 lg:mt-14 py-2 md:py-10 lg:px-32 mx-auto gap-10">
           <div class="flex flex-wrap -mx-3 overflow-hidden mb-14 lg:mb-72">
 
-            <div class="my-3 px-3 w-full overflow-hidden md:block hidden text-3xl md:text-4xl">
+            <div class="my-3 font-extrabold px-3 w-full overflow-hidden md:block hidden text-3xl md:text-4xl">
               HELPING OTHERS is the way
                 <br>we HELP OURSELVES
             </div>

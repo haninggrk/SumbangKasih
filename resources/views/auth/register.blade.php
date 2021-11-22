@@ -1,7 +1,10 @@
+<x-navbart></x-navbart>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+                Daftar
+            </h2>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
