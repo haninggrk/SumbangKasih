@@ -136,8 +136,8 @@
                                             @endswitch
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            @if($withdraw->payment_status == 1)
-                                                <a href="{{$withdraw->payment_url}}">
+                                            @if($donation->payment_status == 1)
+                                                <a href="{{$donation->payment_url}}">
                                                     <x-jet-button>Selesaikan pembayaran</x-jet-button>
                                                 </a>
                                             @endif
