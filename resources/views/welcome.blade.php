@@ -70,7 +70,7 @@
               <a href="{{route('register')}}"><x-jet-button class="text-base rounded-full">Daftar Sekarang</x-jet-button></a>
             </div>
           </div>
-          <div class="bg-white mb-16 text-black text-3xl text-center rounded-full py-2 max-w-2xl m-auto">Kemana Anda Bisa Menyumbang Dana Uang ?</div>
+          <div class="bg-white mb-16 text-black text-3xl text-center rounded-full py-2 max-w-2xl m-auto">Kemana Anda Bisa Menyumbang Dana?</div>
           
 <!-- This example requires Tailwind CSS v2.0+ -->
 <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 lg:gap-x-32 mb-16">
@@ -359,29 +359,29 @@
     </ol>
   </div>
 </div>
-<div class="mx-auto text-center text-3xl">Artikel Menginspirasi</div>
+<div class="mx-auto text-center text-3xl">Artikel</div>
 <div class="mx-auto text-center text-3xl w-36 mb-16 rounded-full h-2 bg-orangesa"></div>
 <div class="grid grid-cols-3 w-full gap-5 mb-32">
           
   <div class="bg-white  mx-auto text-center rounded-lg shadow-lg max-w-xs col-span-3 md:col-span-1 text-center">
-    <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-3xl">
+    <img src="https://akcdn.detik.net.id/community/media/visual/2021/07/12/ibu-menyusui-1_169.jpeg?w=700&q=90" alt="" class="rounded-t-3xl">
     <div class="p-6 -mt-5 relative bg-white rounded-t-3xl">
-      <h2 class="font-bold mb-2 text-lg text-gray-900">Virtual Tour Bantu Hidupkan Museum di Masa Pandemi
+      <h2 class="font-bold mb-2 text-lg text-gray-900">Apakah Ibu Menyusui Boleh Vaksin? Catat Ketentuannya di Sini!
       </h2>
-      <p class="text-gray-700 mb-2">Kunjungan secara daring  menjadi salah satu inovasi yang dilakukan sejumlah museum di tengah pandemi COVID-19</p>
+      <p class="text-gray-700 mb-2">Program vaksinasi di Indonesia masih terus berjalan. Pelaksanaan vaksinasi pun harus mengikuti petunjuk teknis yang dikeluarkan oleh Kemenkes. Tapi apakah ibu menyusui boleh vaksin COVID-19? </p>
       
     </div>
-    <x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button>
+    <a href="https://health.detik.com/berita-detikhealth/d-5752563/apakah-ibu-menyusui-boleh-vaksin-catat-ketentuannya-di-sini?_ga=2.192575658.1053611776.1637575093-1688744199.1636536737"><x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button></a>
 </div>
 <div class="bg-white  mx-auto text-center rounded-lg shadow-lg max-w-xs col-span-3 md:col-span-1 text-center">
-  <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-3xl">
+  <img src="https://akcdn.detik.net.id/community/media/visual/2021/08/20/ilustrasi-susu-sapi.jpeg?w=700&q=90" alt="" class="rounded-t-3xl">
   <div class="p-6 -mt-5 relative bg-white rounded-t-3xl text-center">
-    <h2 class="font-bold mb-2 text-lg text-gray-900 text-center">Teknologi Kesehatan Bisa Bantu Pandemi Menjadi Endemi
+    <h2 class="font-bold mb-2 text-lg text-gray-900 text-center">Susu Berwarna Putih ini Kata Pakar IPB
     </h2>
-    <p class="text-gray-700 text-center mb-2">Pemanfaatan layanan kesehatan digital berwujud telehealth bisa menjadi bagian dari upaya mengubah kondisi pandemi COVID-19 menjadi endemi</p>
+    <p class="text-gray-700 text-center mb-2">Pernah terpikirkan mengapa susu berwarna putih? Bukan warna lain seperti minuman berwarna yang sering kita minum atau bening seperti air. Ternyata ada sebabnya lho mengapa susu bisa berwarna putih</p>
     
   </div>
-  <x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button></div>
+  <a href="https://www.detik.com/edu/detikpedia/d-5806736/mengapa-susu-berwarna-putih-ini-kata-pakar-ipb"><x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button></a></div>
   <div class="bg-white  mx-auto text-center rounded-lg shadow-lg max-w-xs col-span-3 md:col-span-1">
     <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-3xl">
     <div class="p-6 -mt-5 relative bg-white rounded-t-3xl text-center">
