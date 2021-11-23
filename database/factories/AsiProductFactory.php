@@ -21,10 +21,12 @@ class AsiProductFactory extends Factory
      */
     public function definition()
     {
+        $temp =$this->faker->numberBetween(1, 10);
         return [
             'product_picture' => 'photos/placeholdersusu.jpg',
             'tanggal_melahirkan' => $this->faker->date(),
-            'quantity' => $this->faker->numberBetween(1, 10),
+            'quantity' =>$temp,
+            'quantityupdated' => $temp,
             'liter_per_pack' => $this->faker->numberBetween(10, 100),
             'description' => $this->faker->text(100),
             'courir_pemilik' => $this->faker->numberBetween(0, 1),
