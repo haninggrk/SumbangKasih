@@ -264,7 +264,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                                    
                                 </div>
                                 <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                     src="{{$DataASI->product_picture}}"
+                                     src="{{url('/storage/' . $DataASI->product_picture)}}"
                                      alt="">
                             </div>
                             <div>
@@ -420,7 +420,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
 
                             </div>
                             <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                 src="{{ $DataASI->product_picture }}"
+                                 src="{{url('/storage/' . $DataASI->product_picture)}}"
                                  alt="">
                         </div>
                         <div>
@@ -573,7 +573,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                             )</p>
                             </div>
                             <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
-                                 src="{{ $DataASI->product_picture }}"
+                                 src="{{url('/storage/' . $DataASI->product_picture)}}"
                                  alt="">
                         </div>
                         <div>
