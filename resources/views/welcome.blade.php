@@ -115,7 +115,7 @@
       class="carousel-item absolute opacity-0 bg-center"
       style="
         height: 500px;
-        background-image: url(https://mdbootstrap.com/img/new/slides/052.jpg);
+        background-image: url({{asset('img/slide1.jpg')}});
       "
     ></div>
     <label
