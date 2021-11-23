@@ -123,6 +123,20 @@
                                 {{$DataASI->detail_address}}
                             </dd>
                         </div>
+
+                        <div class="sm:col-span-3">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Foto
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900">
+                                <div
+                                    class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden">
+                                    <img
+                                        src="{{url('/storage/' . $DataASI->product_picture)}}"
+                                        alt="">
+                                </div>
+                            </dd>
+                        </div>
                         @if($DataASI->status_persetujuan == 1)
                         <div class="sm:col-span-3">
                             <dt class="text-sm font-medium text-gray-500">
