@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      
+
             {{ __('Produk ASI') }}
         </h2>
     </x-slot>
@@ -53,10 +53,10 @@
                     <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
                             <img class="h-10 w-10 rounded-full"
-                                 src="{{$DataASI->product_picture}}">
+                                 src="{{url('/storage/' . $DataASI->product_picture)}}">
                         </div>
                         <div class="ml-4">
-                        
+
                             <div class="text-sm text-gray-500">
                                 <!--  -->
                                 Tanggal Upload : {{date('d M Y',strtotime($DataASI->created_at))}}
@@ -79,7 +79,7 @@
                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
 </svg>
-                                                
+
                                                             @endif
                             </dd>
                         </div>
@@ -87,7 +87,7 @@
                             <dt class="text-sm font-medium text-gray-500">
                                 Ketersediaan
                             </dt>
-                        
+
                             <dd class="mt-1 text-sm text-gray-900">
                             @if($DataASI->status_persetujuan==1)
                                 {{$DataASI->quantityupdated}}/{{ $DataASI->quantity }} Botol
@@ -96,7 +96,7 @@
                                 @endif
                             </dd>
 
-                     
+
                         </div>
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
@@ -135,9 +135,9 @@
                         @endif
                         <form method="POST" action="{{ route('proses-donor-produk-asi') }}">
                             @csrf
-    
+
                             <input type="hidden" name="asiId" value="{{$DataASI->id}}">
-                    
+
                         <x-jet-button name="batal">Batalkan</x-jet-button>
                         </form>
 
