@@ -22,7 +22,7 @@ class AsiProductFactory extends Factory
     public function definition()
     {
         return [
-            'product_picture' => 'https://via.placeholder.com/400x400',
+            'product_picture' => 'photos/placeholdersusu.jpg',
             'tanggal_melahirkan' => $this->faker->date(),
             'quantity' => $this->faker->numberBetween(1, 10),
             'liter_per_pack' => $this->faker->numberBetween(10, 100),
@@ -31,7 +31,7 @@ class AsiProductFactory extends Factory
             'city' => $this->faker->city(),
             'detail_address' => $this->faker->address(),
 
-            'bukti_foto_covid19' => 'https://via.placeholder.com/1200x800',
+            'bukti_foto_covid19' => 'photos/placeholdervaksin.jpeg',
         ];
     }
 }
