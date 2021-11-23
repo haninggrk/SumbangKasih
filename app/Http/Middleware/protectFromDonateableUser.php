@@ -16,14 +16,13 @@ class protectFromDonateableUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->user()->user_type === 2){
-            return $next($request);
+        if(auth()->user()->user_type === 2){
+            return redirect(route('dashboard'))->with([
+                'flash.banner' => 'Anda sudah diterima menjadi penerima donasi Sumbang Asih!',
+                'flash.bannerStyle' => 'success'
+            ]);
+
         }
-
-        return redirect(route('dashboard'))->with([
-            'flash.banner' => 'Anda sudah diterima menjadi penerima donasi Sumbang Asih!',
-            'flash.bannerStyle' => 'success'
-        ]);
-
+        return $next($request);
     }
 }
