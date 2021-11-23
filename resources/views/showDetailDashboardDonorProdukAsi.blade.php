@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -7,10 +6,10 @@
         </h2>
     </x-slot>
     <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-    @if($DataASI->status_persetujuan == 1)
-    {{ __('Informasi Produk') }}
-    @else
-        {{ __('Menunggu Persetujuan Admin') }}
+        @if($DataASI->status_persetujuan == 1)
+            {{ __('Informasi Produk') }}
+        @else
+            {{ __('Menunggu Persetujuan Admin') }}
         @endif
     </h1>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
@@ -71,16 +70,22 @@
                                 Kurir
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                            @if($DataASI->courir_pemilik == 1)
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-</svg>
-                                                   @else
-                                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
-</svg>
+                                @if($DataASI->courir_pemilik == 1)
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                         fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                              clip-rule="evenodd"/>
+                                    </svg>
+                                @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                         fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
+                                              clip-rule="evenodd"/>
+                                    </svg>
 
-                                                            @endif
+                                @endif
                             </dd>
                         </div>
                         <div class="sm:col-span-1">
@@ -89,14 +94,12 @@
                             </dt>
 
                             <dd class="mt-1 text-sm text-gray-900">
-                            @if($DataASI->status_persetujuan==1)
-                                {{$DataASI->quantityupdated}}/{{ $DataASI->quantity }} Botol
+                                @if($DataASI->status_persetujuan==1)
+                                    {{$DataASI->quantityupdated}}/{{ $DataASI->quantity }} Botol
                                 @else
-                            {{ $DataASI->quantity }} Botol
+                                    {{ $DataASI->quantity }} Botol
                                 @endif
                             </dd>
-
-
                         </div>
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
@@ -106,7 +109,8 @@
                                 {{$DataASI->liter_per_pack}}
                             </dd>
                         </div>
-                        <div class="sm:col-span-3 q">
+
+                        <div class="sm:col-span-1 q">
                             <dt class="text-sm font-medium text-gray-500">
                                 Deskripsiku
                             </dt>
@@ -124,7 +128,18 @@
                             </dd>
                         </div>
 
-                        <div class="sm:col-span-2">
+                        @if($DataASI->status_persetujuan == 1)
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Diperbarui Sejak
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{date('d M Y',strtotime($DataASI->updated_at))}}
+                                </dd>
+                            </div>
+                        @endif
+
+                        <div class="sm:col-span-3">
                             <dt class="text-sm font-medium text-gray-500">
                                 Foto Produk
                             </dt>
@@ -137,31 +152,22 @@
                                 </div>
                             </dd>
                         </div>
-                        @if($DataASI->status_persetujuan == 1)
-                        <div class="sm:col-span-3">
-                            <dt class="text-sm font-medium text-gray-500">
-                                Diperbarui Sejak
-                            </dt>
-                            <dd class="mt-1 text-sm text-gray-900">
-                                {{date('d M Y',strtotime($DataASI->updated_at))}}
-                            </dd>
-                        </div>
-                        @endif
+
                         <form method="POST" action="{{ route('proses-donor-produk-asi') }}">
                             @csrf
 
                             <input type="hidden" name="asiId" value="{{$DataASI->id}}">
 
-                        <x-jet-button name="batal">Batalkan</x-jet-button>
+                            <x-jet-button name="batal">Batalkan</x-jet-button>
                         </form>
 
 
-                                <!-- INI FORMNYA YANG DIISI BELUM CSRDF-->
+                        <!-- INI FORMNYA YANG DIISI BELUM CSRDF-->
 
 
                     </dl>
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </x-app-layout>
