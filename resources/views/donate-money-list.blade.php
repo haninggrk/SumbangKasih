@@ -14,7 +14,7 @@
                         <div
                             class="group block w-full aspect-w-10 aspect-h-3 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
                             <img
-                                src="{{asset('img/banner-category/' . $category->photo)}}"
+                                src="{{asset('img/banner-category/' . $category->photo.".jpg")}}"
                                 alt="" class="object-cover pointer-events-none group-hover:opacity-75">
                             <span class="sr-only">Detail kategori {{$category->name}}</span>
                         </div>

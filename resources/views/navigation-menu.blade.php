@@ -1,4 +1,8 @@
-
+<style>
+     .filter-white{
+        filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(126deg) brightness(102%) contrast(104%);
+    }
+</style>
 <div
     @click="sidebarOpen = false"
     x-show="sidebarOpen"
@@ -62,7 +66,7 @@
                 </x-slot>
             </x-nav-item>
 
-            <x-nav-item title="Lakukan Donasi" :url="route('donate-money.index')" :active="Route::is('data-donaasadsi')">
+            <x-nav-item title="Lakukan Donasi" :url="route('donate-money.index')" :active="Route::is('donate-money.index')">
                 <x-slot name="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -136,17 +140,17 @@
                 </x-nav-item>
                 <x-nav-item title="Permintaan ASI" :url="route('dashboard-permintaan-donasi-asi')" :active="Route::is('dashboard-permintaan-donasi-asi')">
                     <x-slot name="icon">
-                        <img class="h-6 w-6" src="{{asset('img/permintaan-asi.png')}}">
+                        <img class="h-6 w-6 @if(!Route::is('dashboard-permintaan-donasi-asi')) filter-white @endif" src="{{asset('img/permintaan-asi.svg')}}">
                     </x-slot>
                 </x-nav-item>
                 <x-nav-item title="Pesanan ASI" :url="route('dashboard-request-donasi-asi')" :active="Route::is('dashboard-request-donasi-asi')">
                     <x-slot name="icon">
-                        <img class="h-6 w-6" src="{{asset('img/pesanan-asi.png')}}">
+                        <img class="h-6 w-6 @if(!Route::is('dashboard-request-donasi-asi')) filter-white @endif" src="{{asset('img/pesanan-asi.svg')}}">
                     </x-slot>
                 </x-nav-item>
                 <x-nav-item title="Donasi Produk ASI" :url="route('dashboard-pendonor-donasi-asi')" :active="Route::is('dashboard-pendonor-donasi-asi')">
                     <x-slot name="icon">
-                        <img class="h-6 w-6" src="{{asset('img/donasi-produk-asi.png')}}">
+                        <img class="h-6 w-6 @if(!Route::is('dashboard-pendonor-donasi-asi')) filter-white @endif" src="{{asset('img/donasi-produk-asi.svg')}}">
                     </x-slot>
                 </x-nav-item>
             </nav>
