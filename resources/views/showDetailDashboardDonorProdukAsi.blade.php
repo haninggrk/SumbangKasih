@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
-                    <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3">
+                    <dl class="grid grid-cols-3 gap-x-4 gap-y-8 sm:grid-cols-3">
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
                                 Kurir
@@ -115,7 +115,7 @@
                             </dd>
                         </div>
 
-                        <div class="sm:col-span-3">
+                        <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
                                 Alamat Pengambilan
                             </dt>
@@ -124,9 +124,9 @@
                             </dd>
                         </div>
 
-                        <div class="sm:col-span-3">
+                        <div class="sm:col-span-2">
                             <dt class="text-sm font-medium text-gray-500">
-                                Foto
+                                Foto Produk
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 <div
