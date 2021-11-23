@@ -55,6 +55,8 @@ class DonateMoney extends Component
             $transactionId, $this->donatorData['amount'], auth()->user(), (int)$category->id, $category->name
         );
 
+        \Log::info("aaaaaaa", $midTransaction);
+
         $transaction = $midTransaction->create();
 
         $donation->update([
