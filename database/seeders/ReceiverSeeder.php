@@ -28,7 +28,6 @@ class ReceiverSeeder extends Seeder
             $users = User::where('category_id', $category->id)->get();
             if($users->count() !== 0){
                 $payable = floor($category->donator()->sum('amount') / $users->count());
-                \Log::info("payable: {$payable}");
 
                 foreach ($users as $user) {
                     ReceiverInfo::create([
