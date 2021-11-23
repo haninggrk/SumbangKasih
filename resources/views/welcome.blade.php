@@ -79,7 +79,7 @@
     <div class="w-full flex items-center justify-between p-6 space-x-6">
       <div class="flex-1">
         <div class="flex items-center space-x-3">
-          <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{asset('img/thumbnail')."/".$datacategory->photo.".png"}}" alt=""><h3 class="text-gray-900 text-2xl font-bold truncate">{{ $datacategory->name }}</h3>
+          <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{asset('img/thumbnail')."/".$datacategory->photo}}" alt=""><h3 class="text-gray-900 text-2xl font-bold truncate">{{ $datacategory->name }}</h3>
           
         </div>
         <p class="mt-5 text-gray-500 text-xl break-words">{{ $datacategory->description}}<br><br></p>
@@ -188,7 +188,7 @@
       class="carousel-item absolute opacity-0 bg-center"
       style="
         height: 500px;
-        background-image: url(https://mdbootstrap.com/img/new/slides/043.jpg);
+        background-image: url({{asset('img/slide2.jpg')}});
       "
     ></div>
     <label
@@ -258,7 +258,7 @@
       class="carousel-item absolute opacity-0"
       style="
         height: 500px;
-        background-image: url(https://mdbootstrap.com/img/new/slides/054.jpg);
+        background-image: url({{asset('img/slide3.jpg')}});
       "
     ></div>
     <label
