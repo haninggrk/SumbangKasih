@@ -1,13 +1,12 @@
-
-  <x-slot name="header">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-    
-          {{ __('Produk ASI') }}
-      </h2>
-  </x-slot>
-  <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
-      Donor ASI
-  </h1>
+<div>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Produk ASI') }}
+        </h2>
+    </x-slot>
+    <h1 class="mb-5 font-semibold text-3xl text-gray-800 leading-tight">
+        Donor ASI
+    </h1>
 
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
         <div class="col-span-5 lg:col-span-2">
@@ -42,35 +41,45 @@
                 <!-- More people... -->
             </div>
         </div>
-        
+
         <div class="mt-5 md:mt-0 col-span-7 md:col-span-5">
             <div class="mt-5 md:mt-0 md:col-span-2">
-            <form method="POST" wire:submit.prevent="AddAsi">
-                  <div class="shadow overflow-hidden sm:rounded-md">
-                    <div class="px-4 py-5 bg-white sm:p-6">
-                      <div class="grid grid-cols-6 gap-6">
-                        <div class="col-span-6 sm:col-span-3">
-                          <label for="first-name" class="block text-sm font-medium text-gray-700">Tanggal Melahirkan</label>
-                          <input  wire:model.lazy="tanggal_melahirkan" required type="date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                        </div>
-        
-                        <div class="col-span-6 sm:col-span-3">
-                          <label for="last-name" class="block text-sm font-medium text-gray-700">Kota</label>
-                          <input wire:model.lazy="city" required type="text" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                        </div>
-                        <div class="col-span-6 sm:col-span-3">
-                            <label for="first-name" class="block text-sm font-medium text-gray-700">Jumlah Liter Per Botol </label>
-                            <input wire:model.lazy="liter_per_pack" required type="number" placeholder="Masukan Jumlah Liter" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                            
-                        </div>
-                          
-                          <div class="col-span-6 sm:col-span-3">
-                            <label for="last-name" class="block text-sm font-medium text-gray-700">Jumlah Botol</label>
-                            <input wire:model.lazy="quantity" required type="number" n placeholder="Masukkan Jumlah Botol" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                          </div>
-                          <div class="col-span-6 sm:col-span-3 flex items-center"  x-data="{ on: @entangle('useCourier') }">
+                <form wire:submit.prevent="addAsi" x-data="{ on: @entangle('kurir') }">
+                    <div class="shadow overflow-hidden sm:rounded-md">
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <div class="grid grid-cols-6 gap-6">
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="first-name" class="block text-sm font-medium text-gray-700">Tanggal
+                                        Melahirkan</label>
+                                    <input wire:model.lazy="tanggal_melahirkan" id="first-name" required type="date"
+                                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+                                </div>
 
-                          <button type="button"
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="last-name" class="block text-sm font-medium text-gray-700">Kota</label>
+                                    <input wire:model.lazy="city" required type="text"
+                                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+                                </div>
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="first-name" class="block text-sm font-medium text-gray-700">Jumlah Liter
+                                        Per
+                                        Botol </label>
+                                    <input wire:model.lazy="liter_per_pack" required type="number"
+                                           placeholder="Masukan Jumlah Liter" autocomplete="given-name"
+                                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="last-name" class="block text-sm font-medium text-gray-700">Jumlah
+                                        Botol</label>
+                                    <input wire:model.lazy="quantity" required type="number" n
+                                           placeholder="Masukkan Jumlah Botol" autocomplete="family-name"
+                                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+                                </div>
+                                <div class="col-span-6 sm:col-span-3 flex items-center">
+
+                                    <button type="button"
                                             class="relative inline-flex flex-shrink-0 h-8 w-14 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orangesa bg-gray-200"
                                             role="switch" aria-checked="false" x-ref="switch" x-state:on="Enabled"
                                             x-state:off="Not Enabled"
@@ -87,79 +96,61 @@
                                           <span class="text-sm font-medium text-gray-900">Sediakan Jasa Kurir</span>
                                         </span>
 
-
-                        </div>
-                        <div class="col-span-6 sm:col-span-4">
-                          <label for="email-address" class="block text-sm font-medium text-gray-700">Agama (Opsional) </label>
-                          <input wire:model.lazy="agama" type="text" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-4">
-                            <label for="last-name" class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                            <textarea wire:model.lazy="description" required rows="3" class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
-              <p class="mt-2 text-sm text-gray-500">Masukkan informasi terkait riwayat kesehatan, konsumsi obat-obatan yang sedang dikonsumsi, gaya hidup dan budaya Anda untuk membantu resipien mengetahui kondisi pendonor</p>
-                          </div>
-
-                          <div class="col-span-6 sm:col-span-4">
-                            <label for="last-name" class="block text-sm font-medium text-gray-700">Alamat Lengkap</label>
-                            <textarea wire:model.lazy="detail_address" required rows="3" class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
-              <p class="mt-2 text-sm text-gray-500">Masukkan alamat lengkap pendonor</p>
-                          </div>
-                          <div class="col-span-6 sm:col-span-4">
-                            <label class="block text-sm font-medium text-gray-700">
-                                 Gambar Produk ASI
-                              </label>
-                              <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                                <div class="space-y-1 text-center">
-                                  <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                  </svg>
-                                  <div class="flex text-sm text-gray-600">
-                                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                      <span>Upload a file</span>
-                                      <input wire:model.lazy="product_picture" type="file" class="sr-only" />
-                                    </label>
-                                    <p class="pl-1">or drag and drop</p>
-                                  </div>
-                                  <p class="text-xs text-gray-500">
-                                    PNG, JPG, GIF up to 10MB
-                                  </p>
                                 </div>
-                          </div>
-                          
-                      </div>
-
-                      <div class="col-span-6 sm:col-span-4">
-                            <label class="block text-sm font-medium text-gray-700">
-                                 Bukti Surat Vaksin Covid-19 (Minimal Tahap 1)
-                              </label>
-                              <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                                <div class="space-y-1 text-center">
-                                  <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                  </svg>
-                                  <div class="flex text-sm text-gray-600">
-                                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                      <span>Upload a file</span>
-                                      <input wire:model.lazy="bukti_foto_covid19" type="file" class="sr-only" />
-                                    </label>
-                                    <p class="pl-1">or drag and drop</p>
-                                  </div>
-                                  <p class="text-xs text-gray-500">
-                                    PNG, JPG, GIF up to 10MB
-                                  </p>
+                                <div class="col-span-6 sm:col-span-4">
+                                    <label for="email-address" class="block text-sm font-medium text-gray-700">Agama
+                                        (Opsional) </label>
+                                    <input wire:model.lazy="agama" id="email-address" type="text"
+                                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
                                 </div>
-                          </div>
-                          
-                      </div>
+
+                                <div class="col-span-6 sm:col-span-4">
+                                    <label for="desc" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                                    <textarea id="desc" wire:model.lazy="description" required rows="3"
+                                              class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
+                                    <p class="mt-2 text-sm text-gray-500">Masukkan informasi terkait riwayat kesehatan,
+                                        konsumsi obat-obatan yang sedang dikonsumsi, gaya hidup dan budaya Anda untuk
+                                        membantu resipien mengetahui kondisi pendonor</p>
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-4">
+                                    <label for="last-name" class="block text-sm font-medium text-gray-700">Alamat
+                                        Lengkap</label>
+                                    <textarea wire:model.lazy="detail_address" required rows="3"
+                                              class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
+                                    <p class="mt-2 text-sm text-gray-500">Masukkan alamat lengkap pendonor</p>
+                                </div>
+                                <div class="col-span-6 sm:col-span-4">
+                                    <label class="block text-sm font-medium text-gray-700">
+                                        Gambar Produk ASI
+                                    </label>
+                                    <div
+                                        class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                        <input type="file" wire:model="product_picture">
+                                    </div>
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-4">
+                                    <label class="block text-sm font-medium text-gray-700">
+                                        Bukti Surat Vaksin Covid-19 (Minimal Tahap 1)
+                                    </label>
+                                    <div
+                                        class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                        <input type="file" wire:model="bukti_foto_covid19">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button type="submit"
+                                    class="rounded-full text-lg bg-orange-dd inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-d">
+                                Lakukan donasi
+                            </button>
+                        </div>
                     </div>
-                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <x-jet-button class="rounded-full text-lg bg-orange-dd">Donasikan</x-jet-button>
-                    </div>
-                  </div>
                 </form>
-              </div>
-            
-          </div>
-</div>
+            </div>
 
+        </div>
+    </div>
+</div>
