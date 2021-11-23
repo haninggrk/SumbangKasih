@@ -1,4 +1,3 @@
-
 <div>
     <style>
         /* Set a fixed scrollable wrapper */
@@ -55,7 +54,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
             </div>
             <!--Mobile Navigation -->
             <div class="
-         
+
             content-center grid lg:grid-cols-1 grid-cols-3 gap-4 sm:grid-cols-3">
                 <div
                     class="   @if($page=="request_asi")
@@ -64,7 +63,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                     relative rounded-lg text-center sm:text-left border border-gray-300 bg-white px-6 py-5 shadow-sm sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
                     <div class="sm:flex-shrink-0">
                         <div class="p-2 h-10 w-10 inline-block sm:block bg-orangesa rounded-full text-white "><img class="filter-white" src="{{asset('img/pesanan-asi.svg')}}"></div>
-                      
+
 
                     </div>
                     <div class="sm:flex-1   min-w-0">
@@ -79,9 +78,9 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                 Menunggu Persetujuan
                             </p>
                         </button>
-                   
+
                     </div>
-                    
+
 
                 </div>
                 <div
@@ -131,7 +130,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                             </p>
                         </button>
                     </div>
-                    
+
 
                 </div>
 
@@ -164,7 +163,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            JUMLAH 
+                                            JUMLAH
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -209,39 +208,39 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
 </svg>
-                                                
+
                                                             @endif
 
                                             </td>
-          
+
                                             <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="text-sm text-gray-900">  {{$DataPermintaan->pivot->quantity_request}} Botol</div>
                                                 <div class="text-sm text-gray-500">
-              
+
                             {{$DataPermintaan->liter_per_pack}} Liter / Botol
-                                       
+
                             </div>
-                                                
+
                                             </td>
 
 
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm ">
-                                              
+
                                                 {{ $DataPermintaan->city }}
                                             </td>
-                                       
+
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                             <a href="{{ route('DetailDashboardResipien-InProgressAsi',[
                                                     'idasiboard' => $DataPermintaan->pivot->id
                                                 ])}}"><x-jet-button>Detail</x-jet-button></a>
-                                   
+
 
 
                                             </td>
                                         </tr>
                                         @endif
                                         @endforeach
-                                   
+
                                     <!-- More people... -->
                                     </tbody>
                                 </table>
@@ -258,10 +257,10 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                 <div class="flex-1 truncate">
                                     <div class="flex items-center space-x-3">
                                         <h3 class="text-gray-900 text-sm font-medium truncate">{{$DataPermintaan->pemilik->name}} </h3>
-                                        
+
                                     </div>
                                     <p class="mt-1 text-gray-500 text-sm truncate">{{$DataPermintaan->city}}</p>
-                    
+
                                             <p class="mt-1 text-gray-900 text-sm truncate"><span
                                             class="font-bold">{{ $DataPermintaan->pivot->quantity_request }}</span> Botol (<span
                                             class="font-bold">
@@ -280,7 +279,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                                 @endif
                             </h6>
                              <h6 class="mt-2 text-gray-500 text-sm font-medium truncate">Tanggal Pemesanan: {{date('d M Y',strtotime($DataPermintaan->pivot->created_at))}}</h6>
-                                                   
+
                                 </div>
                                 <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
                                      src="{{$DataPermintaan->pemilik->profile_photo_url}}"
@@ -290,7 +289,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                 <div class="-mt-px flex divide-x divide-gray-200">
                                     <div class="w-0 flex-1 flex">
                                         <a href="{{ route('DetailDashboardResipien-InProgressAsi',[
-                                                    'idasiboard' => $DataPermintaan->pivot->id   
+                                                    'idasiboard' => $DataPermintaan->pivot->id
                                                 ])}}"
                                            class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-orangesa font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
                                             <!-- Heroicon name: solid/mail -->
@@ -308,7 +307,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                   @endif
                   @endforeach
                 </ul>
-              
+
             </div>
     @elseif($page=="request_asi")
         <!-- Taruh kode dana disini -->
@@ -365,7 +364,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                                             {{$DataPermintaan->pemilik->name}}
                                                         </div>
                                                         <div class="text-sm text-gray-500">
-                                                        
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -383,33 +382,33 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                                             @endif</div>
 
                                             </td>
-                     
+
                                             <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="text-sm text-gray-900">  {{ $DataPermintaan->pivot->quantity_request }} Botol</div>
                                                 <div class="text-sm text-gray-500">
-              
+
                             {{$DataPermintaan->liter_per_pack}} Liter / Botol
-                                       
+
                             </div>
-                                                
+
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                                {{ $DataPermintaan->city }}
                                             </td>
-                                      
+
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                                 <a href="{{ route('DetailDashboardResipien-RequestAsi',[
                                                     'idasiboard' => $DataPermintaan->pivot->id
-                                                    
+
                                                 ])}}"><x-jet-button >Detail</x-jet-button></a>
-                                                
-                                               
+
+
                                             </td>
                                         </tr>
                                         @endif
                                         @endforeach
-                       
+
                                     </tbody>
                                 </table>
                             </div>
@@ -429,10 +428,10 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                             <div class="flex-1 truncate">
                                 <div class="flex items-center space-x-3">
                                     <h3 class="text-gray-900 text-sm font-medium truncate">{{$DataPermintaan->pemilik->name}}</h3>
-                                
+
                                 </div>
                                 <p class="mt-1 text-gray-500 text-sm truncate">{{$DataPermintaan->city}}</p>
-                          
+
                                         <p class="mt-1 text-gray-900 text-sm truncate"><span
                                             class="font-bold">{{ $DataPermintaan->pivot->quantity_request }}</span> Botol (<span
                                             class="font-bold">
@@ -451,7 +450,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                             @endif
                             </h6>
                              <h6 class="mt-2 text-gray-500 text-sm font-medium truncate">Tanggal Pemesanan: {{date('d M Y',strtotime($DataPermintaan->pivot->created_at))}}</h6>
-                                             
+
 
                             </div>
                             <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
@@ -470,7 +469,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                         </svg>
-                                                
+
                                         <span class="ml-3">Detail</span>
                                     </a>
                                 </div>
@@ -479,7 +478,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                     </li>
                     @endif
                     @endforeach
-    
+
             </ul>
 
             @elseif($page=="histori_asi")
@@ -537,7 +536,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                                             {{$DataPermintaan->pemilik->name}}
                                                         </div>
                                                         <div class="text-sm text-gray-500">
-                                                        
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -555,34 +554,34 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                                             @endif</div>
 
                                             </td>
-                  
+
                                             <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="text-sm text-gray-900">  {{ $DataPermintaan->pivot->quantity_request }} Botol</div>
                                                 <div class="text-sm text-gray-500">
-              
+
                             {{$DataPermintaan->liter_per_pack}} Liter / Botol
-                                       
+
                             </div>
-                                                
+
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                             {{$DataPermintaan->city}}
                                             </td>
-                                      
+
                                             <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                                 <a href="{{ route('DetailDashboardResipien-HistoriAsi',[
                                                     'idasiboard' => $DataPermintaan->pivot->id,
                                                     'progress' => $DataPermintaan->pivot->progress
-                                                    
+
                                                 ])}}"><x-jet-button>Detail</x-jet-button></a>
-                                                
-                                              
+
+
                                             </td>
                                         </tr>
                                         @endif
                                         @endforeach
-                       
+
                                     </tbody>
                                 </table>
                             </div>
@@ -609,7 +608,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                                             @endif
                                 </div>
                                 <p class="mt-1 text-gray-500 text-sm truncate">{{$DataPermintaan->city}}</p>
-                         
+
 
                                         <p class="mt-1 text-gray-900 text-sm truncate"><span
                                             class="font-bold">{{ $DataPermintaan->pivot->quantity_request }}</span> Botol (<span
@@ -618,8 +617,8 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                             )</p>
                             @if($DataPermintaan->pivot->progress == 2)
                              <h6 class="mt-2 text-gray-500 text-sm font-medium truncate">Tanggal Diterima: {{date('d M Y',strtotime($DataPermintaan->pivot->updated_at))}}</h6>
-                                     
-                             @endif       
+
+                             @endif
 
 
 
@@ -642,7 +641,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                         </svg>
-                                                
+
                                         <span class="ml-3">Detail</span>
                                     </a>
                                 </div>
@@ -651,7 +650,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                     </li>
                     @endif
                     @endforeach
-    
+
             </ul>
             @endif
     </div>
