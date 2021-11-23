@@ -51,6 +51,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     Route::post('/donasi/detail-permintaan-request-asi/proses-request-resipien', [App\Http\Controllers\AsiProductController::class, 'prosesPermintaanAsiRequestResipien'])->name('proses-permintaan-asi-request-resipien');
     Route::post('/donasi/detail-permintaan-inprogress-asi/proses-inprogress-resipien', [App\Http\Controllers\AsiProductController::class, 'prosesPermintaanAsiInProgressResipien'])->name('proses-permintaan-asi-inprogress-resipien');
     Route::get('/donasi-uang/{idKategori}', \App\Http\Livewire\DonateMoney::class)->name('donate-money.show');
+    Route::view('/donasi-uang', 'donate-money-list')->name('donate-money.index');
 
     Route::post('/DataAsi/addasi', [App\Http\Controllers\AsiBoardController::class, 'store'])->name('ProsesPesanAsi');
     Route::post('/donasi/detail-donor-produk-request-asi/proses-request-donor-produk', [App\Http\Controllers\AsiProductController::class, 'prosesDonorProdukAsiBatal'])->name('proses-donor-produk-asi');

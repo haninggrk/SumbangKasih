@@ -1,8 +1,8 @@
 <div>
     <div
         class="mx-auto px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
-        <div class="flex items-center space-x-5 w-full">
-            <img src="{{asset('img/banner-category/' . $category->photo)}}" alt="" class="h-48 w-full object-cover lg:h-48">
+        <div class="flex items-center space-x-5 w-full aspect-w-10 aspect-h-2">
+            <img src="{{asset('img/banner-category/' . $category->photo)}}" alt="" class="object-cover">
         </div>
     </div>
 
