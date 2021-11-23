@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donation;
+use App\Models\User;
 use http\Env\Response;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,15 @@ class MidtransWebhookController extends Controller
         }
         switch ($status_code) {
             case '200':
+
                 $donation->update([
                     'payment_status' => 2
                 ]);
+
+                $catUser = User::where('category_id', $donation->category_id)->get();
+
+
+
                 break;
             case '201':
                 $donation->update([
