@@ -112,7 +112,7 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            @switch($withdraw->payment_status)
+                                            @switch($donation->payment_status)
                                                 @case(1)
                                                 <span
                                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
