@@ -23,7 +23,7 @@ class AsiProductFactory extends Factory
     {
         $temp =$this->faker->numberBetween(1, 10);
         return [
-            'product_picture' => 'https://via.placeholder.com/400x400',
+            'product_picture' => 'photos/placeholdersusu.jpg',
             'tanggal_melahirkan' => $this->faker->date(),
             'quantity' =>$temp,
             'quantityupdated' => $temp,
@@ -33,7 +33,7 @@ class AsiProductFactory extends Factory
             'city' => $this->faker->city(),
             'detail_address' => $this->faker->address(),
 
-            'bukti_foto_covid19' => 'https://via.placeholder.com/1200x800',
+            'bukti_foto_covid19' => 'photos/placeholdervaksin.jpeg',
         ];
     }
 }
