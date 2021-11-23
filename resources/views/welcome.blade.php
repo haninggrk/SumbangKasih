@@ -79,7 +79,7 @@
     <div class="w-full flex items-center justify-between p-6 space-x-6">
       <div class="flex-1">
         <div class="flex items-center space-x-3">
-          <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{asset('img/thumbnail')."/".$datacategory->photo}}" alt=""><h3 class="text-gray-900 text-2xl font-bold truncate">{{ $datacategory->name }}</h3>
+          <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{asset('img/thumbnail')."/".$datacategory->photo.".png"}}" alt=""><h3 class="text-gray-900 text-2xl font-bold truncate">{{ $datacategory->name }}</h3>
           
         </div>
         <p class="mt-5 text-gray-500 text-xl break-words">{{ $datacategory->description}}<br><br></p>

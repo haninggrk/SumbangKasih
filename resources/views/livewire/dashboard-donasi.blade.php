@@ -1,3 +1,8 @@
+<style>
+    .filter-white{
+       filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(126deg) brightness(102%) contrast(104%);
+   }
+</style>
 <div>
     <style>
         /* Set a fixed scrollable wrapper */
@@ -63,7 +68,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                     @endif
                     relative rounded-lg text-center sm:text-left border border-gray-300 bg-white px-6 py-5 shadow-sm sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
                     <div class="sm:flex-shrink-0">
-                        <img class="p-2 h-10 w-10 inline-block sm:block bg-orange-dd rounded-full text-white" src="{{asset('img/permintaan-asi.svg')}}">
+                        <div class="p-2 h-10 w-10 inline-block sm:block bg-orangesa rounded-full text-white "><img class="filter-white" src="{{asset('img/pesanan-asi.svg')}}"></div>
 
                     </div>
                     <div class="sm:flex-1   min-w-0">
@@ -89,7 +94,7 @@ box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #
                     ring-blue-900 ring-2
                     @endif relative rounded-lg text-center lg:text-left border border-gray-300 bg-white px-2 lg:px-6 py-5 shadow-sm block sm:flex items-center sm:space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:">
                     <div class="lg:flex-shrink-0 block text-center sm:block">
-                        <img class="p-2 h-10 w-10 inline-block sm:block bg-orange-dd rounded-full text-white" src="{{asset('img/in-progress.svg')}}">
+                        <div class="p-2 h-10 w-10 inline-block sm:block bg-orangesa rounded-full text-white "><img class="filter-white" src="{{asset('img/permintaan-asi.svg')}}"></div>
 
                     </div>
                     <div class="lg:flex-1  lg:min-w-0 inline-block">
