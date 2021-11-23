@@ -1,15 +1,15 @@
 <!-- @foreach($getInfo as $dataPesananResipien)
 
-<br>
-Nama Resipien={{$getInfo->name}}
-<br>
-quantity yang direquest = {{$getInfo->pivot->quantity_request}}
-<br>
-jumlah botol yg dimlki oleh pendonor saat ini={{ $getInfoAsi->quantityupdated }}
-<br>
-detail almat rsipien={{$getInfo->pivot->detail_address_resipien}}
-<br>
-tanggal dipesan={{$getInfo->pivot->created_at}}
+    <br>
+    Nama Resipien={{$getInfo->name}}
+        <br>
+        quantity yang direquest = {{$getInfo->pivot->quantity_request}}
+        <br>
+        jumlah botol yg dimlki oleh pendonor saat ini={{ $getInfoAsi->quantityupdated }}
+        <br>
+        detail almat rsipien={{$getInfo->pivot->detail_address_resipien}}
+        <br>
+        tanggal dipesan={{$getInfo->pivot->created_at}}
 @endforeach -->
 
 
@@ -66,7 +66,7 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                         </div>
                         <div class="ml-4">
                             <div class="text-sm font-medium text-gray-900">
-                            {{$getInfo->name}}
+                                {{$getInfo->name}}
                             </div>
                             <div class="text-sm text-gray-500">
                                 <!--  -->
@@ -82,16 +82,22 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                                 Minta Antar
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                            @if($getInfo->pivot->courir_request == 1)
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-</svg>
-                                                   @else
-                                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
-</svg>
-                                                
-                                                            @endif
+                                @if($getInfo->pivot->courir_request == 1)
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                         fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                              clip-rule="evenodd"/>
+                                    </svg>
+                                @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                         fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
+                                              clip-rule="evenodd"/>
+                                    </svg>
+
+                                @endif
                             </dd>
                         </div>
                         <div class="sm:col-span-1">
@@ -128,33 +134,34 @@ tanggal dipesan={{$getInfo->pivot->created_at}}
                             </dd>
                         </div>
                         @if($getInfo->pivot->courir_request == 1)
-                        <div class="sm:col-span-3">
-                            <dt class="text-sm font-medium text-gray-500">
-                                Alamat Resipien
-                            </dt>
-                            <dd class="mt-1 text-sm text-gray-900">
-                                {{$getInfo->pivot->detail_address_resipien}}
-                            </dd>
-                        </div>
+                            <div class="sm:col-span-3">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Alamat Resipien
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{$getInfo->pivot->detail_address_resipien}}
+                                </dd>
+                            </div>
                         @endif
                         <div class="sm:col-span-3">
-                        <form method="POST" class="w-full text-right" action="{{ route('proses-permintaan-asi-inprogress-pendonor') }}">
-                            @csrf
-                            <input type="hidden" name="asiBoardId" value="{{$idasiboard}}">
-                            <input type="hidden" name="asiId" value="{{$getInfoAsi->id}}">
-                        
-                        <x-jet-button class="bg-orange-dd" name="batal">Batalkan</x-jet-button>
-                        </form>
+                            <form method="POST" class="w-full text-right"
+                                  action="{{ route('proses-permintaan-asi-inprogress-pendonor') }}">
+                                @csrf
+                                <input type="hidden" name="asiBoardId" value="{{$idasiboard}}">
+                                <input type="hidden" name="asiId" value="{{$getInfoAsi->id}}">
+
+                                <x-jet-button class="bg-orange-dd" name="batal">Batalkan</x-jet-button>
+                            </form>
                         </div>
 
 
-                                <!-- INI FORMNYA YANG DIISI BELUM CSRDF-->
+                        <!-- INI FORMNYA YANG DIISI BELUM CSRDF-->
 
 
                     </dl>
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </x-app-layout>
 

@@ -47,58 +47,63 @@
                     <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
                             <img class="h-10 w-10 rounded-full"
-                                 src="{{$DataASI->product_picture}}">
+                                 src="{{url('/storage/' . $DataASI->product_picture)}}">
                         </div>
                         <div class="ml-4">
-                        
+
                             <div class="text-sm text-gray-500">
                                 <!--  -->
                                 Tanggal Upload : {{date('d M Y',strtotime($DataASI->created_at))}}
                             </div>
                             <div class="flex items-center space-x-3">
-                                   
+
                                 @if($DataASI->quantityupdated == 0)
-                                                    <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Habis</span>
-                                                        @elseif($DataASI->status_persetujuan > 2)
-                                                        <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Failed</span>
-                                                        @else
-                                                        <span class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Ditolak</span>
-                                                        @endif
-                                </div>
+                                    <span
+                                        class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Habis</span>
+                                @elseif($DataASI->status_persetujuan > 2)
+                                    <span
+                                        class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Failed</span>
+                                @else
+                                    <span
+                                        class="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orangesa rounded-full">Ditolak</span>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
-                    <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3">
+                    <dl class="grid grid-cols-1 gap-x-4 gap-y-8 lg:grid-cols-3">
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
                                 Kurir
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                            @if($DataASI->courir_pemilik == 1)
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-</svg>
-                                                   @else
-                                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
-</svg>
-                                                
-                                                            @endif
+                                @if($DataASI->courir_pemilik == 1)
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                         fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                              clip-rule="evenodd"/>
+                                    </svg>
+                                @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                         fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
+                                              clip-rule="evenodd"/>
+                                    </svg>
+
+                                @endif
                             </dd>
                         </div>
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
                                 Jumlah Produk Donasi
                             </dt>
-                        
                             <dd class="mt-1 text-sm text-gray-900">
-                           
-                                {{$DataASI->quantityupdated}}/{{ $DataASI->quantity }} Botol
-                            
-                            </dd>
 
-                     
+                                {{$DataASI->quantityupdated}}/{{ $DataASI->quantity }} Botol
+                            </dd>
                         </div>
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
@@ -108,7 +113,7 @@
                                 {{$DataASI->liter_per_pack}}
                             </dd>
                         </div>
-                        <div class="sm:col-span-3 q">
+                        <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
                                 Deskripsiku
                             </dt>
@@ -117,7 +122,7 @@
                             </dd>
                         </div>
 
-                        <div class="sm:col-span-3">
+                        <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
                                 Alamat Pengambilan
                             </dt>
@@ -125,23 +130,35 @@
                                 {{$DataASI->detail_address}}
                             </dd>
                         </div>
-                        <div class="sm:col-span-3">
+                        <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
-                            Diperbarui Sejak
+                                Diperbarui Sejak
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                            {{date('d M Y',strtotime($DataASI->updated_at))}}
+                                {{date('d M Y',strtotime($DataASI->updated_at))}}
                             </dd>
+                        </div>
 
-                        
-                                                        </div>
+                        <div class="sm:col-span-3">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Foto Produk
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900">
+                                <div
+                                    class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden">
+                                    <img
+                                        src="{{url('/storage/' . $DataASI->product_picture)}}"
+                                        alt="">
+                                </div>
+                            </dd>
+                        </div>
 
-                                <!-- INI FORMNYA YANG DIISI BELUM CSRDF-->
+                        <!-- INI FORMNYA YANG DIISI BELUM CSRDF-->
 
 
                     </dl>
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </x-app-layout>
