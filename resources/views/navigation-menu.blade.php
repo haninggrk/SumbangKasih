@@ -136,17 +136,17 @@
                 </x-nav-item>
                 <x-nav-item title="Permintaan ASI" :url="route('dashboard-permintaan-donasi-asi')" :active="Route::is('dashboard-permintaan-donasi-asi')">
                     <x-slot name="icon">
-                        <img class="h-6 w-6" src="{{asset('img/in-progress.svg')}}">
+                        <img class="h-6 w-6" src="{{asset('img/permintaan-asi.png')}}">
                     </x-slot>
                 </x-nav-item>
                 <x-nav-item title="Pesanan ASI" :url="route('dashboard-request-donasi-asi')" :active="Route::is('dashboard-request-donasi-asi')">
                     <x-slot name="icon">
-                        <img class="h-6 w-6" src="{{asset('img/pesanan-asi.svg')}}">
+                        <img class="h-6 w-6" src="{{asset('img/pesanan-asi.png')}}">
                     </x-slot>
                 </x-nav-item>
                 <x-nav-item title="Donasi Produk ASI" :url="route('dashboard-pendonor-donasi-asi')" :active="Route::is('dashboard-pendonor-donasi-asi')">
                     <x-slot name="icon">
-                        <img class="h-6 w-6" src="{{asset('img/donasi-produk-asi.svg')}}">
+                        <img class="h-6 w-6" src="{{asset('img/donasi-produk-asi.png')}}">
                     </x-slot>
                 </x-nav-item>
             </nav>

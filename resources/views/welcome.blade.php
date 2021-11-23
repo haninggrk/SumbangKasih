@@ -383,14 +383,14 @@
   </div>
   <a href="https://www.detik.com/edu/detikpedia/d-5806736/mengapa-susu-berwarna-putih-ini-kata-pakar-ipb"><x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button></a></div>
   <div class="bg-white  mx-auto text-center rounded-lg shadow-lg max-w-xs col-span-3 md:col-span-1">
-    <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-3xl">
+    <img src="https://lifepack.id/wp-content/uploads/2020/10/peran-dokter-pandemi-1-768x512.jpg" alt="" class="rounded-t-3xl">
     <div class="p-6 -mt-5 relative bg-white rounded-t-3xl text-center">
       <h2 class="font-bold mb-2 text-lg text-gray-900 text-center">Peran Penting Dokter dan Layanan Telemedik Saat Pandemi
       </h2>
       <p class="text-gray-700 text-center mb-2">Pemanfaatan layanan kesehatan digital berwujud telehealth bisa menjadi bagian dari upaya mengubah kondisi pandemi COVID-19 menjadi endemi</p>
       
     </div>
-    <x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button></div>
+    <a href="https://lifepack.id/peran-penting-dokter-dan-layanan-telemedik-saat-pandemi/"><x-jet-button class="mb-6 rounded-full">Lihat Detail</x-jet-button></a></div>
 </div>
 <div class="grid grid-cols-6 items-center gap-1">
   <div class="text-2xl col-span-6 md:col-span-4 md:text-3xl text-center font-normal">Berminat ikuti kami untuk membantu warga yang membutuhkan?</div>
